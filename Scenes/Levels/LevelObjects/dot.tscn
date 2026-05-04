@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://tyt1s3w2pks7"]
+[gd_scene load_steps=4 format=3 uid="uid://tyt1s3w2pks7"]
 
 [ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_o3hgp"]
+[ext_resource type="Script" uid="uid://d37fcnh6x70r8" path="res://Code/Level/dot.gd" id="1_tr87x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fmpwf"]
 radius = 8.0
 
 [node name="Dot-Area2D" type="Area2D"]
+script = ExtResource("1_tr87x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fmpwf")
@@ -14,3 +16,5 @@ shape = SubResource("CircleShape2D_fmpwf")
 texture = ExtResource("1_o3hgp")
 region_enabled = true
 region_rect = Rect2(64, 48, 16, 16)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

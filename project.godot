@@ -14,6 +14,10 @@ config/name="Tiimi13_GameJam"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://Code/Systems/game_manager.gd"
+
 [display]
 
 window/size/viewport_width=640
@@ -23,7 +27,10 @@ window/stretch/mode="viewport"
 [file_customization]
 
 folder_colors={
-"res://Code/": "orange"
+"res://Art/": "purple",
+"res://Code/": "orange",
+"res://Code/Systems/": "red",
+"res://Scenes/": "teal"
 }
 
 [input]

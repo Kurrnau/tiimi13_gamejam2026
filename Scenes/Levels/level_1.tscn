@@ -163,8 +163,6 @@ z_index = 10
 tile_map_data = PackedByteArray("AAAnAAwAAAAAAAAAAAAAAAwAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_5f3p6")
 
-[node name="Pacman" parent="." instance=ExtResource("2_4dpyx")]
-position = Vector2(327, 239)
 [node name="Scores" type="Node2D" parent="."]
 position = Vector2(-208, 32)
 
