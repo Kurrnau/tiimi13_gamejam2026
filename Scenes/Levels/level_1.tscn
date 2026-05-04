@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://d36d8524jlya4"]
+[gd_scene load_steps=10 format=4 uid="uid://yxq12xe02te"]
 
 [ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_tlcug"]
 [ext_resource type="PackedScene" uid="uid://tyt1s3w2pks7" path="res://Scenes/Levels/LevelObjects/dot.tscn" id="2_4dpyx"]
+[ext_resource type="PackedScene" uid="uid://nk1o7bhki7w7" path="res://Scenes/Characters/pacman.tscn" id="4_cyadu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dpyx"]
 texture = ExtResource("1_tlcug")
@@ -163,8 +164,6 @@ z_index = 10
 tile_map_data = PackedByteArray("AAAnAAwAAAAAAAAAAAAAAAwAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_5f3p6")
 
-[node name="Pacman" parent="." instance=ExtResource("2_4dpyx")]
-position = Vector2(327, 239)
 [node name="Scores" type="Node2D" parent="."]
 position = Vector2(-208, 32)
 
@@ -1208,3 +1207,6 @@ position = Vector2(824, 72)
 
 [node name="Dot-Area2D179" parent="Scores" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 88)
+
+[node name="Pacman" parent="." instance=ExtResource("4_cyadu")]
+position = Vector2(328, 239)
