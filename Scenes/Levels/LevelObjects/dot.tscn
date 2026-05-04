@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://tyt1s3w2pks7"]
+
+[ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_o3hgp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fmpwf"]
+radius = 8.0
+
+[node name="Area2D" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fmpwf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_o3hgp")
+region_enabled = true
+region_rect = Rect2(64, 48, 16, 16)
