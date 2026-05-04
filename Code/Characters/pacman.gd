@@ -38,7 +38,6 @@ func _is_direction_blocked(dir: Vector2) -> bool:
 
 func _move() -> void:
 	if _is_on_grid():
-		position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
 		if not _is_direction_blocked(next_direction):
 			direction = next_direction
 		if _is_direction_blocked(direction):
@@ -46,3 +45,11 @@ func _move() -> void:
 			return
 	velocity = direction * SPEED
 	move_and_slide()
+	
+#Tarkistetaan, onko hahmo ruudukon kohdalla
+func _is_on_grid() -> bool:
+	return int(position.x) % TILE_SIZE == 0 and int(position.y) % TILE_SIZE == 0
+	
+func _is_direction_blocked(dir : Vector2) -> bool:
+	var collision = move_and_collide(dir * TILE_SIZE, true)
+	return collision != null
