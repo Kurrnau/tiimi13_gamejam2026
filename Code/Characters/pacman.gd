@@ -23,6 +23,19 @@ func _read_input() -> void:
 		next_direction = Vector2.DOWN
 
 func _move() -> void:
-	direction = next_direction
+	if _is_on_grid():
+		if not _is_direction_blocked(next_direction):
+			direction = next_direction
+		if _is_direction_blocked(direction):
+			velocity = Vector2.ZERO
+			return
 	velocity = direction * SPEED
 	move_and_slide()
+	
+#Tarkistetaan, onko hahmo ruudukon kohdalla
+func _is_on_grid() -> bool:
+	return int(position.x) % TILE_SIZE == 0 and int(position.y) % TILE_SIZE == 0
+	
+func _is_direction_blocked(dir : Vector2) -> bool:
+	var collision = move_and_collide(dir * TILE_SIZE, true)
+	return collision != null
