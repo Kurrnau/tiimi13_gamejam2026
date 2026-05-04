@@ -158,4 +158,5 @@ tile_set = SubResource("TileSet_cyadu")
 [node name="Foreground" type="TileMapLayer" parent="World"]
 modulate = Color(1, 1, 1, 0.50980395)
 z_index = 10
+tile_map_data = PackedByteArray("AAAAAAsAAAAAAAAAAAAnAAsAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_5f3p6")
