@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbu4gqsu0h5te"]
+
+[ext_resource type="Script" uid="uid://dajw87dbfx3j0" path="res://Scenes/Characters/ghost.gd" id="1_305sn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxdio"]
+size = Vector2(15, 14)
+
+[node name="Ghost" type="Area2D"]
+script = ExtResource("1_305sn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8.5, -7)
+shape = SubResource("RectangleShape2D_fxdio")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

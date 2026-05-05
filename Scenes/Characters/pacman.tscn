@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://dqlsepn6sha18" path="res://Code/Characters/pacman.gd" id="1_jsle3"]
 [ext_resource type="Texture2D" uid="uid://gywsewp5jjj2" path="res://Art/pacman.png" id="2_cxkkp"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6xi17"]
-radius = 7.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jsle3"]
+radius = 8.0
+height = 16.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a1pud"]
 atlas = ExtResource("2_cxkkp")
@@ -33,7 +34,7 @@ script = ExtResource("1_jsle3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8, -8)
-shape = SubResource("CircleShape2D_6xi17")
+shape = SubResource("CapsuleShape2D_jsle3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-8, -8)
