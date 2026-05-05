@@ -42,8 +42,9 @@ script = ExtResource("1_qvo5w")
 shape = SubResource("CircleShape2D_qvo5w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.7736504, 0.7274761, 0.97312707, 1)
 sprite_frames = SubResource("SpriteFrames_5a65u")
 autoplay = "default"
-frame_progress = 0.120703675
+frame_progress = 0.38657355
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
