@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5x38orcvij21"]
+
+[ext_resource type="Texture2D" uid="uid://b3lmwbllvc4uu" path="res://Art/ui-border.png" id="1_58co4"]
+[ext_resource type="PackedScene" uid="uid://cy4rpphohnbwk" path="res://Scenes/UI/AudioControl.tscn" id="2_52ctl"]
+
+[node name="MainUI" type="CanvasLayer"]
+
+[node name="PauseMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 220.0
+offset_top = 30.0
+offset_right = 420.0
+offset_bottom = 330.0
+
+[node name="Background" type="NinePatchRect" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_58co4")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Headline" type="Label" parent="PauseMenu/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 30
+text = "Pause"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioControls" type="VBoxContainer" parent="PauseMenu/Background"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 4.0
+offset_top = 50.0
+offset_right = -3.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="AudioHeadline" type="Label" parent="PauseMenu/Background/AudioControls"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.015686275, 0.36078432, 1)
+theme_override_constants/outline_size = 1
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="AudioControl" parent="PauseMenu/Background/AudioControls" instance=ExtResource("2_52ctl")]
+layout_mode = 2
