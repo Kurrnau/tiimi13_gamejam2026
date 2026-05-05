@@ -33,6 +33,10 @@ folder_colors={
 "res://Scenes/": "teal"
 }
 
+[gui]
+
+theme/custom_font="uid://cmqpdi4clgsop"
+
 [input]
 
 Right={
