@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://c07xty160d74j"]
+
+[ext_resource type="PackedScene" uid="uid://cbu4gqsu0h5te" path="res://Scenes/Characters/ghost.tscn" id="1_7h7dr"]
+[ext_resource type="Texture2D" uid="uid://b7khd6xjp6ofd" path="res://Art/ghost-blue.png" id="2_8vlih"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohagv"]
+atlas = ExtResource("2_8vlih")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wk8n"]
+atlas = ExtResource("2_8vlih")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7h7dr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohagv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wk8n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Ghost" instance=ExtResource("1_7h7dr")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(-8, -8)
+sprite_frames = SubResource("SpriteFrames_7h7dr")
+autoplay = "default"
+frame_progress = 0.33472177
