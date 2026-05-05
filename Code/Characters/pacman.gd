@@ -58,16 +58,16 @@ func _move() -> void:
 
 func _update_rotation() -> void:
 	if direction == Vector2.RIGHT:
-		_animated_sprite_2d.rotation = 0
+		_animated_sprite_2d.rotation_degrees = 0
 		_animated_sprite_2d.flip_h = false
 	elif direction == Vector2.LEFT:
-		_animated_sprite_2d.rotation = 0
+		_animated_sprite_2d.rotation_degrees = 0
 		_animated_sprite_2d.flip_h = true
 	elif direction == Vector2.UP:
-		_animated_sprite_2d.rotation = -PI / 2
+		_animated_sprite_2d.rotation_degrees = -90
 		_animated_sprite_2d.flip_h = false
 	elif direction == Vector2.DOWN:
-		_animated_sprite_2d.rotation = PI / 2
+		_animated_sprite_2d.rotation_degrees = 90
 		_animated_sprite_2d.flip_h = false
 #endregion
 
