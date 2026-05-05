@@ -1,10 +1,8 @@
-[gd_scene load_steps=12 format=4 uid="uid://vgnp2y23j833"]
+[gd_scene load_steps=10 format=4 uid="uid://vgnp2y23j833"]
 
 [ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_iro12"]
 [ext_resource type="PackedScene" uid="uid://tyt1s3w2pks7" path="res://Scenes/Levels/LevelObjects/dot.tscn" id="2_62gt6"]
 [ext_resource type="PackedScene" uid="uid://d2dem6pjue7hx" path="res://Scenes/Levels/LevelObjects/power_up.tscn" id="3_1iek8"]
-[ext_resource type="PackedScene" uid="uid://doubu2iimn77f" path="res://Scenes/Characters/health.tscn" id="4_q4gsf"]
-[ext_resource type="Script" uid="uid://dlf7ijniqlo7a" path="res://Code/Characters/health.gd" id="5_tt7mt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iro12"]
 texture = ExtResource("1_iro12")
@@ -682,6 +680,3 @@ position = Vector2(16, -224)
 position = Vector2(-224, 0)
 
 [node name="PowerUp4" parent="PowerUps" instance=ExtResource("3_1iek8")]
-
-[node name="Health" parent="." instance=ExtResource("4_q4gsf")]
-script = ExtResource("5_tt7mt")

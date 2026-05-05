@@ -1,7 +1,7 @@
 class_name Pacman extends CharacterBody2D
 
 @export var _respawn_point : Node2D
-@export var speed : float = 120
+@export var speed : float = 100
 @onready var _animated_sprite_2d : AnimatedSprite2D = $AnimatedSprite2D
 
 const TILE_SIZE : int = 16
@@ -35,9 +35,9 @@ func _is_on_grid() -> bool:
 	# Calculates pacman's position to make sure it's within the 16x16 grid.
 	var x_remainder = fmod(position.x, TILE_SIZE)
 	var y_remainder = fmod(position.y, TILE_SIZE)
-	# Error-tolerance of 2 pixels.
-	return (x_remainder < 2.0 or x_remainder > TILE_SIZE - 2.0) and \
-		   (y_remainder < 2.0 or y_remainder > TILE_SIZE - 2.0)
+	# Error-tolerance of 1 pixel.
+	return (x_remainder < 1.0 or x_remainder > TILE_SIZE - 1.0) and \
+		   (y_remainder < 1.0 or y_remainder > TILE_SIZE - 1.0)
 
 func _is_direction_blocked(dir: Vector2) -> bool:
 	var collision = move_and_collide(dir * TILE_SIZE, true)
