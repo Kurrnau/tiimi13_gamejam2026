@@ -164,1048 +164,1048 @@ z_index = 10
 tile_map_data = PackedByteArray("AAAnAAwAAAAAAAAAAAAAAAwAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_5f3p6")
 
-[node name="Scores" type="Node2D" parent="."]
+[node name="Dots" type="Node2D" parent="."]
 position = Vector2(-208, 32)
 
-[node name="Area2D" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(232, 24)
 
-[node name="Area2D2" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D2" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(248, 24)
 
-[node name="Area2D3" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D3" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 24)
 
-[node name="Area2D4" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D4" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(280, 24)
 
-[node name="Area2D5" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D5" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(296, 24)
 
-[node name="Area2D6" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D6" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(312, 24)
 
-[node name="Area2D7" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D7" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(328, 24)
 
-[node name="Area2D8" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D8" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(344, 24)
 
-[node name="Area2D9" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D9" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(232, 56)
 
-[node name="Area2D10" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D10" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(232, 72)
 
-[node name="Area2D11" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D11" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(232, 40)
 
-[node name="Area2D12" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D12" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 72)
 
-[node name="Area2D13" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D13" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(232, 88)
 
-[node name="Area2D14" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D14" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(232, 104)
 
-[node name="Area2D15" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D15" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(248, 120)
 
-[node name="Area2D16" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D16" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(248, 56)
 
-[node name="Area2D17" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D17" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 120)
 
-[node name="Area2D18" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D18" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 136)
 
-[node name="Area2D19" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D19" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(232, 120)
 
-[node name="Area2D20" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D20" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 104)
 
-[node name="Area2D21" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D21" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 152)
 
-[node name="Area2D22" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D22" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(296, 72)
 
-[node name="Area2D23" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D23" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 88)
 
-[node name="Area2D24" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D24" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(328, 40)
 
-[node name="Area2D25" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D25" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(328, 56)
 
-[node name="Area2D26" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D26" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(328, 72)
 
-[node name="Area2D27" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D27" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(328, 88)
 
-[node name="Area2D28" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D28" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(280, 120)
 
-[node name="Area2D29" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D29" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(312, 120)
 
-[node name="Area2D30" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D30" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(328, 120)
 
-[node name="Area2D31" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D31" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(296, 56)
 
-[node name="Area2D32" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D32" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(312, 56)
 
-[node name="Area2D33" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D33" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(328, 104)
 
-[node name="Area2D34" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D34" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(296, 88)
 
-[node name="Area2D35" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D35" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(344, 120)
 
-[node name="Area2D36" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D36" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(392, 88)
 
-[node name="Area2D37" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D37" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(296, 104)
 
-[node name="Area2D38" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D38" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(376, 88)
 
-[node name="Area2D39" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D39" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(408, 40)
 
-[node name="Area2D40" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D40" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(408, 88)
 
-[node name="Area2D41" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D41" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(360, 72)
 
-[node name="Area2D42" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D42" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(280, 168)
 
-[node name="Area2D43" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D43" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 168)
 
-[node name="Area2D44" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D44" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(248, 168)
 
-[node name="Area2D45" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D45" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(232, 168)
 
-[node name="Area2D46" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D46" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(216, 168)
 
-[node name="Area2D47" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D47" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(504, 232)
 
-[node name="Area2D48" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D48" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(520, 232)
 
-[node name="Area2D49" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D49" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(456, 200)
 
-[node name="Area2D50" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D50" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(456, 168)
 
-[node name="Area2D51" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D51" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(440, 168)
 
-[node name="Area2D52" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D52" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(424, 168)
 
-[node name="Area2D53" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D53" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(296, 168)
 
-[node name="Area2D54" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D54" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(296, 120)
 
-[node name="Area2D55" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D55" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(376, 56)
 
-[node name="Area2D56" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D56" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(360, 24)
 
-[node name="Area2D57" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D57" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(376, 24)
 
-[node name="Area2D58" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D58" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(408, 72)
 
-[node name="Area2D59" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D59" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(360, 56)
 
-[node name="Area2D60" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D60" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(360, 232)
 
-[node name="Area2D61" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D61" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(376, 120)
 
-[node name="Area2D62" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D62" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(584, 216)
 
-[node name="Area2D63" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D63" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(328, 232)
 
-[node name="Area2D64" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D64" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(376, 232)
 
-[node name="Area2D65" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D65" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(472, 216)
 
-[node name="Area2D66" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D66" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(392, 232)
 
-[node name="Area2D67" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D67" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(392, 24)
 
-[node name="Area2D68" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D68" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(408, 24)
 
-[node name="Area2D69" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D69" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(424, 120)
 
-[node name="Area2D70" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D70" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(392, 56)
 
-[node name="Area2D71" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D71" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(424, 24)
 
-[node name="Area2D72" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D72" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(440, 24)
 
-[node name="Area2D73" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D73" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(408, 56)
 
-[node name="Area2D74" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D74" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(440, 56)
 
-[node name="Area2D75" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D75" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(440, 72)
 
-[node name="Area2D76" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D76" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(440, 88)
 
-[node name="Area2D77" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D77" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(456, 24)
 
-[node name="Area2D78" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D78" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(472, 24)
 
-[node name="Area2D79" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D79" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(488, 24)
 
-[node name="Area2D80" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D80" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(408, 232)
 
-[node name="Area2D81" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D81" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(456, 56)
 
-[node name="Area2D82" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D82" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(472, 88)
 
-[node name="Area2D83" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D83" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(472, 72)
 
-[node name="Area2D84" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D84" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(472, 56)
 
-[node name="Area2D85" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D85" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(360, 120)
 
-[node name="Area2D86" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D86" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(440, 104)
 
-[node name="Area2D87" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D87" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(440, 120)
 
-[node name="Area2D88" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D88" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(360, 88)
 
-[node name="Area2D89" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D89" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(408, 104)
 
-[node name="Area2D90" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D90" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(472, 104)
 
-[node name="Area2D91" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D91" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(456, 120)
 
-[node name="Area2D92" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D92" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(296, 232)
 
-[node name="Area2D93" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D93" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(424, 232)
 
-[node name="Area2D94" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D94" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(408, 120)
 
-[node name="Area2D95" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D95" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(440, 200)
 
-[node name="Area2D96" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D96" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(392, 120)
 
-[node name="Area2D97" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D97" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(440, 232)
 
-[node name="Area2D98" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D98" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(312, 168)
 
-[node name="Area2D99" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D99" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(328, 168)
 
-[node name="Area2D100" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D100" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(344, 168)
 
-[node name="Area2D101" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D101" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(360, 168)
 
-[node name="Area2D102" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D102" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 232)
 
-[node name="Area2D103" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D103" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(248, 216)
 
-[node name="Area2D104" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D104" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(232, 232)
 
-[node name="Area2D105" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D105" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(232, 248)
 
-[node name="Area2D106" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D106" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(232, 264)
 
-[node name="Area2D107" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D107" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(232, 216)
 
-[node name="Area2D108" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D108" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(248, 296)
 
-[node name="Area2D109" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D109" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(232, 296)
 
-[node name="Area2D110" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D110" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 184)
 
-[node name="Area2D111" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D111" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 200)
 
-[node name="Area2D112" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D112" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 216)
 
-[node name="Area2D113" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D113" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 264)
 
-[node name="Area2D114" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D114" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 280)
 
-[node name="Area2D115" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D115" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(296, 296)
 
-[node name="Area2D116" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D116" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(360, 296)
 
-[node name="Area2D117" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D117" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(296, 248)
 
-[node name="Area2D118" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D118" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(296, 216)
 
-[node name="Area2D119" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D119" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(376, 168)
 
-[node name="Area2D120" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D120" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(392, 168)
 
-[node name="Area2D121" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D121" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(408, 168)
 
-[node name="Area2D122" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D122" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(280, 296)
 
-[node name="Area2D123" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D123" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 296)
 
-[node name="Area2D124" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D124" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(296, 264)
 
-[node name="Area2D125" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D125" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(312, 264)
 
-[node name="Area2D126" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D126" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(328, 264)
 
-[node name="Area2D127" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D127" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(568, 232)
 
-[node name="Area2D128" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D128" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(344, 264)
 
-[node name="Area2D129" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D129" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(360, 264)
 
-[node name="Area2D130" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D130" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(584, 232)
 
-[node name="Area2D131" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D131" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(376, 264)
 
-[node name="Area2D132" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D132" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(392, 264)
 
-[node name="Area2D133" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D133" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(408, 264)
 
-[node name="Area2D134" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D134" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(424, 264)
 
-[node name="Area2D135" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D135" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(440, 248)
 
-[node name="Area2D136" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D136" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(440, 264)
 
-[node name="Area2D137" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D137" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(472, 232)
 
-[node name="Area2D138" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D138" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(472, 248)
 
-[node name="Area2D139" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D139" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(488, 232)
 
-[node name="Area2D140" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D140" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(472, 264)
 
-[node name="Area2D141" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D141" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(488, 264)
 
-[node name="Area2D142" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D142" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(504, 296)
 
-[node name="Area2D143" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D143" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(552, 232)
 
-[node name="Area2D144" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D144" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(536, 232)
 
-[node name="Area2D145" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D145" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(440, 296)
 
-[node name="Area2D146" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D146" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(408, 296)
 
-[node name="Area2D147" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D147" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(392, 296)
 
-[node name="Area2D148" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D148" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(376, 296)
 
-[node name="Area2D149" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D149" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(360, 280)
 
-[node name="Area2D150" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D150" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(312, 296)
 
-[node name="Area2D151" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D151" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(328, 296)
 
-[node name="Area2D152" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D152" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(344, 296)
 
-[node name="Area2D153" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D153" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(264, 248)
 
-[node name="Area2D154" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D154" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(232, 280)
 
-[node name="Area2D155" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D155" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(296, 200)
 
-[node name="Area2D156" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D156" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(312, 200)
 
-[node name="Area2D157" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D157" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(424, 296)
 
-[node name="Area2D158" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D158" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(328, 200)
 
-[node name="Area2D159" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D159" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(344, 200)
 
-[node name="Area2D160" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D160" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(360, 200)
 
-[node name="Area2D161" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D161" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(376, 200)
 
-[node name="Area2D162" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D162" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(392, 200)
 
-[node name="Area2D163" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D163" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(472, 280)
 
-[node name="Area2D164" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D164" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(456, 296)
 
-[node name="Area2D165" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D165" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(472, 296)
 
-[node name="Area2D166" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D166" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(488, 296)
 
-[node name="Area2D168" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D168" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(408, 200)
 
-[node name="Area2D167" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Area2D167" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(424, 200)
 
-[node name="Dot-Area2D" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(504, 88)
 
-[node name="Dot-Area2D2" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D2" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(504, 104)
 
-[node name="Dot-Area2D3" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D3" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(504, 72)
 
-[node name="Dot-Area2D4" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D4" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(504, 56)
 
-[node name="Dot-Area2D5" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D5" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(504, 40)
 
-[node name="Dot-Area2D6" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D6" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(504, 24)
 
-[node name="Dot-Area2D7" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D7" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(536, 104)
 
-[node name="Dot-Area2D8" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D8" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(536, 88)
 
-[node name="Dot-Area2D9" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D9" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(536, 72)
 
-[node name="Dot-Area2D10" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D10" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(536, 56)
 
-[node name="Dot-Area2D11" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D11" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(552, 56)
 
-[node name="Dot-Area2D12" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D12" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(568, 56)
 
-[node name="Dot-Area2D13" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D13" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(568, 72)
 
-[node name="Dot-Area2D14" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D14" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(568, 88)
 
-[node name="Dot-Area2D15" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D15" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(568, 104)
 
-[node name="Dot-Area2D16" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D16" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(600, 104)
 
-[node name="Dot-Area2D17" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D17" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(600, 88)
 
-[node name="Dot-Area2D18" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D18" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(600, 72)
 
-[node name="Dot-Area2D19" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D19" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(600, 56)
 
-[node name="Dot-Area2D20" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D20" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(616, 56)
 
-[node name="Dot-Area2D21" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D21" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(632, 56)
 
-[node name="Dot-Area2D22" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D22" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(632, 72)
 
-[node name="Dot-Area2D23" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D23" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(632, 88)
 
-[node name="Dot-Area2D24" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D24" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(632, 104)
 
-[node name="Dot-Area2D25" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D25" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(520, 24)
 
-[node name="Dot-Area2D26" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D26" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(536, 24)
 
-[node name="Dot-Area2D27" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D27" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(552, 24)
 
-[node name="Dot-Area2D28" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D28" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(568, 24)
 
-[node name="Dot-Area2D29" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D29" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(584, 24)
 
-[node name="Dot-Area2D30" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D30" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(600, 24)
 
-[node name="Dot-Area2D31" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D31" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(616, 24)
 
-[node name="Dot-Area2D32" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D32" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(632, 24)
 
-[node name="Dot-Area2D33" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D33" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(648, 24)
 
-[node name="Dot-Area2D34" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D34" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(664, 24)
 
-[node name="Dot-Area2D35" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D35" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(664, 40)
 
-[node name="Dot-Area2D36" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D36" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(664, 56)
 
-[node name="Dot-Area2D37" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D37" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(664, 72)
 
-[node name="Dot-Area2D38" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D38" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(664, 88)
 
-[node name="Dot-Area2D39" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D39" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(664, 104)
 
-[node name="Dot-Area2D40" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D40" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(600, 120)
 
-[node name="Dot-Area2D41" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D41" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(600, 168)
 
-[node name="Dot-Area2D42" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D42" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(600, 200)
 
-[node name="Dot-Area2D43" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D43" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(616, 120)
 
-[node name="Dot-Area2D44" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D44" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(632, 120)
 
-[node name="Dot-Area2D45" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D45" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(648, 120)
 
-[node name="Dot-Area2D46" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D46" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(664, 120)
 
-[node name="Dot-Area2D47" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D47" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(680, 24)
 
-[node name="Dot-Area2D48" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D48" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(696, 24)
 
-[node name="Dot-Area2D49" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D49" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(680, 72)
 
-[node name="Dot-Area2D50" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D50" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(696, 72)
 
-[node name="Dot-Area2D51" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D51" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(680, 120)
 
-[node name="Dot-Area2D52" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D52" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(696, 120)
 
-[node name="Dot-Area2D53" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D53" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(712, 120)
 
-[node name="Dot-Area2D54" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D54" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(712, 104)
 
-[node name="Dot-Area2D55" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D55" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(712, 88)
 
-[node name="Dot-Area2D56" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D56" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(712, 72)
 
-[node name="Dot-Area2D57" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D57" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(712, 56)
 
-[node name="Dot-Area2D58" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D58" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(712, 40)
 
-[node name="Dot-Area2D59" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D59" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(712, 24)
 
-[node name="Dot-Area2D60" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D60" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(728, 24)
 
-[node name="Dot-Area2D61" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D61" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(744, 24)
 
-[node name="Dot-Area2D62" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D62" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(744, 40)
 
-[node name="Dot-Area2D63" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D63" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(744, 56)
 
-[node name="Dot-Area2D64" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D64" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(744, 72)
 
-[node name="Dot-Area2D65" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D65" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(760, 24)
 
-[node name="Dot-Area2D66" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D66" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(760, 56)
 
-[node name="Dot-Area2D67" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D67" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(776, 56)
 
-[node name="Dot-Area2D68" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D68" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(792, 72)
 
-[node name="Dot-Area2D69" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D69" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(792, 88)
 
-[node name="Dot-Area2D70" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D70" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(776, 88)
 
-[node name="Dot-Area2D71" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D71" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(760, 88)
 
-[node name="Dot-Area2D72" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D72" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(744, 88)
 
-[node name="Dot-Area2D73" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D73" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(744, 104)
 
-[node name="Dot-Area2D74" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D74" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(728, 120)
 
-[node name="Dot-Area2D75" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D75" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(744, 120)
 
-[node name="Dot-Area2D76" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D76" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(760, 120)
 
-[node name="Dot-Area2D77" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D77" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(776, 24)
 
-[node name="Dot-Area2D78" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D78" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(728, 232)
 
-[node name="Dot-Area2D79" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D79" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(680, 232)
 
-[node name="Dot-Area2D80" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D80" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(696, 232)
 
-[node name="Dot-Area2D81" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D81" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(664, 232)
 
-[node name="Dot-Area2D82" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D82" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(648, 232)
 
-[node name="Dot-Area2D83" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D83" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(632, 232)
 
-[node name="Dot-Area2D84" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D84" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(616, 232)
 
-[node name="Dot-Area2D85" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D85" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(616, 248)
 
-[node name="Dot-Area2D86" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D86" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(616, 264)
 
-[node name="Dot-Area2D87" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D87" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(504, 264)
 
-[node name="Dot-Area2D88" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D88" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(520, 264)
 
-[node name="Dot-Area2D89" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D89" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(536, 264)
 
-[node name="Dot-Area2D90" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D90" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(552, 264)
 
-[node name="Dot-Area2D91" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D91" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(568, 264)
 
-[node name="Dot-Area2D92" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D92" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(584, 248)
 
-[node name="Dot-Area2D93" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D93" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(584, 264)
 
-[node name="Dot-Area2D94" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D94" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(584, 280)
 
-[node name="Dot-Area2D95" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D95" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(520, 296)
 
-[node name="Dot-Area2D96" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D96" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(536, 296)
 
-[node name="Dot-Area2D97" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D97" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(552, 296)
 
-[node name="Dot-Area2D98" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D98" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(568, 296)
 
-[node name="Dot-Area2D99" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D99" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(584, 296)
 
-[node name="Dot-Area2D100" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D100" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(600, 296)
 
-[node name="Dot-Area2D101" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D101" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(616, 296)
 
-[node name="Dot-Area2D102" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D102" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(632, 296)
 
-[node name="Dot-Area2D103" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D103" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(648, 296)
 
-[node name="Dot-Area2D104" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D104" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(664, 296)
 
-[node name="Dot-Area2D105" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D105" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(632, 264)
 
-[node name="Dot-Area2D106" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D106" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(648, 264)
 
-[node name="Dot-Area2D107" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D107" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(664, 264)
 
-[node name="Dot-Area2D108" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D108" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(680, 264)
 
-[node name="Dot-Area2D109" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D109" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(680, 296)
 
-[node name="Dot-Area2D110" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D110" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(696, 296)
 
-[node name="Dot-Area2D111" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D111" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(696, 280)
 
-[node name="Dot-Area2D112" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D112" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(696, 264)
 
-[node name="Dot-Area2D113" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D113" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(712, 264)
 
-[node name="Dot-Area2D114" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D114" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(728, 264)
 
-[node name="Dot-Area2D115" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D115" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(712, 296)
 
-[node name="Dot-Area2D116" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D116" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(728, 296)
 
-[node name="Dot-Area2D117" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D117" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(744, 264)
 
-[node name="Dot-Area2D118" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D118" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(760, 264)
 
-[node name="Dot-Area2D119" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D119" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(744, 296)
 
-[node name="Dot-Area2D120" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D120" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(760, 296)
 
-[node name="Dot-Area2D121" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D121" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(776, 296)
 
-[node name="Dot-Area2D122" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D122" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(760, 248)
 
-[node name="Dot-Area2D123" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D123" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(760, 232)
 
-[node name="Dot-Area2D124" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D124" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(616, 200)
 
-[node name="Dot-Area2D125" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D125" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(632, 200)
 
-[node name="Dot-Area2D126" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D126" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(648, 200)
 
-[node name="Dot-Area2D127" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D127" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(664, 200)
 
-[node name="Dot-Area2D128" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D128" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(680, 200)
 
-[node name="Dot-Area2D129" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D129" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(696, 200)
 
-[node name="Dot-Area2D130" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D130" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(712, 200)
 
-[node name="Dot-Area2D131" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D131" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(728, 200)
 
-[node name="Dot-Area2D132" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D132" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(744, 200)
 
-[node name="Dot-Area2D133" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D133" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(760, 200)
 
-[node name="Dot-Area2D134" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D134" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(760, 216)
 
-[node name="Dot-Area2D135" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D135" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(616, 168)
 
-[node name="Dot-Area2D136" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D136" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(632, 168)
 
-[node name="Dot-Area2D137" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D137" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(648, 168)
 
-[node name="Dot-Area2D138" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D138" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(664, 168)
 
-[node name="Dot-Area2D139" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D139" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(680, 168)
 
-[node name="Dot-Area2D140" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D140" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(696, 168)
 
-[node name="Dot-Area2D141" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D141" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(712, 168)
 
-[node name="Dot-Area2D142" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D142" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(728, 168)
 
-[node name="Dot-Area2D143" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D143" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(792, 296)
 
-[node name="Dot-Area2D144" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D144" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(808, 296)
 
-[node name="Dot-Area2D145" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D145" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 296)
 
-[node name="Dot-Area2D146" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D146" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(792, 280)
 
-[node name="Dot-Area2D147" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D147" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 280)
 
-[node name="Dot-Area2D148" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D148" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(792, 264)
 
-[node name="Dot-Area2D149" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D149" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 264)
 
-[node name="Dot-Area2D150" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D150" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(792, 248)
 
-[node name="Dot-Area2D151" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D151" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 248)
 
-[node name="Dot-Area2D152" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D152" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(792, 232)
 
-[node name="Dot-Area2D153" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D153" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 232)
 
-[node name="Dot-Area2D154" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D154" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(792, 216)
 
-[node name="Dot-Area2D155" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D155" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(808, 216)
 
-[node name="Dot-Area2D156" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D156" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 216)
 
-[node name="Dot-Area2D157" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D157" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(792, 200)
 
-[node name="Dot-Area2D158" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D158" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(792, 184)
 
-[node name="Dot-Area2D159" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D159" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(840, 168)
 
-[node name="Dot-Area2D160" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D160" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 168)
 
-[node name="Dot-Area2D161" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D161" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(808, 168)
 
-[node name="Dot-Area2D162" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D162" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(792, 168)
 
-[node name="Dot-Area2D163" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D163" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(776, 168)
 
-[node name="Dot-Area2D164" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D164" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(760, 168)
 
-[node name="Dot-Area2D165" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D165" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(744, 168)
 
-[node name="Dot-Area2D166" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D166" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(776, 120)
 
-[node name="Dot-Area2D167" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D167" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(792, 152)
 
-[node name="Dot-Area2D168" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D168" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(792, 136)
 
-[node name="Dot-Area2D169" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D169" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(792, 120)
 
-[node name="Dot-Area2D170" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D170" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(808, 120)
 
-[node name="Dot-Area2D171" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D171" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 120)
 
-[node name="Dot-Area2D172" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D172" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 104)
 
-[node name="Dot-Area2D173" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D173" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(792, 24)
 
-[node name="Dot-Area2D174" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D174" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(808, 24)
 
-[node name="Dot-Area2D175" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D175" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 24)
 
-[node name="Dot-Area2D176" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D176" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 40)
 
-[node name="Dot-Area2D177" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D177" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 56)
 
-[node name="Dot-Area2D178" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D178" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 72)
 
-[node name="Dot-Area2D179" parent="Scores" instance=ExtResource("2_4dpyx")]
+[node name="Dot-Area2D179" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 88)
 
 [node name="Pacman" parent="." instance=ExtResource("4_cyadu")]
