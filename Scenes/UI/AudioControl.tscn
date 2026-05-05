@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cy4rpphohnbwk"]
+
+[node name="AudioControl" type="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = "Master"
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 2
