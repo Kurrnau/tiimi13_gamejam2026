@@ -1213,4 +1213,3 @@ position = Vector2(824, 88)
 position = Vector2(328, 239)
 
 [node name="MainUI" parent="." instance=ExtResource("4_iixi8")]
-visible = false
