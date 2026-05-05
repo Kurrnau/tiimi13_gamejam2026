@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://yxq12xe02te"]
+[gd_scene load_steps=12 format=4 uid="uid://yxq12xe02te"]
 
 [ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_tlcug"]
 [ext_resource type="PackedScene" uid="uid://tyt1s3w2pks7" path="res://Scenes/Levels/LevelObjects/dot.tscn" id="2_4dpyx"]
 [ext_resource type="PackedScene" uid="uid://nk1o7bhki7w7" path="res://Scenes/Characters/pacman.tscn" id="4_cyadu"]
 [ext_resource type="PackedScene" uid="uid://d2dem6pjue7hx" path="res://Scenes/Levels/LevelObjects/power_up.tscn" id="4_iixi8"]
+[ext_resource type="PackedScene" uid="uid://c07xty160d74j" path="res://Scenes/Characters/blue_ghost.tscn" id="5_cyadu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dpyx"]
 texture = ExtResource("1_tlcug")
@@ -1209,7 +1210,7 @@ position = Vector2(824, 72)
 [node name="Dot-Area2D179" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 88)
 
-[node name="Pacman" parent="." instance=ExtResource("4_cyadu")]
+[node name="Pacman" parent="." groups=["pacman"] instance=ExtResource("4_cyadu")]
 position = Vector2(328, 239)
 
 [node name="PowerUps" type="Node2D" parent="."]
@@ -1225,3 +1226,7 @@ position = Vector2(504, 264)
 
 [node name="PowerUp4" parent="PowerUps" instance=ExtResource("4_iixi8")]
 position = Vector2(584, 88)
+
+[node name="Ghost" parent="." instance=ExtResource("5_cyadu")]
+position = Vector2(270, 334)
+collision_layer = 1
