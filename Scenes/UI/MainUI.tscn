@@ -67,14 +67,17 @@ theme_override_fonts/font = SubResource("SystemFont_4cpe4")
 text = "Audio"
 horizontal_alignment = 1
 
-[node name="AudioControl" parent="PauseMenu/Background/AudioControls" instance=ExtResource("2_52ctl")]
+[node name="MasterAudioControl" parent="PauseMenu/Background/AudioControls" instance=ExtResource("2_52ctl")]
 layout_mode = 2
+audio_bus_name = &"Master"
 
-[node name="AudioControl2" parent="PauseMenu/Background/AudioControls" instance=ExtResource("2_52ctl")]
+[node name="MusicAudioControl" parent="PauseMenu/Background/AudioControls" instance=ExtResource("2_52ctl")]
 layout_mode = 2
+audio_bus_name = &"Music"
 
-[node name="AudioControl3" parent="PauseMenu/Background/AudioControls" instance=ExtResource("2_52ctl")]
+[node name="EffectsAudioControl" parent="PauseMenu/Background/AudioControls" instance=ExtResource("2_52ctl")]
 layout_mode = 2
+audio_bus_name = &"Effects"
 
 [node name="Buttons" type="HBoxContainer" parent="PauseMenu/Background"]
 layout_mode = 1
