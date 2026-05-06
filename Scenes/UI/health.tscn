@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://buaykpvd10b3o"]
-
-[ext_resource type="Texture2D" uid="uid://ctnsguv0dnmb2" path="res://Art/pacman-one-health.png" id="1_8wog5"]
-
-[node name="Health" type="TextureRect"]
-texture = ExtResource("1_8wog5")

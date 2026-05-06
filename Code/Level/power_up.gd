@@ -1,5 +1,7 @@
 class_name PowerUp extends Collectable #Area2D
 
+signal powerup_eaten					#TEST
+
 @export var _score: int = 50
 
 func collect(pacman : Pacman) -> bool:
@@ -7,6 +9,9 @@ func collect(pacman : Pacman) -> bool:
 		return false
 	
 	GameManager.add_score(_score)
-	#TODO: muu toiminnallisuus (värin vaihto? viholliset karkaa? tms?)
+	_on_powerup_eaten()					#TEST
 
 	return true
+
+func _on_powerup_eaten():				#TEST
+	emit_signal("powerup_eaten")
