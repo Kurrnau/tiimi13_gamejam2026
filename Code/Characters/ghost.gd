@@ -1,13 +1,16 @@
 class_name Ghost extends CharacterBody2D
 
-enum State { CHASE, SCATTER, FRIGHTENED, LEAVING_HOME }
+enum State { WAITING, CHASE, SCATTER, FRIGHTENED, LEAVING_HOME, EATEN }
 
 @export var scatter_target: Vector2
 @export var speed: float = 90.0
+@export var home_exit: Vector2 = Vector2(320, 168)
+@export var leaving_home_timer: float = 0.0
 
 @onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 #How the ghosts find pacman's position:
 @onready var _pacman: Pacman = get_tree().get_first_node_in_group("pacman")
+
 
 const TILE_SIZE: int = 16
 
@@ -19,6 +22,9 @@ var _chase_timer: float = 0.0
 
 func _ready() -> void:
 	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
+	state = State.WAITING
+	await get_tree().create_timer(leaving_home_timer).timeout
+	state = State.LEAVING_HOME
 
 func _physics_process(_delta: float) -> void:
 	_move()
@@ -47,6 +53,9 @@ func _get_best_direction(target: Vector2) -> Vector2:
 		# Ghosts can't change direction
 		if dir == -direction and not _is_only_reverse_available():
 			continue
+		# Prevent ghost from re-entering home unless EATEN:
+		if state != State.EATEN and position.y >= home_exit.y and dir == Vector2.DOWN:
+			continue
 		#Calculates direct distance from new position to target..
 		var new_position = position + dir * TILE_SIZE
 		var distance = new_position.distance_to(target)
@@ -56,6 +65,7 @@ func _get_best_direction(target: Vector2) -> Vector2:
 			best_direction = dir
 	return best_direction
 
+# If all other directions are blocked, the ghost will turn back (fx. end of spiral).
 func _is_only_reverse_available() -> bool:
 	for dir in [Vector2.UP, Vector2.LEFT, Vector2.DOWN, Vector2.RIGHT]:
 		if dir == -direction:
@@ -63,9 +73,11 @@ func _is_only_reverse_available() -> bool:
 		if  not _is_direction_blocked(dir):
 			return false
 	return true
-	
+
 func _get_target() -> Vector2:
 	match state:
+		State.LEAVING_HOME:
+			return home_exit
 		State.CHASE:
 			return _get_chase_target()
 		State.SCATTER:
@@ -82,9 +94,14 @@ func _get_chase_target() -> Vector2:
 func _get_frightened_target() -> Vector2:
 	return position + (position - _pacman.position)
 	
+# Movement on the 16x16 grid (same as pacman).
 func _move() -> void:
+	if state == State.WAITING:
+		return
 	if _is_on_grid(): 
 		position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
+		if state == State.LEAVING_HOME and position.distance_to(home_exit) < TILE_SIZE:
+			state = State.CHASE
 		direction = _get_best_direction(_get_target())
 	velocity = direction * speed
 	move_and_slide()

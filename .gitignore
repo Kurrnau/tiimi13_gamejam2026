@@ -3,10 +3,11 @@
 .nomedia
 
 # Godot-specific ignores
-.import/
+.import
 export.cfg
 export_credentials.cfg
 *.tmp
+test_level*.tscn
 
 # Imported translations (automatically generated from CSV files)
 *.translation
