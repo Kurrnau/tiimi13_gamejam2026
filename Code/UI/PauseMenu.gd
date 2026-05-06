@@ -24,10 +24,10 @@ func close() -> void:
 	
 # TODO: GameManageriin "scene_tree" luotava, että toimii
 func pause() -> void:
-	GameManager.get_scene_tree().paused = true
+	get_tree().paused = true
 
 func resume() -> void:
-	GameManager.get_scene_trene().pause = false
+	get_tree().paused = false
 
 func _on_ok_pressed() -> void:
 	# TODO: Tallenna asetukset

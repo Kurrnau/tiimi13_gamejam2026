@@ -6,6 +6,8 @@ enum State { WAITING, CHASE, SCATTER, FRIGHTENED, LEAVING_HOME, EATEN }
 @export var speed: float = 90.0
 @export var home_exit: Vector2 = Vector2(320, 168)
 @export var leaving_home_timer: float = 0.0
+@export var scatter_duration: float = 7.0
+@export var chase_duration: float = 20.0
 
 @onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 #How the ghosts find pacman's position:
@@ -17,8 +19,8 @@ const TILE_SIZE: int = 16
 var state: State = State.CHASE
 var direction: Vector2 = Vector2.LEFT
 
-var _scatter_timer: float = 0.0
-var _chase_timer: float = 0.0
+var _scatter_timer: float = 7.0
+var _chase_timer: float = 20.0
 
 func _ready() -> void:
 	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
@@ -26,8 +28,22 @@ func _ready() -> void:
 	await get_tree().create_timer(leaving_home_timer).timeout
 	state = State.LEAVING_HOME
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	_update_state(delta)
 	_move()
+
+#region Ghost movement	
+# Movement on the 16x16 grid (same as pacman).
+func _move() -> void:
+	if state == State.WAITING:
+		return
+	if _is_on_grid(): 
+		position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
+		if state == State.LEAVING_HOME and position.distance_to(home_exit) < TILE_SIZE:
+			state = State.CHASE
+		direction = _get_best_direction(_get_target())
+	velocity = direction * speed
+	move_and_slide()
 	
 func _is_on_grid() -> bool:
 	var x_remainder = fmod(position.x, TILE_SIZE)
@@ -73,6 +89,8 @@ func _is_only_reverse_available() -> bool:
 		if  not _is_direction_blocked(dir):
 			return false
 	return true
+#endregion
+
 
 func _get_target() -> Vector2:
 	match state:
@@ -94,14 +112,15 @@ func _get_chase_target() -> Vector2:
 func _get_frightened_target() -> Vector2:
 	return position + (position - _pacman.position)
 	
-# Movement on the 16x16 grid (same as pacman).
-func _move() -> void:
-	if state == State.WAITING:
-		return
-	if _is_on_grid(): 
-		position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
-		if state == State.LEAVING_HOME and position.distance_to(home_exit) < TILE_SIZE:
+func _update_state(delta) -> void:
+	if state == State.CHASE:
+		_chase_timer += delta
+		if _chase_timer >= chase_duration:
+			_chase_timer = 0.0
+			state = State.SCATTER
+	elif state == State.SCATTER:
+		_scatter_timer += delta
+		if _scatter_timer >= scatter_duration:
+			_scatter_timer = 0.0
 			state = State.CHASE
-		direction = _get_best_direction(_get_target())
-	velocity = direction * speed
-	move_and_slide()
+	
