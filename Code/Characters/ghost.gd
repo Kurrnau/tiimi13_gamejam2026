@@ -8,6 +8,7 @@ enum State { WAITING, CHASE, SCATTER, FRIGHTENED, LEAVING_HOME, EATEN }
 @export var leaving_home_timer: float = 0.0
 @export var scatter_duration: float = 7.0
 @export var chase_duration: float = 20.0
+@export var frightened_duration: float = 7.0
 
 @onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 #How the ghosts find pacman's position:
@@ -25,6 +26,9 @@ var _chase_timer: float = 20.0
 func _ready() -> void:
 	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
 	state = State.WAITING
+	# Connect to all powerups in the scene
+	for powerup in get_tree().get_nodes_in_group("powerups"):
+		powerup.powerup_eaten.connect(_on_powerup_eaten)
 	await get_tree().create_timer(leaving_home_timer).timeout
 	state = State.LEAVING_HOME
 
@@ -37,6 +41,8 @@ func _physics_process(delta: float) -> void:
 func _move() -> void:
 	if state == State.WAITING:
 		return
+	if state == State.EATEN and position.distance_to(home_exit) < TILE_SIZE:
+		_respawn_ghost()
 	if _is_on_grid(): 
 		position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
 		if state == State.LEAVING_HOME and position.distance_to(home_exit) < TILE_SIZE:
@@ -94,6 +100,8 @@ func _is_only_reverse_available() -> bool:
 
 func _get_target() -> Vector2:
 	match state:
+		State.EATEN:
+			return home_exit
 		State.LEAVING_HOME:
 			return home_exit
 		State.CHASE:
@@ -113,6 +121,7 @@ func _get_frightened_target() -> Vector2:
 	return position + (position - _pacman.position)
 	
 func _update_state(delta) -> void:
+	print("state: ", state)
 	if state == State.CHASE:
 		_chase_timer += delta
 		if _chase_timer >= chase_duration:
@@ -123,4 +132,15 @@ func _update_state(delta) -> void:
 		if _scatter_timer >= scatter_duration:
 			_scatter_timer = 0.0
 			state = State.CHASE
+
+func _respawn_ghost() -> void:
+	state = State.WAITING
+	await get_tree().create_timer(leaving_home_timer).timeout
+	state = State.LEAVING_HOME
+
+func _on_powerup_eaten() -> void:
+	state = State.FRIGHTENED
+	await get_tree().create_timer(frightened_duration).timeout
+	if state == State.FRIGHTENED:
+		state = State.CHASE
 	
