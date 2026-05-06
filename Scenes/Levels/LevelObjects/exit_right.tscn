@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvrmoiuvgt7v4"]
+
+[ext_resource type="Script" uid="uid://6wfcawo5ws7x" path="res://Code/Level/portal.gd" id="1_ty5cc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci3kb"]
+size = Vector2(16, 16)
+
+[node name="ExitRight" type="Area2D"]
+script = ExtResource("1_ty5cc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, -8)
+shape = SubResource("RectangleShape2D_ci3kb")
