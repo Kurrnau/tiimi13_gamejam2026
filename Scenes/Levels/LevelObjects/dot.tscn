@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://d37fcnh6x70r8" path="res://Code/Level/dot.gd" id="1_tr87x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fmpwf"]
-radius = 8.0
+radius = 3.0
 
 [node name="Dot-Area2D" type="Area2D"]
 script = ExtResource("1_tr87x")

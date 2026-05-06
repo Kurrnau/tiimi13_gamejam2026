@@ -1,0 +1,90 @@
+class_name Ghost extends CharacterBody2D
+
+enum State { CHASE, SCATTER, FRIGHTENED, LEAVING_HOME }
+
+@export var scatter_target: Vector2
+@export var speed: float = 90.0
+
+@onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+#How the ghosts find pacman's position:
+@onready var _pacman: Pacman = get_tree().get_first_node_in_group("pacman")
+
+const TILE_SIZE: int = 16
+
+var state: State = State.CHASE
+var direction: Vector2 = Vector2.LEFT
+
+var _scatter_timer: float = 0.0
+var _chase_timer: float = 0.0
+
+func _ready() -> void:
+	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
+
+func _physics_process(_delta: float) -> void:
+	_move()
+	
+func _is_on_grid() -> bool:
+	var x_remainder = fmod(position.x, TILE_SIZE)
+	var y_remainder = fmod(position.y, TILE_SIZE)
+	return (x_remainder < 1.5 or x_remainder > TILE_SIZE - 1.5) and \
+	   (y_remainder < 1.5 or y_remainder > TILE_SIZE - 1.5)
+
+func _is_direction_blocked(dir: Vector2) -> bool:
+	var collision = move_and_collide(dir * TILE_SIZE, true)
+	# true = direction is blocked
+	# false = direction is not blocked
+	return collision != null
+
+#How the ghost decides, where to move
+func _get_best_direction(target: Vector2) -> Vector2:
+	var directions = [Vector2.UP, Vector2.LEFT, Vector2.DOWN, Vector2.RIGHT]
+	var best_direction = direction
+	var best_distance = INF
+	
+	for dir in directions:
+		if _is_direction_blocked(dir):
+			continue
+		# Ghosts can't change direction
+		if dir == -direction and not _is_only_reverse_available():
+			continue
+		#Calculates direct distance from new position to target..
+		var new_position = position + dir * TILE_SIZE
+		var distance = new_position.distance_to(target)
+		#.. and changes direction if that distance is shorter.
+		if distance < best_distance:
+			best_distance = distance
+			best_direction = dir
+	return best_direction
+
+func _is_only_reverse_available() -> bool:
+	for dir in [Vector2.UP, Vector2.LEFT, Vector2.DOWN, Vector2.RIGHT]:
+		if dir == -direction:
+			continue
+		if  not _is_direction_blocked(dir):
+			return false
+	return true
+	
+func _get_target() -> Vector2:
+	match state:
+		State.CHASE:
+			return _get_chase_target()
+		State.SCATTER:
+			return scatter_target
+		State.FRIGHTENED:
+			return _get_frightened_target()
+	return scatter_target
+
+# Placeholder function, all ghosts have their own logic for chasing pacman.
+func _get_chase_target() -> Vector2:
+	return _pacman.position
+
+# When frightened, ghost will calculate a position away from pacman.
+func _get_frightened_target() -> Vector2:
+	return position + (position - _pacman.position)
+	
+func _move() -> void:
+	if _is_on_grid(): 
+		position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
+		direction = _get_best_direction(_get_target())
+	velocity = direction * speed
+	move_and_slide()
