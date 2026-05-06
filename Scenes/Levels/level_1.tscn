@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_tlcug"]
 [ext_resource type="PackedScene" uid="uid://tyt1s3w2pks7" path="res://Scenes/Levels/LevelObjects/dot.tscn" id="2_4dpyx"]
 [ext_resource type="PackedScene" uid="uid://nk1o7bhki7w7" path="res://Scenes/Characters/pacman.tscn" id="4_cyadu"]
+[ext_resource type="PackedScene" uid="uid://b5x38orcvij21" path="res://Scenes/UI/MainUI.tscn" id="4_iixi8"]
 [ext_resource type="PackedScene" uid="uid://d2dem6pjue7hx" path="res://Scenes/Levels/LevelObjects/power_up.tscn" id="4_iixi8"]
 [ext_resource type="Script" uid="uid://b4c0uq8d0kosf" path="res://Code/UI/healthbar.gd" id="5_5f3p6"]
 [ext_resource type="Script" uid="uid://b35c67rbpgi6h" path="res://Code/UI/score.gd" id="7_5f3p6"]
@@ -1217,6 +1218,7 @@ position = Vector2(824, 88)
 [node name="Pacman" parent="." groups=["pacman"] instance=ExtResource("4_cyadu")]
 position = Vector2(328, 239)
 
+[node name="MainUI" parent="." instance=ExtResource("4_iixi8")]
 [node name="PowerUps" type="Node2D" parent="."]
 
 [node name="PowerUp" parent="PowerUps" instance=ExtResource("4_iixi8")]
