@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5x38orcvij21"]
+[gd_scene load_steps=5 format=3 uid="uid://b5x38orcvij21"]
 
-[ext_resource type="Texture2D" uid="uid://b3lmwbllvc4uu" path="res://Art/ui-border.png" id="1_58co4"]
 [ext_resource type="Script" uid="uid://5kyw3bdv0atl" path="res://Code/UI/PauseMenu.gd" id="1_yftfo"]
-[ext_resource type="FontFile" uid="uid://cmqpdi4clgsop" path="res://Art/PixelOperator8.ttf" id="2_4cpe4"]
+[ext_resource type="Texture2D" uid="uid://bc44spx2w88j" path="res://Art/pausemenu.png" id="2_4cpe4"]
 [ext_resource type="PackedScene" uid="uid://cy4rpphohnbwk" path="res://Scenes/UI/AudioControl.tscn" id="2_52ctl"]
 
 [sub_resource type="SystemFont" id="SystemFont_4cpe4"]
+subpixel_positioning = 0
 
 [node name="MainUI" type="CanvasLayer"]
 
@@ -19,31 +19,26 @@ offset_right = 420.0
 offset_bottom = 330.0
 script = ExtResource("1_yftfo")
 
-[node name="Background" type="NinePatchRect" parent="PauseMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_58co4")
-patch_margin_left = 3
-patch_margin_top = 3
-patch_margin_right = 3
-patch_margin_bottom = 3
+[node name="Background" type="TextureRect" parent="PauseMenu"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -18.0
+offset_right = 241.87503
+offset_bottom = 306.0
+scale = Vector2(0.96, 1)
+texture = ExtResource("2_4cpe4")
 
 [node name="Headline" type="Label" parent="PauseMenu/Background"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = -3.0
-offset_bottom = 45.0
+offset_left = 39.58334
+offset_top = 36.0
+offset_right = -40.416656
+offset_bottom = 56.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("2_4cpe4")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 18
 text = "Pause"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -53,10 +48,10 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 4.0
-offset_top = 50.0
-offset_right = -3.0
-offset_bottom = 80.0
+offset_left = 40.625008
+offset_top = 104.0
+offset_right = -35.375
+offset_bottom = 214.0
 grow_horizontal = 2
 
 [node name="AudioHeadline" type="Label" parent="PauseMenu/Background/AudioControls"]
@@ -64,6 +59,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.015686275, 0.36078432, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = SubResource("SystemFont_4cpe4")
+theme_override_font_sizes/font_size = 16
 text = "Audio"
 horizontal_alignment = 1
 
@@ -85,21 +81,23 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = -31.0
-offset_right = -5.0
-offset_bottom = -5.0
+offset_left = 13.541675
+offset_top = -82.0
+offset_right = -14.583313
+offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="OK" type="Button" parent="PauseMenu/Background/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
 text = "OK"
 
 [node name="Cancel" type="Button" parent="PauseMenu/Background/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
 text = "Cancel"
 
 [connection signal="pressed" from="PauseMenu/Background/Buttons/OK" to="PauseMenu" method="_on_ok_pressed"]
