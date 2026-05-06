@@ -8,10 +8,13 @@ func _on_body_entered(body : Node2D) -> void:
 		if not collect(body as Pacman):
 			push_warning("Collectable: Collecting didn't succeed!")
 
-func collect(body : Pacman) -> bool:
+func collect(_pacman : Pacman) -> bool:
 	if is_collected:
 		return false
 	
 	is_collected = true
-	queue_free()
+	clear()
 	return true
+	
+func clear() -> void:
+	queue_free()

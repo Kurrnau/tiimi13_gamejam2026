@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2dem6pjue7hx"]
+[gd_scene load_steps=9 format=3 uid="uid://d2dem6pjue7hx"]
 
 [ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_1a685"]
 [ext_resource type="Script" uid="uid://ne6f27ej34f1" path="res://Code/Level/power_up.gd" id="1_qvo5w"]
+[ext_resource type="AudioStream" uid="uid://b4t3bt0gmmbm7" path="res://Audio/Effects/powerup_1(vol_up).wav" id="3_1g7jk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qvo5w"]
 radius = 4.0
@@ -35,8 +36,9 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="PowerUp" type="Area2D"]
+[node name="PowerUp" type="Area2D" groups=["powerups"]]
 script = ExtResource("1_qvo5w")
+_score = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qvo5w")
@@ -46,5 +48,9 @@ modulate = Color(0.7736504, 0.7274761, 0.97312707, 1)
 sprite_frames = SubResource("SpriteFrames_5a65u")
 autoplay = "default"
 frame_progress = 0.38657355
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1g7jk")
+bus = &"Effects"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
