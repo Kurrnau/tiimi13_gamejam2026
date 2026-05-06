@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_fmpwf"]
 radius = 3.0
 
-[node name="Dot-Area2D" type="Area2D"]
+[node name="Dot-Area2D" type="Area2D" groups=["collectables"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_tr87x")

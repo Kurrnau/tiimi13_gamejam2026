@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://yxq12xe02te"]
+[gd_scene load_steps=18 format=4 uid="uid://yxq12xe02te"]
 
 [ext_resource type="Script" uid="uid://bv7ocvcut8pmd" path="res://Code/Level/level.gd" id="1_jv26f"]
 [ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_tlcug"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://dedwyyw6m33je" path="res://Scenes/Levels/LevelObjects/exit_left.tscn" id="9_u5ghp"]
 [ext_resource type="PackedScene" uid="uid://bvrmoiuvgt7v4" path="res://Scenes/Levels/LevelObjects/exit_right.tscn" id="10_hwvp3"]
 [ext_resource type="PackedScene" uid="uid://b5x38orcvij21" path="res://Scenes/UI/MainUI.tscn" id="11_hwvp3"]
-[ext_resource type="PackedScene" uid="uid://cy4rpphohnbwk" path="res://Scenes/UI/AudioControl.tscn" id="12_afv7b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dpyx"]
 texture = ExtResource("1_tlcug")
@@ -1225,15 +1224,19 @@ position = Vector2(328, 239)
 
 [node name="PowerUp" parent="PowerUps" instance=ExtResource("4_iixi8")]
 position = Vector2(136, 264)
+_score = 50
 
 [node name="PowerUp2" parent="PowerUps" instance=ExtResource("4_iixi8")]
 position = Vector2(56, 88)
+_score = 50
 
 [node name="PowerUp3" parent="PowerUps" instance=ExtResource("4_iixi8")]
 position = Vector2(504, 264)
+_score = 50
 
 [node name="PowerUp4" parent="PowerUps" instance=ExtResource("4_iixi8")]
 position = Vector2(584, 88)
+_score = 50
 
 [node name="GameData" type="CanvasLayer" parent="."]
 
@@ -1272,5 +1275,3 @@ position = Vector2(664, 208)
 destination_portal = NodePath("../ExitLeft")
 
 [node name="MainUI2" parent="." instance=ExtResource("11_hwvp3")]
-
-[node name="AudioControl" parent="." instance=ExtResource("12_afv7b")]

@@ -674,11 +674,15 @@ position = Vector2(472, 264)
 
 [node name="PowerUp" parent="PowerUps" instance=ExtResource("3_1iek8")]
 position = Vector2(-240, -224)
+_score = 50
 
 [node name="PowerUp2" parent="PowerUps" instance=ExtResource("3_1iek8")]
 position = Vector2(16, -224)
+_score = 50
 
 [node name="PowerUp3" parent="PowerUps" instance=ExtResource("3_1iek8")]
 position = Vector2(-224, 0)
+_score = 50
 
 [node name="PowerUp4" parent="PowerUps" instance=ExtResource("3_1iek8")]
+_score = 50
