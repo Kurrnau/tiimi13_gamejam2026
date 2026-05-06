@@ -1,7 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvxcpb0r3f8wo"]
+[gd_scene load_steps=12 format=3 uid="uid://cvxcpb0r3f8wo"]
 
 [ext_resource type="PackedScene" uid="uid://cbu4gqsu0h5te" path="res://Scenes/Characters/ghost.tscn" id="1_fmdkr"]
 [ext_resource type="Texture2D" uid="uid://bdcuxacqsv7fi" path="res://Art/ghost-orange.png" id="2_ii1hd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ii1hd"]
+atlas = ExtResource("2_ii1hd")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_571pf"]
+atlas = ExtResource("2_ii1hd")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j88yl"]
+atlas = ExtResource("2_ii1hd")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq6gc"]
+atlas = ExtResource("2_ii1hd")
+region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5q8mx"]
 atlas = ExtResource("2_ii1hd")
@@ -11,8 +27,38 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("2_ii1hd")
 region = Rect2(16, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei3j8"]
+atlas = ExtResource("2_ii1hd")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pabgi"]
+atlas = ExtResource("2_ii1hd")
+region = Rect2(16, 32, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_fmdkr"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ii1hd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_571pf")
+}],
+"loop": true,
+"name": &"looking_down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j88yl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq6gc")
+}],
+"loop": true,
+"name": &"looking_left",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5q8mx")
@@ -21,7 +67,18 @@ animations = [{
 "texture": SubResource("AtlasTexture_e12dn")
 }],
 "loop": true,
-"name": &"default",
+"name": &"looking_right",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei3j8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pabgi")
+}],
+"loop": true,
+"name": &"looking_up",
 "speed": 8.0
 }]
 
@@ -30,5 +87,5 @@ animations = [{
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(-8, -8)
 sprite_frames = SubResource("SpriteFrames_fmdkr")
-autoplay = "default"
-frame_progress = 0.96974534
+animation = &"looking_down"
+autoplay = "looking_up"
