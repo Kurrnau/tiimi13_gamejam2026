@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://vgnp2y23j833"]
+[gd_scene load_steps=11 format=4 uid="uid://vgnp2y23j833"]
 
 [ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_iro12"]
+[ext_resource type="Script" uid="uid://bv7ocvcut8pmd" path="res://Code/Level/level.gd" id="1_ptuy1"]
 [ext_resource type="PackedScene" uid="uid://tyt1s3w2pks7" path="res://Scenes/Levels/LevelObjects/dot.tscn" id="2_62gt6"]
 [ext_resource type="PackedScene" uid="uid://d2dem6pjue7hx" path="res://Scenes/Levels/LevelObjects/power_up.tscn" id="3_1iek8"]
 
@@ -146,6 +147,7 @@ texture = ExtResource("1_iro12")
 sources/0 = SubResource("TileSetAtlasSource_1iek8")
 
 [node name="PreLevel" type="Node2D"]
+script = ExtResource("1_ptuy1")
 
 [node name="World" type="Node" parent="."]
 

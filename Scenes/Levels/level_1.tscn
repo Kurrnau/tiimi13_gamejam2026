@@ -1,9 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://yxq12xe02te"]
+[gd_scene load_steps=14 format=4 uid="uid://yxq12xe02te"]
 
+[ext_resource type="Script" uid="uid://bv7ocvcut8pmd" path="res://Code/Level/level.gd" id="1_jv26f"]
 [ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_tlcug"]
 [ext_resource type="PackedScene" uid="uid://tyt1s3w2pks7" path="res://Scenes/Levels/LevelObjects/dot.tscn" id="2_4dpyx"]
 [ext_resource type="PackedScene" uid="uid://nk1o7bhki7w7" path="res://Scenes/Characters/pacman.tscn" id="4_cyadu"]
+[ext_resource type="PackedScene" uid="uid://b5x38orcvij21" path="res://Scenes/UI/MainUI.tscn" id="4_iixi8"]
 [ext_resource type="PackedScene" uid="uid://d2dem6pjue7hx" path="res://Scenes/Levels/LevelObjects/power_up.tscn" id="4_iixi8"]
+[ext_resource type="Script" uid="uid://b4c0uq8d0kosf" path="res://Code/UI/healthbar.gd" id="5_5f3p6"]
+[ext_resource type="Script" uid="uid://b35c67rbpgi6h" path="res://Code/UI/score.gd" id="7_5f3p6"]
+[ext_resource type="PackedScene" uid="uid://c07xty160d74j" path="res://Scenes/Characters/blue_ghost.tscn" id="5_cyadu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dpyx"]
 texture = ExtResource("1_tlcug")
@@ -147,6 +152,7 @@ texture = ExtResource("1_tlcug")
 sources/0 = SubResource("TileSetAtlasSource_xgxfi")
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_jv26f")
 
 [node name="World" type="Node" parent="."]
 
@@ -1209,9 +1215,10 @@ position = Vector2(824, 72)
 [node name="Dot-Area2D179" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 88)
 
-[node name="Pacman" parent="." instance=ExtResource("4_cyadu")]
+[node name="Pacman" parent="." groups=["pacman"] instance=ExtResource("4_cyadu")]
 position = Vector2(328, 239)
 
+[node name="MainUI" parent="." instance=ExtResource("4_iixi8")]
 [node name="PowerUps" type="Node2D" parent="."]
 
 [node name="PowerUp" parent="PowerUps" instance=ExtResource("4_iixi8")]
@@ -1225,3 +1232,29 @@ position = Vector2(504, 264)
 
 [node name="PowerUp4" parent="PowerUps" instance=ExtResource("4_iixi8")]
 position = Vector2(584, 88)
+
+[node name="GameData" type="CanvasLayer" parent="."]
+
+[node name="Healthbar" type="HBoxContainer" parent="GameData"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 108.0
+offset_bottom = 24.0
+script = ExtResource("5_5f3p6")
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="Label" parent="GameData"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 24.0
+grow_horizontal = 2
+text = "Score: "
+script = ExtResource("7_5f3p6")
+[node name="Ghost" parent="." instance=ExtResource("5_cyadu")]
+position = Vector2(325, 200)
+collision_layer = 1
+leaving_home_timer = 5.0

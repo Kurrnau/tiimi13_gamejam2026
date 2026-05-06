@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Tiimi13_GameJam"
+run/main_scene="uid://yxq12xe02te"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
@@ -32,6 +33,10 @@ folder_colors={
 "res://Code/Systems/": "red",
 "res://Scenes/": "teal"
 }
+
+[global_group]
+
+pacman=""
 
 [gui]
 

@@ -3,6 +3,8 @@ class_name Pacman extends CharacterBody2D
 @export var _respawn_point : Node2D
 @export var speed : float = 100
 @onready var _animated_sprite_2d : AnimatedSprite2D = $AnimatedSprite2D
+@onready var health: Node = $Health
+
 
 const TILE_SIZE : int = 16
 
@@ -72,4 +74,13 @@ func _update_rotation() -> void:
 #endregion
 
 #func _update_animation() -> void:
-#func die()
+
+func _on_health_changed(previous_health: int, current_health: int) -> void:
+	if current_health <= 0:
+		_die()
+	elif current_health < previous_health:
+		health.is_immortal = true
+	
+func _die() -> void:
+	pass
+	
