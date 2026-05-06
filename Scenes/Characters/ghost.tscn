@@ -1,16 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbu4gqsu0h5te"]
+[gd_scene load_steps=4 format=3 uid="uid://cbu4gqsu0h5te"]
 
 [ext_resource type="Script" uid="uid://dajw87dbfx3j0" path="res://Code/Characters/ghost.gd" id="1_305sn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_305sn"]
 radius = 7.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vhg6s"]
+
 [node name="Ghost" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_305sn")
+scatter_target = null
+normal_speed = null
+frightened_speed = null
+eaten_speed = null
+home_exit = null
+home_center = null
+leaving_home_timer = null
+scatter_duration = null
+chase_duration = null
+frightened_duration = null
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D-movement" type="CollisionShape2D" parent="."]
 position = Vector2(-8, -8)
 shape = SubResource("CircleShape2D_305sn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D-collision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-8, -8)
+shape = SubResource("CircleShape2D_vhg6s")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqlsepn6sha18" path="res://Code/Characters/pacman.gd" id="1_jsle3"]
 [ext_resource type="Texture2D" uid="uid://gywsewp5jjj2" path="res://Art/pacman.png" id="2_cxkkp"]
-[ext_resource type="PackedScene" path="res://Scenes/Characters/health.tscn" id="3_cxkkp"]
+[ext_resource type="PackedScene" uid="uid://doubu2iimn77f" path="res://Scenes/Characters/health.tscn" id="3_cxkkp"]
 [ext_resource type="Script" uid="uid://dlf7ijniqlo7a" path="res://Code/Characters/health.gd" id="4_a1pud"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jsle3"]
@@ -31,6 +31,7 @@ animations = [{
 }]
 
 [node name="Pacman" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_jsle3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
