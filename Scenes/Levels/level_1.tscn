@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d2dem6pjue7hx" path="res://Scenes/Levels/LevelObjects/power_up.tscn" id="4_iixi8"]
 [ext_resource type="Script" uid="uid://b4c0uq8d0kosf" path="res://Code/UI/healthbar.gd" id="5_5f3p6"]
 [ext_resource type="Script" uid="uid://b35c67rbpgi6h" path="res://Code/UI/score.gd" id="7_5f3p6"]
+[ext_resource type="PackedScene" uid="uid://c07xty160d74j" path="res://Scenes/Characters/blue_ghost.tscn" id="5_cyadu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dpyx"]
 texture = ExtResource("1_tlcug")
@@ -1213,7 +1214,7 @@ position = Vector2(824, 72)
 [node name="Dot-Area2D179" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 88)
 
-[node name="Pacman" parent="." instance=ExtResource("4_cyadu")]
+[node name="Pacman" parent="." groups=["pacman"] instance=ExtResource("4_cyadu")]
 position = Vector2(328, 239)
 
 [node name="PowerUps" type="Node2D" parent="."]
@@ -1251,3 +1252,6 @@ offset_bottom = 24.0
 grow_horizontal = 2
 text = "Score: "
 script = ExtResource("7_5f3p6")
+[node name="Ghost" parent="." instance=ExtResource("5_cyadu")]
+position = Vector2(270, 334)
+collision_layer = 1
