@@ -1,14 +1,15 @@
-class_name Dot extends Collectable #Area2D
+class_name PowerUp extends Collectable #Area2D
 
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-@export var _score: int = 10
+@export var _score: int = 50
 
 func collect(pacman : Pacman) -> bool:
-	if not super.collect(pacman):		#super suorittaa ensin kantaluokan (Collectable)
+	if not super.collect(pacman):
 		return false
 	
 	GameManager.add_score(_score)
+	#TODO: muu toiminnallisuus (värin vaihto? viholliset karkaa? tms?)
 
 	return true
 

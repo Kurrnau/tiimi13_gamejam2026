@@ -13,5 +13,8 @@ func collect(body : Pacman) -> bool:
 		return false
 	
 	is_collected = true
-	queue_free()
+	clear()
 	return true
+
+func clear() -> void:
+	queue_free()

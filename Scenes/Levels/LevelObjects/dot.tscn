@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://tyt1s3w2pks7"]
+[gd_scene load_steps=5 format=3 uid="uid://tyt1s3w2pks7"]
 
 [ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_o3hgp"]
 [ext_resource type="Script" uid="uid://d37fcnh6x70r8" path="res://Code/Level/dot.gd" id="1_tr87x"]
+[ext_resource type="AudioStream" uid="uid://uyu6p6qmyuda" path="res://Audio/Effects/jump_short.wav" id="3_jeqhl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fmpwf"]
 radius = 8.0
@@ -16,5 +17,8 @@ shape = SubResource("CircleShape2D_fmpwf")
 texture = ExtResource("1_o3hgp")
 region_enabled = true
 region_rect = Rect2(64, 48, 16, 16)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jeqhl")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
