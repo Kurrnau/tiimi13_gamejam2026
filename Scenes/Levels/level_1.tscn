@@ -1228,5 +1228,6 @@ position = Vector2(504, 264)
 position = Vector2(584, 88)
 
 [node name="Ghost" parent="." instance=ExtResource("5_cyadu")]
-position = Vector2(270, 334)
+position = Vector2(325, 200)
 collision_layer = 1
+leaving_home_timer = 5.0
