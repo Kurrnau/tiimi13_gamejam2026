@@ -25,7 +25,6 @@ func set_current_health(value: int) -> void:
 func take_damage(amount: int) -> bool:
 	if amount < 0:
 		return false
-	
 	set_current_health(_current_health - amount)
 	return true
 
