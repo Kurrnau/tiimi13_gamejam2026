@@ -3,8 +3,11 @@ class_name Ghost extends CharacterBody2D
 enum State { WAITING, CHASE, SCATTER, FRIGHTENED, LEAVING_HOME, EATEN }
 
 @export var scatter_target: Vector2
-@export var speed: float = 90.0
+@export var normal_speed: float = 90.0
+@export var frightened_speed: float = 50.0
+@export var eaten_speed: float = 160.0
 @export var home_exit: Vector2 = Vector2(320, 168)
+@export var home_center: Vector2 = Vector2(320, 203)
 @export var leaving_home_timer: float = 0.0
 @export var scatter_duration: float = 7.0
 @export var chase_duration: float = 20.0
@@ -17,11 +20,12 @@ enum State { WAITING, CHASE, SCATTER, FRIGHTENED, LEAVING_HOME, EATEN }
 
 const TILE_SIZE: int = 16
 
+var speed: float = 90.0
 var state: State = State.CHASE
 var direction: Vector2 = Vector2.LEFT
 
-var _scatter_timer: float = 7.0
-var _chase_timer: float = 20.0
+var _scatter_timer: float = 0.0
+var _chase_timer: float = 0.0
 
 func _ready() -> void:
 	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
@@ -41,10 +45,10 @@ func _physics_process(delta: float) -> void:
 func _move() -> void:
 	if state == State.WAITING:
 		return
-	if state == State.EATEN and position.distance_to(home_exit) < TILE_SIZE:
+	if state == State.EATEN and position.distance_to(home_center) < TILE_SIZE:
 		_respawn_ghost()
+		return
 	if _is_on_grid(): 
-		position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
 		if state == State.LEAVING_HOME and position.distance_to(home_exit) < TILE_SIZE:
 			state = State.CHASE
 		direction = _get_best_direction(_get_target())
@@ -54,8 +58,8 @@ func _move() -> void:
 func _is_on_grid() -> bool:
 	var x_remainder = fmod(position.x, TILE_SIZE)
 	var y_remainder = fmod(position.y, TILE_SIZE)
-	return (x_remainder < 1.5 or x_remainder > TILE_SIZE - 1.5) and \
-	   (y_remainder < 1.5 or y_remainder > TILE_SIZE - 1.5)
+	return (x_remainder < 1.0 or x_remainder > TILE_SIZE - 1.0) and \
+	   (y_remainder < 1.0 or y_remainder > TILE_SIZE - 1.0)
 
 func _is_direction_blocked(dir: Vector2) -> bool:
 	var collision = move_and_collide(dir * TILE_SIZE, true)
@@ -101,7 +105,10 @@ func _is_only_reverse_available() -> bool:
 func _get_target() -> Vector2:
 	match state:
 		State.EATEN:
-			return home_exit
+			if position.distance_to(home_exit) > TILE_SIZE:
+				return home_exit
+			else:
+				return home_center
 		State.LEAVING_HOME:
 			return home_exit
 		State.CHASE:
@@ -118,7 +125,7 @@ func _get_chase_target() -> Vector2:
 
 # When frightened, ghost will calculate a position away from pacman.
 func _get_frightened_target() -> Vector2:
-	return position + (position - _pacman.position)
+	return Vector2(0,0)
 	
 func _update_state(delta) -> void:
 	print("state: ", state)
@@ -132,6 +139,18 @@ func _update_state(delta) -> void:
 		if _scatter_timer >= scatter_duration:
 			_scatter_timer = 0.0
 			state = State.CHASE
+	_update_speed()
+
+func _update_speed() -> void:
+	match state:
+		State.FRIGHTENED:
+			speed = frightened_speed
+		State.EATEN:
+			speed = eaten_speed
+			set_collision_mask_value(2, false)
+		_:
+			speed = normal_speed
+			set_collision_mask_value(2, true)
 
 func _respawn_ghost() -> void:
 	state = State.WAITING
@@ -140,7 +159,16 @@ func _respawn_ghost() -> void:
 
 func _on_powerup_eaten() -> void:
 	state = State.FRIGHTENED
+	_chase_timer = 0.0
+	_scatter_timer = 0.0
 	await get_tree().create_timer(frightened_duration).timeout
 	if state == State.FRIGHTENED:
 		state = State.CHASE
-	
+
+func _on_body_entered(body: Node2D) -> void:
+	print("body entered: ", body)
+	if body is Pacman:
+		if state == State.FRIGHTENED:
+			state = State.EATEN
+		else:
+			body.die()
