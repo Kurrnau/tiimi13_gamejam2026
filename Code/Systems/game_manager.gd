@@ -3,6 +3,7 @@ extends Node
 # Signals
 signal score_changed(new_score : int)
 signal level_changed(level_number: int)
+signal powerup_triggered(duration: float)
 
 # Player's score and health in this session
 var _score : int = 0

@@ -2,10 +2,13 @@ class_name MusicManager extends Node
 
 @onready var intro_player: AudioStreamPlayer = $IntroPlayer
 @onready var music_player: AudioStreamPlayer = $BackgroundMusic
+@onready var power_up_player: AudioStreamPlayer = $PowerUpPlayer
 
 # Tarkista signaalit. Ovat nyt liitettynä test_level.tscn.
 
 func _ready() -> void:
+	# Kuunnellaan GameManagerin signaalia
+	GameManager.powerup_triggered.connect(_on_powerup_tiggered)
 	# Varmistetaan, että kuunnellaan milloin intro loppuu
 	intro_player.finished.connect(_on_intro_finished)
 	
@@ -17,3 +20,18 @@ func _on_intro_finished() -> void:
 	# Intro loppui, aloitetaan varsinainen looppaava musiikki
 	music_player.play()
 	print("Intro ohi, musiikki alkaa.")
+
+func start_power_up_music() -> void:
+	music_player.stream_paused = true
+	power_up_player.play()
+	
+func end_power_up_music() -> void:
+	if power_up_player.playing:
+		power_up_player.stop()
+		
+	music_player.stream_paused = false
+
+func _on_powerup_tiggered(duration: float) -> void:
+	start_power_up_music()
+	await get_tree().create_timer(duration).timeout
+	end_power_up_music()
