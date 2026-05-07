@@ -1,7 +1,8 @@
-class_name MusicManager extends AudioStreamPlayer
+class_name MusicManager extends Node
 
-@onready var intro_player: AudioStreamPlayer = $"../IntroPlayer"
-@onready var music_player: MusicManager = $"."
+@onready var intro_player: AudioStreamPlayer = $IntroPlayer
+@onready var music_player: AudioStreamPlayer = $BackgroundMusic
+
 # Tarkista signaalit. Ovat nyt liitettynä test_level.tscn.
 
 func _ready() -> void:

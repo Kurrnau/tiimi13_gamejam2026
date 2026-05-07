@@ -2,16 +2,30 @@ extends Node
 
 # Signals
 signal score_changed(new_score : int)
+signal level_changed(level_number: int)
 
 # Player's score and health in this session
 var _score : int = 0
 var _current_level : Level = null
 var _scene_tree : SceneTree = null
+var _current_level_number: int = 1
 
+#region Array of level paths
+var _level_paths: Array[String] = [
+	"res://Scenes/Levels/level_1.tscn",
+	"res://Scenes/Levels/level_2.tscn",
+	"res://Scenes/Levels/level_3.tscn"
+	
+	
+	# Add more levels as you create them
+]
+
+#endregion
 
 #region Score
 func reset() -> void:
 	set_score(0)
+	_current_level_number = 1
 
 func add_score(amount : int) -> void:
 	if amount > 0:
@@ -23,28 +37,61 @@ func get_score() -> int:
 func set_score(new_score : int) -> void:
 	_score = max(new_score, 0)
 	score_changed.emit(_score)
-	
-	print("Score: %s" % _score) 					#TEST This line is for debugging
-#endregion 
 
+#endregion 
+	
+#region Level functionality
 func get_scene_tree() -> SceneTree:
 	if _scene_tree == null:
 		_scene_tree = get_tree()
 	return _scene_tree
-	
-#region Level functionality
+
 func get_current_level() -> Level:
 	return _current_level
 
 func register_current_level(new_level: Level) -> void:
 	if _current_level == null:
 		_current_level = new_level
+		_current_level.level_completed.connect(_on_level_completed)
+
+
+# NEW: Handle level completion
+func _on_level_completed() -> void:
+	print("GameManager: Level %d completed!" % _current_level_number)
+	# You could add victory screen, stats, etc. here
+
+# NEW: Progress to next level
+func next_level() -> void:
+	_current_level_number += 1
+	# Check if there are more levels
+	if _current_level_number - 1 < _level_paths.size():
+		var next_path = _level_paths[_current_level_number - 1]
+		print("Loading level %d: %s" % [_current_level_number, next_path])
+		go_to_scene(next_path)
+		level_changed.emit(_current_level_number)
+	else:
+		_show_victory()
+
+# NEW: Victory screen
+func _show_victory() -> void:
+	print("GAME COMPLETED! Final score: %d" % _score)
+	go_to_scene("res://Scenes/Levels/final.tscn")
+	# Or just restart:
+	restart_game()
+
+# NEW: Restart from beginning
+func restart_game() -> void:
+	reset()
+	go_to_scene(_level_paths[0])
 		
 func go_to_scene(scene_path: String) -> void:
 	_load_scene.call_deferred(scene_path)
 
 func _load_scene(scene_path: String) -> void:
 	if _current_level != null:
+		# Disconnect signal before freeing
+		if _current_level.level_completed.is_connected(_on_level_completed):
+			_current_level.level_completed.disconnect(_on_level_completed)
 		# Delete the current level from memory
 		_current_level.free()
 	
@@ -54,10 +101,10 @@ func _load_scene(scene_path: String) -> void:
 	else:
 		push_error("GameManager: Failed to load a scene in the path %s" % scene_path)
 		return
-	
+
 	if _scene_tree == null:
 		_scene_tree = get_tree()
-		
+	
 	if _scene_tree != null:
 		_scene_tree.root.add_child(_current_level)
 		_scene_tree.current_scene = _current_level
