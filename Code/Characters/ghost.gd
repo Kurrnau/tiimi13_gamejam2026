@@ -161,7 +161,6 @@ func _update_state(delta) -> void:
 	if _debug_timer >= 1.0:
 		_debug_timer = 0.0
 	_update_speed()
-	_update_speed()
 
 func _update_speed() -> void:
 	match state:

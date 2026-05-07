@@ -4,16 +4,16 @@ class_name Portal extends Area2D
 @export var teleport_offset: Vector2 = Vector2(32, 0)
 #ExitLeft -> drag and drop ExitRight -> -32
 #ExitRight -> drag and drop ExitLeft -> 32 (default)
+var _recently_teleported: Array[Node2D] = [] # Prevent infinite loops
 
-# Prevent infinite loops
-var _recently_teleported: Array[Node2D] = []
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node2D) -> void:
-	# Ignore if no destination set
 	if not destination_portal:
+		return
+	if not body is Pacman:							#NEW TEST FOR GHOSTS!
 		return
 	# Prevent infinite teleport loop
 	if body in _recently_teleported:

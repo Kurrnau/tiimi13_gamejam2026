@@ -17,13 +17,11 @@ var _invincible: bool = false
 func _ready() -> void:
 	# Snaps pacman into the closest 16x16 tile to make grid movement possible. 
 	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
-	health.health_changed.connect(_on_health_changed)
 
 func _physics_process(_delta: float) -> void:
 	_read_input()
 	_move()
 	_update_rotation()
-	# TODO: _update_animations()
 
 #region Internal Functionality	
 func _read_input() -> void:
