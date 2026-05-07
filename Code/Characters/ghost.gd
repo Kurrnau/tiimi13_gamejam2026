@@ -54,7 +54,6 @@ func _move() -> void:
 			_respawn_ghost()
 			return
 		if _is_on_grid():
-			print(name, " EATEN not on grid: ", position)
 			direction = _get_best_direction(_get_target())
 		velocity = direction * speed
 		move_and_slide()
@@ -161,7 +160,6 @@ func _update_state(delta) -> void:
 	_debug_timer += delta
 	if _debug_timer >= 1.0:
 		_debug_timer = 0.0
-		print(name, " state: ", state)
 	_update_speed()
 	_update_speed()
 
@@ -211,22 +209,21 @@ func _on_powerup_eaten() -> void:
 		state = State.CHASE
 
 func _on_body_entered(body: Node2D) -> void:
-	print("body entered: ", body)
 	if body is Ghost:
 		return
 	if body is Pacman:
 		if state == State.FRIGHTENED or state == State.FLASHING:
+			GameManager.add_score(100)
 			state = State.EATEN
 		elif state == State.CHASE or state == State.SCATTER:
-			var _pacman : Pacman = body as Pacman
-			_pacman.health.take_damage(1)
+			_pacman.take_hit()
 		
 func _check_pacman_collision() -> void:
 	if _pacman and position.distance_to(_pacman.position) < TILE_SIZE / 2:
 		if state == State.FRIGHTENED or state == State.FLASHING:
 			state = State.EATEN
 		elif state == State.CHASE or state == State.SCATTER:
-			_pacman.health.take_damage(1)
+			_pacman.take_hit()
 
 #region Ghost Timers
 func _on_chase_started() -> void:
