@@ -38,6 +38,7 @@ folder_colors={
 
 pacman=""
 powerups=""
+portals=""
 
 [gui]
 
