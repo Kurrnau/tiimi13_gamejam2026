@@ -1,7 +1,57 @@
-[gd_scene load_steps=12 format=3 uid="uid://oinwruh3f37p"]
+[gd_scene load_steps=26 format=3 uid="uid://oinwruh3f37p"]
 
 [ext_resource type="PackedScene" uid="uid://cbu4gqsu0h5te" path="res://Scenes/Characters/ghost.tscn" id="1_pv8ss"]
+[ext_resource type="Texture2D" uid="uid://dcigujrq36qh3" path="res://Art/ghost-eyes.png" id="2_ktd1i"]
 [ext_resource type="Texture2D" uid="uid://c6obvby2pfpgf" path="res://Art/ghost-pink.png" id="2_ntn2v"]
+[ext_resource type="Texture2D" uid="uid://vguw83scaoab" path="res://Art/ghost-line.png" id="3_6c0ss"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6yms"]
+atlas = ExtResource("2_ktd1i")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq0qc"]
+atlas = ExtResource("2_ktd1i")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt0lf"]
+atlas = ExtResource("2_ktd1i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2m55c"]
+atlas = ExtResource("2_ktd1i")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c2pj"]
+atlas = ExtResource("3_6c0ss")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuf31"]
+atlas = ExtResource("3_6c0ss")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrses"]
+atlas = ExtResource("3_6c0ss")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53gal"]
+atlas = ExtResource("3_6c0ss")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd1jd"]
+atlas = ExtResource("3_6c0ss")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pj15"]
+atlas = ExtResource("3_6c0ss")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8egv"]
+atlas = ExtResource("3_6c0ss")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq8jm"]
+atlas = ExtResource("3_6c0ss")
+region = Rect2(16, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntn2v"]
 atlas = ExtResource("2_ntn2v")
@@ -37,6 +87,82 @@ region = Rect2(16, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c5kr2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6yms")
+}],
+"loop": true,
+"name": &"eaten_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq0qc")
+}],
+"loop": true,
+"name": &"eaten_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt0lf")
+}],
+"loop": true,
+"name": &"eaten_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2m55c")
+}],
+"loop": true,
+"name": &"eaten_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8c2pj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuf31")
+}],
+"loop": true,
+"name": &"frightened_down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrses")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53gal")
+}],
+"loop": true,
+"name": &"frightened_left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd1jd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pj15")
+}],
+"loop": true,
+"name": &"frightened_right",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8egv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq8jm")
+}],
+"loop": true,
+"name": &"frightened_up",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ntn2v")
@@ -83,9 +209,19 @@ animations = [{
 }]
 
 [node name="Ghost" instance=ExtResource("1_pv8ss")]
+scatter_target = Vector2(0, 0)
+normal_speed = 90.0
+frightened_speed = 50.0
+eaten_speed = 160.0
+home_exit = Vector2(320, 168)
+home_center = Vector2(320, 203)
+leaving_home_timer = 0.0
+scatter_duration = 7.0
+chase_duration = 20.0
+frightened_duration = 7.0
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(-8, -8)
 sprite_frames = SubResource("SpriteFrames_c5kr2")
-animation = &"looking_down"
+animation = &"frightened_right"
 autoplay = "looking_up"
