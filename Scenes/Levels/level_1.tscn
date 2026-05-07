@@ -1217,8 +1217,9 @@ position = Vector2(824, 72)
 [node name="Dot-Area2D179" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 88)
 
-[node name="Pacman" parent="." groups=["pacman"] instance=ExtResource("4_cyadu")]
+[node name="Pacman" parent="." node_paths=PackedStringArray("_respawn_point") groups=["pacman"] instance=ExtResource("4_cyadu")]
 position = Vector2(328, 239)
+_respawn_point = NodePath("../SpawnPoint")
 
 [node name="PowerUps" type="Node2D" parent="."]
 
@@ -1263,16 +1264,7 @@ script = ExtResource("7_5f3p6")
 [node name="Ghost" parent="." instance=ExtResource("5_cyadu")]
 position = Vector2(325, 200)
 collision_layer = 1
-scatter_target = null
-normal_speed = null
-frightened_speed = null
-eaten_speed = null
-home_exit = null
-home_center = null
 leaving_home_timer = 5.0
-scatter_duration = null
-chase_duration = null
-frightened_duration = null
 
 [node name="ExitLeft" parent="." node_paths=PackedStringArray("destination_portal") instance=ExtResource("9_u5ghp")]
 position = Vector2(-8, 208)
@@ -1284,4 +1276,6 @@ position = Vector2(664, 208)
 destination_portal = NodePath("../ExitLeft")
 
 [node name="MainUI2" parent="." instance=ExtResource("11_hwvp3")]
-visible = false
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(328, 240)

@@ -1,21 +1,21 @@
 class_name PowerUp extends Collectable #Area2D
 
-signal powerup_eaten					#TEST
+signal powerup_eaten
 
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var _score: int = 50
+var heal_amount: int = 1
 
 func collect(pacman : Pacman) -> bool:
 	if not super.collect(pacman):
 		return false
-	
+	pacman.health.heal(heal_amount)
 	GameManager.add_score(_score)
-	_on_powerup_eaten()					#TEST
-
+	_on_powerup_eaten()
 	return true
 
-func _on_powerup_eaten():				#TEST
+func _on_powerup_eaten():
 	emit_signal("powerup_eaten")
 	
 func clear() -> void:

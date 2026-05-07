@@ -201,11 +201,10 @@ func _on_body_entered(body: Node2D) -> void:
 		if state == State.FRIGHTENED or state == State.FLASHING:
 			state = State.EATEN
 		elif state == State.CHASE or state == State.SCATTER:
-			body.die()
-
+			var pacman : Pacman = body as Pacman
+			pacman.health.take_damage(1)
+		
 func _check_pacman_collision() -> void:
 	if _pacman and position.distance_to(_pacman.position) < TILE_SIZE / 2:
 		if state == State.FRIGHTENED or state == State.FLASHING:
 			state = State.EATEN
-		elif state == State.CHASE or state == State.SCATTER:
-			_pacman.die()

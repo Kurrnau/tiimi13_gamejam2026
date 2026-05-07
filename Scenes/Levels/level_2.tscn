@@ -1218,8 +1218,9 @@ position = Vector2(824, 72)
 [node name="Dot-Area2D179" parent="Dots" instance=ExtResource("3_md4x4")]
 position = Vector2(824, 88)
 
-[node name="Pacman" parent="." groups=["pacman"] instance=ExtResource("4_1hf40")]
+[node name="Pacman" parent="." node_paths=PackedStringArray("_respawn_point") groups=["pacman"] instance=ExtResource("4_1hf40")]
 position = Vector2(328, 239)
+_respawn_point = NodePath("../SpawnPoint")
 
 [node name="PowerUps" type="Node2D" parent="."]
 

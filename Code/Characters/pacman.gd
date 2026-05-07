@@ -15,6 +15,7 @@ var next_direction : Vector2 = Vector2.RIGHT
 func _ready() -> void:
 	# Snaps pacman into the closest 16x16 tile to make grid movement possible. 
 	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
+	health.health_changed.connect(_on_health_changed)
 
 func _physics_process(_delta: float) -> void:
 	_read_input()
@@ -73,14 +74,17 @@ func _update_rotation() -> void:
 		_animated_sprite_2d.flip_h = false
 #endregion
 
-#func _update_animation() -> void:
-
 func _on_health_changed(previous_health: int, current_health: int) -> void:
 	if current_health <= 0:
 		_die()
-	elif current_health < previous_health:
-		health.is_immortal = true
+		
+func respawn() -> void:
+	_animated_sprite_2d.play("chomp")
+	position = _respawn_point.global_position
+	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
+	direction = Vector2.RIGHT
+	next_direction = Vector2.RIGHT
+	velocity = Vector2.ZERO
 	
 func _die() -> void:
-	pass
-	
+	GameManager.restart_game()

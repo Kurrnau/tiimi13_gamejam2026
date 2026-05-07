@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://gywsewp5jjj2" path="res://Art/pacman.png" id="12_lff8j"]
 [ext_resource type="Script" uid="uid://b4c0uq8d0kosf" path="res://Code/UI/healthbar.gd" id="14_lff8j"]
 [ext_resource type="Script" uid="uid://b35c67rbpgi6h" path="res://Code/UI/score.gd" id="15_dyi3m"]
-[ext_resource type="Script" uid="uid://xvrww7tu2wv6" path="res://Code/UI/restartbutton.gd" id="16_dyi3m"]
+[ext_resource type="PackedScene" uid="uid://do71b4d8y8ss4" path="res://Scenes/UI/restart_button.tscn" id="16_dyi3m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwwa8"]
 texture = ExtResource("1_1wv5i")
@@ -225,10 +225,12 @@ texture = ExtResource("11_m1ied")
 [node name="GameData" type="CanvasLayer" parent="."]
 
 [node name="Healthbar" type="HBoxContainer" parent="GameData"]
-offset_left = 112.0
-offset_top = 272.0
-offset_right = 212.0
-offset_bottom = 288.0
+anchors_preset = -1
+anchor_right = -0.01875
+offset_left = 80.0
+offset_top = 384.0
+offset_right = 180.0
+offset_bottom = 400.0
 script = ExtResource("14_lff8j")
 metadata/_edit_use_anchors_ = true
 
@@ -244,11 +246,4 @@ grow_horizontal = 2
 text = "Score: "
 script = ExtResource("15_dyi3m")
 
-[node name="RestartButton" type="Button" parent="."]
-offset_left = 400.0
-offset_top = 328.0
-offset_right = 570.0
-offset_bottom = 352.0
-theme_override_colors/font_color = Color(1, 0.8745098, 0, 1)
-text = "Restart game"
-script = ExtResource("16_dyi3m")
+[node name="RestartButton" parent="." instance=ExtResource("16_dyi3m")]
