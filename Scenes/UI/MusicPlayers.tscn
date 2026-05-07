@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1q7q0r8raot"]
+
+[ext_resource type="Script" uid="uid://cg3laubule1ex" path="res://Code/UI/MusicManager.gd" id="1_1eqkd"]
+[ext_resource type="AudioStream" uid="uid://c273huykauuhm" path="res://Audio/Music/Insert Coin Smile.mp3" id="2_au1en"]
+[ext_resource type="AudioStream" uid="uid://bmkun1yxhcoad" path="res://Audio/Effects/vibraphone_positive_long(lyh).wav" id="3_acuhx"]
+
+[node name="MusicPlayers" type="Node"]
+script = ExtResource("1_1eqkd")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_au1en")
+bus = &"Music"
+playback_type = 1
+
+[node name="IntroPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_acuhx")
+autoplay = true
+bus = &"Music"
+playback_type = 1

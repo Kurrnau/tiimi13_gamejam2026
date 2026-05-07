@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5x38orcvij21"]
 
 [ext_resource type="Script" uid="uid://5kyw3bdv0atl" path="res://Code/UI/PauseMenu.gd" id="1_yftfo"]
-[ext_resource type="Texture2D" uid="uid://bc44spx2w88j" path="res://Art/pausemenu.png" id="2_4cpe4"]
+[ext_resource type="Texture2D" uid="uid://ctr0ognaos8m" path="res://Art/pausemenu2.png" id="2_4cpe4"]
 [ext_resource type="PackedScene" uid="uid://cy4rpphohnbwk" path="res://Scenes/UI/AudioControl.tscn" id="2_52ctl"]
 
 [sub_resource type="SystemFont" id="SystemFont_4cpe4"]
@@ -37,6 +37,7 @@ offset_top = 36.0
 offset_right = -40.416656
 offset_bottom = 56.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.96862745, 0.3882353, 0.007843138, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 18
 text = "Pause"
@@ -56,7 +57,7 @@ grow_horizontal = 2
 
 [node name="AudioHeadline" type="Label" parent="PauseMenu/Background/AudioControls"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.015686275, 0.36078432, 1)
+theme_override_colors/font_color = Color(0.9843137, 0.015686275, 0.95686275, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = SubResource("SystemFont_4cpe4")
 theme_override_font_sizes/font_size = 16
