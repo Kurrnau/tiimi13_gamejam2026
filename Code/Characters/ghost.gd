@@ -21,6 +21,8 @@ enum State { WAITING, CHASE, SCATTER, FRIGHTENED, FLASHING, LEAVING_HOME, EATEN 
 
 const TILE_SIZE: int = 16
 
+var _debug_timer: float = 0.0
+
 var speed: float = 90.0
 var state: State = State.CHASE
 var direction: Vector2 = Vector2.LEFT
@@ -52,6 +54,7 @@ func _move() -> void:
 			_respawn_ghost()
 			return
 		if _is_on_grid():
+			print(name, " EATEN not on grid: ", position)
 			direction = _get_best_direction(_get_target())
 		velocity = direction * speed
 		move_and_slide()
@@ -73,8 +76,8 @@ func _is_on_grid() -> bool:
 	var x_remainder = fmod(position.x, TILE_SIZE)
 	var y_remainder = fmod(position.y, TILE_SIZE)
 	
-	return (x_remainder < 1.0 or x_remainder > TILE_SIZE - 1.0) and \
-	   (y_remainder < 1.0 or y_remainder > TILE_SIZE - 1.0)
+	return (x_remainder < 1.5 or x_remainder > TILE_SIZE - 1.5) and \
+	   (y_remainder < 1.5 or y_remainder > TILE_SIZE - 1.5)
 
 func _is_direction_blocked(dir: Vector2) -> bool:
 	var collision = move_and_collide(dir * TILE_SIZE, true)
@@ -96,6 +99,16 @@ func _get_best_direction(target: Vector2) -> Vector2:
 			continue
 		# Prevent ghost from re-entering home unless EATEN:
 		if state != State.EATEN and position.y >= home_exit.y - TILE_SIZE * 4 and position.x > 284 and position.x < 356 and dir == Vector2.DOWN:
+			continue
+		# Prevent ghosts from using portals
+		var check_pos = position + dir * TILE_SIZE
+		var portals = get_tree().get_nodes_in_group("portals")
+		var portal_nearby = false
+		for portal in portals:
+			if check_pos.distance_to(portal.global_position) < TILE_SIZE * 2:
+				portal_nearby = true
+				break
+		if portal_nearby:
 			continue
 		#Calculates direct distance from new position to target..
 		var new_position = position + dir * TILE_SIZE
@@ -120,7 +133,7 @@ func _is_only_reverse_available() -> bool:
 func _get_target() -> Vector2:
 	match state:
 		State.EATEN:
-			if position.distance_to(home_exit) > TILE_SIZE:
+			if position.distance_to(home_exit) > TILE_SIZE * 2:
 				return home_exit
 			else:
 				return home_center
@@ -145,7 +158,11 @@ func _get_frightened_target() -> Vector2:
 #endregion
 	
 func _update_state(delta) -> void:
-	print(name, " state: ", state)
+	_debug_timer += delta
+	if _debug_timer >= 1.0:
+		_debug_timer = 0.0
+		print(name, " state: ", state)
+	_update_speed()
 	_update_speed()
 
 func _update_speed() -> void:
