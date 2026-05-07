@@ -1,11 +1,12 @@
 class_name Health extends Node
 
 signal health_changed(previous_health: int, current_health: int)
+@onready var pacman: Pacman = $".."
+@onready var animated_sprite_2d: AnimatedSprite2D = $"../AnimatedSprite2D"
 
-@export var max_health : int = 5
+@export var max_health : int = 4
 
 var _current_health : int = 0
-var is_immortal : bool = false
  
 
 func _ready() -> void:
@@ -25,12 +26,23 @@ func set_current_health(value: int) -> void:
 func take_damage(amount: int) -> bool:
 	if amount < 0:
 		return false
+	animated_sprite_2d.play("take_damage")
+	animated_sprite_2d.animation_finished.connect(_on_animation_finished)
+	
 	set_current_health(_current_health - amount)
 	return true
+
+func _on_animation_finished() -> void:
+	if animated_sprite_2d.animation == "take_damage":
+		pacman.respawn()
+		animated_sprite_2d.play("chomp")
+		animated_sprite_2d.animation_finished.disconnect(_on_animation_finished)
 
 func heal(amount: int) -> bool:
 	if amount < 0:
 		return false
+	if _current_health >= max_health:
+		return false  # Already at max health
 	set_current_health(_current_health + amount)
 	return true
 
