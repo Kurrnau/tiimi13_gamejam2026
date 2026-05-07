@@ -12,7 +12,9 @@ func collect(pacman : Pacman) -> bool:
 		return false
 	pacman.health.heal(heal_amount)
 	GameManager.add_score(_score)
-	_on_powerup_eaten()
+	GameManager.powerup_triggered.emit(9.0)
+	_on_powerup_eaten()					#TEST
+
 	return true
 
 func _on_powerup_eaten():

@@ -3,12 +3,20 @@ extends Node
 # Signals
 signal score_changed(new_score : int)
 signal level_changed(level_number: int)
+signal powerup_triggered(duration: float)
+signal chase_started
+signal scatter_started
 
 # Player's score and health in this session
 var _score : int = 0
 var _current_level : Level = null
 var _scene_tree : SceneTree = null
 var _current_level_number: int = 1
+
+# Ghosts' chase and scatter timers
+var _chase_timer: float = 0.0
+var _scatter_timer: float = 0.0
+var _is_chase: bool = true
 
 #region Array of level paths
 var _level_paths: Array[String] = [
@@ -109,4 +117,20 @@ func _load_scene(scene_path: String) -> void:
 		_scene_tree.root.add_child(_current_level)
 		_scene_tree.current_scene = _current_level
 	
+#endregion
+
+#region Ghost Timers
+func _process(delta: float) -> void:
+	if _is_chase:
+		_chase_timer += delta
+		if _chase_timer >= 20.0:
+			_chase_timer = 0.0
+			_is_chase = false
+			scatter_started.emit()
+	else:
+		_scatter_timer += delta
+		if _scatter_timer >= 7.0:
+			_scatter_timer = 0.0
+			_is_chase = true
+			chase_started.emit()
 #endregion
