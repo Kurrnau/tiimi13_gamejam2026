@@ -28,6 +28,9 @@ func pause() -> void:
 
 func resume() -> void:
 	get_tree().paused = false
+	var mm = get_tree().get_first_node_in_group("music_manager_group")
+	if mm:
+		mm.sync_music_after_pause()
 
 func _on_ok_pressed() -> void:
 	# TODO: Tallenna asetukset
