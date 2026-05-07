@@ -200,6 +200,8 @@ func _respawn_ghost() -> void:
 	state = State.LEAVING_HOME
 
 func _on_powerup_eaten() -> void:
+	if state == State.EATEN or state == State.WAITING or state == State.LEAVING_HOME:
+		return
 	state = State.FRIGHTENED
 	await get_tree().create_timer(frightened_duration).timeout
 	if state == State.FRIGHTENED:
@@ -217,7 +219,8 @@ func _on_body_entered(body: Node2D) -> void:
 			state = State.EATEN
 		elif state == State.CHASE or state == State.SCATTER:
 			_pacman.take_hit()
-		
+			
+# Another collision check to prevent pacman from "pecking" the ghosts and actually eating them. 
 func _check_pacman_collision() -> void:
 	if _pacman and position.distance_to(_pacman.position) < TILE_SIZE / 2:
 		if state == State.FRIGHTENED or state == State.FLASHING:
