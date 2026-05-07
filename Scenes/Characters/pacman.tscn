@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqlsepn6sha18" path="res://Code/Characters/pacman.gd" id="1_jsle3"]
 [ext_resource type="Texture2D" uid="uid://gywsewp5jjj2" path="res://Art/pacman.png" id="2_cxkkp"]
-[ext_resource type="PackedScene" path="res://Scenes/Characters/health.tscn" id="3_cxkkp"]
+[ext_resource type="PackedScene" uid="uid://doubu2iimn77f" path="res://Scenes/Characters/health.tscn" id="3_cxkkp"]
 [ext_resource type="Texture2D" uid="uid://crfsq02v27ck8" path="res://Art/pacman-healthbar.png" id="3_ujieo"]
 [ext_resource type="Script" uid="uid://dlf7ijniqlo7a" path="res://Code/Characters/health.gd" id="4_a1pud"]
 
@@ -51,10 +51,19 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vfig4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwmf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo6m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfig4")
 }],
 "loop": false,
 "name": &"take_damage",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="Pacman" type="CharacterBody2D"]
@@ -70,7 +79,7 @@ position = Vector2(-8, -8)
 sprite_frames = SubResource("SpriteFrames_ascru")
 animation = &"take_damage"
 autoplay = "chomp"
-frame = 2
+frame = 5
 frame_progress = 1.0
 
 [node name="Health" parent="." instance=ExtResource("3_cxkkp")]

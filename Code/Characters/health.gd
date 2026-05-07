@@ -34,7 +34,6 @@ func take_damage(amount: int) -> bool:
 
 func _on_animation_finished() -> void:
 	if animated_sprite_2d.animation == "take_damage":
-		pacman.respawn()
 		animated_sprite_2d.play("chomp")
 		animated_sprite_2d.animation_finished.disconnect(_on_animation_finished)
 

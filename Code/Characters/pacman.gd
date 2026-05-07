@@ -11,6 +11,7 @@ const TILE_SIZE : int = 16
 var movement_enabled: bool = false
 var direction : Vector2 = Vector2.RIGHT
 var next_direction : Vector2 = Vector2.RIGHT
+var _invincible: bool = false
 
 
 func _ready() -> void:
@@ -81,7 +82,15 @@ func _update_rotation() -> void:
 		_animated_sprite_2d.flip_h = false
 #endregion
 
-func _on_health_changed(previous_health: int, current_health: int) -> void:
+func take_hit() -> void:
+	if _invincible:
+		return
+	_invincible = true
+	health.take_damage(1)
+	await get_tree().create_timer(2.0).timeout
+	_invincible = false
+
+func _on_health_changed(_previous_health: int, current_health: int) -> void:
 	if current_health <= 0:
 		_die()
 		
@@ -94,4 +103,9 @@ func respawn() -> void:
 	velocity = Vector2.ZERO
 	
 func _die() -> void:
+	movement_enabled = false
+	velocity = Vector2.ZERO
+	
+	await get_tree().create_timer(1.5).timeout
+	
 	GameManager.restart_game()
