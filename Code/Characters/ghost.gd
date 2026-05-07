@@ -218,15 +218,15 @@ func _on_body_entered(body: Node2D) -> void:
 		if state == State.FRIGHTENED or state == State.FLASHING:
 			state = State.EATEN
 		elif state == State.CHASE or state == State.SCATTER:
-			var pacman : Pacman = body as Pacman
-			pacman.health.take_damage(1)
+			var _pacman : Pacman = body as Pacman
+			_pacman.health.take_damage(1)
 		
 func _check_pacman_collision() -> void:
 	if _pacman and position.distance_to(_pacman.position) < TILE_SIZE / 2:
 		if state == State.FRIGHTENED or state == State.FLASHING:
 			state = State.EATEN
 		elif state == State.CHASE or state == State.SCATTER:
-			_pacman.die()
+			_pacman.health.take_damage(1)
 
 #region Ghost Timers
 func _on_chase_started() -> void:
