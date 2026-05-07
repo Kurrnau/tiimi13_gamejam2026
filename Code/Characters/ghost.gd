@@ -1,6 +1,6 @@
 class_name Ghost extends CharacterBody2D
 
-enum State { WAITING, CHASE, SCATTER, FRIGHTENED, LEAVING_HOME, EATEN }
+enum State { WAITING, CHASE, SCATTER, FRIGHTENED, FLASHING, LEAVING_HOME, EATEN }
 
 @export var scatter_target: Vector2
 @export var normal_speed: float = 90.0
@@ -48,6 +48,7 @@ func _move() -> void:
 	if state == State.WAITING:
 		return
 	if state == State.EATEN and position.distance_to(home_center) < TILE_SIZE:
+		print("on grid: ", _is_on_grid(), " pos: ", position)
 		_respawn_ghost()
 		return
 	if _is_on_grid(): 
@@ -60,6 +61,7 @@ func _move() -> void:
 func _is_on_grid() -> bool:
 	var x_remainder = fmod(position.x, TILE_SIZE)
 	var y_remainder = fmod(position.y, TILE_SIZE)
+	var tolerance = 2.0 if state == State.EATEN else 1.0
 	return (x_remainder < 1.0 or x_remainder > TILE_SIZE - 1.0) and \
 	   (y_remainder < 1.0 or y_remainder > TILE_SIZE - 1.0)
 
@@ -127,7 +129,7 @@ func _get_chase_target() -> Vector2:
 
 # When frightened, ghost will calculate a position away from pacman.
 func _get_frightened_target() -> Vector2:
-	return Vector2(0,0)
+	return position + (position - _pacman.position)
 	
 func _update_state(delta) -> void:
 	print("state: ", state)
@@ -141,11 +143,13 @@ func _update_state(delta) -> void:
 		if _scatter_timer >= scatter_duration:
 			_scatter_timer = 0.0
 			state = State.CHASE
+	elif state == State.FLASHING:
+		pass 
 	_update_speed()
 
 func _update_speed() -> void:
 	match state:
-		State.FRIGHTENED:
+		State.FRIGHTENED, State.FLASHING:
 			speed = frightened_speed
 		State.EATEN:
 			speed = eaten_speed
@@ -170,6 +174,8 @@ func _update_animations() -> void:
 			_animated_sprite_2d.play ("frightened" + dir_suffix)
 		State.EATEN:
 			_animated_sprite_2d.play ("eaten" + dir_suffix)
+		State.FLASHING:
+			_animated_sprite_2d.play("flashing" + dir_suffix)
 		_:
 			_animated_sprite_2d.play("looking" + dir_suffix)
 
@@ -184,21 +190,22 @@ func _on_powerup_eaten() -> void:
 	_scatter_timer = 0.0
 	await get_tree().create_timer(frightened_duration).timeout
 	if state == State.FRIGHTENED:
+		state = State.FLASHING
+	await get_tree().create_timer(2.0).timeout
+	if state == State.FLASHING:
 		state = State.CHASE
 
 func _on_body_entered(body: Node2D) -> void:
 	print("body entered: ", body)
 	if body is Pacman:
-		if state == State.FRIGHTENED:
+		if state == State.FRIGHTENED or state == State.FLASHING:
 			state = State.EATEN
-		elif state == State.EATEN or state == State.WAITING or state == State.LEAVING_HOME:
-			return
-		else:
+		elif state == State.CHASE or state == State.SCATTER:
 			body.die()
 
 func _check_pacman_collision() -> void:
 	if _pacman and position.distance_to(_pacman.position) < TILE_SIZE / 2:
-		if state == State.FRIGHTENED:
+		if state == State.FRIGHTENED or state == State.FLASHING:
 			state = State.EATEN
-		elif state != State.EATEN and state != State.WAITING and state != State.LEAVING_HOME:
+		elif state == State.CHASE or state == State.SCATTER:
 			_pacman.die()
