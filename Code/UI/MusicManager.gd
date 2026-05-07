@@ -4,7 +4,7 @@ class_name MusicManager extends Node
 @onready var music_player: AudioStreamPlayer = $BackgroundMusic
 @onready var power_up_player: AudioStreamPlayer = $PowerUpPlayer
 
-# Tarkista signaalit. Ovat nyt liitettynä test_level.tscn.
+var is_powerup_active: bool = false
 
 func _ready() -> void:
 	# Kuunnellaan GameManagerin signaalia
@@ -22,10 +22,12 @@ func _on_intro_finished() -> void:
 	print("Intro ohi, musiikki alkaa.")
 
 func start_power_up_music() -> void:
+	is_powerup_active = true
 	music_player.stream_paused = true
 	power_up_player.play()
 	
 func end_power_up_music() -> void:
+	is_powerup_active = false
 	if power_up_player.playing:
 		power_up_player.stop()
 		
@@ -35,3 +37,13 @@ func _on_powerup_tiggered(duration: float) -> void:
 	start_power_up_music()
 	await get_tree().create_timer(duration).timeout
 	end_power_up_music()
+	
+func sync_music_after_pause() -> void:
+	if is_powerup_active:
+		music_player.stream_paused = true
+		if not power_up_player.playing:
+			power_up_player.play()
+	else:
+		power_up_player.stop()
+		music_player.stream_paused = false
+		

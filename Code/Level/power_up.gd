@@ -11,7 +11,7 @@ func collect(pacman : Pacman) -> bool:
 		return false
 	
 	GameManager.add_score(_score)
-	GameManager.powerup_triggered.emit(9)
+	GameManager.powerup_triggered.emit(9.0)
 	_on_powerup_eaten()					#TEST
 
 	return true
