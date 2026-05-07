@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://yxq12xe02te"]
+[gd_scene load_steps=24 format=4 uid="uid://yxq12xe02te"]
 
 [ext_resource type="Script" uid="uid://bv7ocvcut8pmd" path="res://Code/Level/level.gd" id="1_jv26f"]
 [ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_tlcug"]
@@ -7,10 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://d2dem6pjue7hx" path="res://Scenes/Levels/LevelObjects/power_up.tscn" id="4_iixi8"]
 [ext_resource type="Script" uid="uid://b4c0uq8d0kosf" path="res://Code/UI/healthbar.gd" id="5_5f3p6"]
 [ext_resource type="PackedScene" uid="uid://c07xty160d74j" path="res://Scenes/Characters/blue_ghost.tscn" id="5_cyadu"]
-[ext_resource type="Script" uid="uid://b35c67rbpgi6h" path="res://Code/UI/score.gd" id="7_5f3p6"]
+[ext_resource type="Script" path="res://Code/UI/score.gd" id="7_5f3p6"]
 [ext_resource type="PackedScene" uid="uid://dedwyyw6m33je" path="res://Scenes/Levels/LevelObjects/exit_left.tscn" id="9_u5ghp"]
 [ext_resource type="PackedScene" uid="uid://bvrmoiuvgt7v4" path="res://Scenes/Levels/LevelObjects/exit_right.tscn" id="10_hwvp3"]
+[ext_resource type="PackedScene" uid="uid://dlmd27kmgoirs" path="res://Scenes/Characters/red_ghost.tscn" id="11_afv7b"]
 [ext_resource type="PackedScene" uid="uid://b5x38orcvij21" path="res://Scenes/UI/MainUI.tscn" id="11_hwvp3"]
+[ext_resource type="PackedScene" uid="uid://oinwruh3f37p" path="res://Scenes/Characters/pink_ghost.tscn" id="12_7r2dd"]
+[ext_resource type="Script" uid="uid://fo6iyr2laica" path="res://Code/Characters/pink_ghost.gd" id="13_k2mw1"]
+[ext_resource type="PackedScene" uid="uid://cvxcpb0r3f8wo" path="res://Scenes/Characters/orange_ghost.tscn" id="14_tjl6l"]
+[ext_resource type="Script" uid="uid://som6saaer6ap" path="res://Code/Characters/orange_ghost.gd" id="15_3628d"]
+[ext_resource type="Script" uid="uid://feliybdxy1gm" path="res://Code/Characters/blue_ghost.gd" id="17_irw6p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dpyx"]
 texture = ExtResource("1_tlcug")
@@ -1243,11 +1249,6 @@ grow_horizontal = 2
 text = "Score: "
 script = ExtResource("7_5f3p6")
 
-[node name="Ghost" parent="." instance=ExtResource("5_cyadu")]
-position = Vector2(325, 200)
-collision_layer = 1
-leaving_home_timer = 5.0
-
 [node name="ExitLeft" parent="." node_paths=PackedStringArray("destination_portal") instance=ExtResource("9_u5ghp")]
 position = Vector2(-8, 208)
 destination_portal = NodePath("../ExitRight")
@@ -1262,3 +1263,31 @@ visible = false
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(328, 240)
+
+[node name="RedGhost" parent="." instance=ExtResource("11_afv7b")]
+position = Vector2(304, 207)
+scatter_target = Vector2(616, 56)
+home_center = Vector2(304, 207)
+leaving_home_timer = 2.0
+
+[node name="PinkGhost" parent="." instance=ExtResource("12_7r2dd")]
+position = Vector2(320, 207)
+script = ExtResource("13_k2mw1")
+scatter_target = Vector2(24, 56)
+home_center = Vector2(320, 207)
+leaving_home_timer = 3.0
+
+[node name="OrangeGhost" parent="." instance=ExtResource("14_tjl6l")]
+position = Vector2(336, 207)
+script = ExtResource("15_3628d")
+scatter_target = Vector2(24, 328)
+home_center = Vector2(336, 207)
+leaving_home_timer = 4.0
+
+[node name="BlueGhost" parent="." node_paths=PackedStringArray("red_ghost") instance=ExtResource("5_cyadu")]
+position = Vector2(353, 207)
+script = ExtResource("17_irw6p")
+red_ghost = NodePath("../RedGhost")
+scatter_target = Vector2(616, 328)
+home_center = Vector2(353, 207)
+leaving_home_timer = 5.0
