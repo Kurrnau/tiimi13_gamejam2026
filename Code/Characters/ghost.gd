@@ -47,13 +47,24 @@ func _physics_process(delta: float) -> void:
 func _move() -> void:
 	if state == State.WAITING:
 		return
-	if state == State.EATEN and position.distance_to(home_center) < TILE_SIZE:
-		print("on grid: ", _is_on_grid(), " pos: ", position)
-		_respawn_ghost()
+	if state == State.EATEN:
+		if position.distance_to(home_center) < TILE_SIZE * 2:
+			_respawn_ghost()
+			return
+		if _is_on_grid():
+			direction = _get_best_direction(_get_target())
+		velocity = direction * speed
+		move_and_slide()
+		return
+	if state == State.LEAVING_HOME:
+		direction = Vector2.UP
+		velocity = Vector2(0, -speed)
+		move_and_slide()
+		if position.y <= home_exit.y:
+			position.y = home_exit.y
+			state = State.CHASE
 		return
 	if _is_on_grid(): 
-		if state == State.LEAVING_HOME and position.distance_to(home_exit) < TILE_SIZE:
-			state = State.CHASE
 		direction = _get_best_direction(_get_target())
 	velocity = direction * speed
 	move_and_slide()
@@ -61,7 +72,7 @@ func _move() -> void:
 func _is_on_grid() -> bool:
 	var x_remainder = fmod(position.x, TILE_SIZE)
 	var y_remainder = fmod(position.y, TILE_SIZE)
-	var tolerance = 2.0 if state == State.EATEN else 1.0
+	
 	return (x_remainder < 1.0 or x_remainder > TILE_SIZE - 1.0) and \
 	   (y_remainder < 1.0 or y_remainder > TILE_SIZE - 1.0)
 
@@ -84,7 +95,7 @@ func _get_best_direction(target: Vector2) -> Vector2:
 		if dir == -direction and not _is_only_reverse_available():
 			continue
 		# Prevent ghost from re-entering home unless EATEN:
-		if state != State.EATEN and position.y >= home_exit.y and position.x > 300 and position.x < 340 and dir == Vector2.DOWN:
+		if state != State.EATEN and position.y >= home_exit.y - TILE_SIZE * 4 and position.x > 284 and position.x < 356 and dir == Vector2.DOWN:
 			continue
 		#Calculates direct distance from new position to target..
 		var new_position = position + dir * TILE_SIZE
@@ -132,7 +143,7 @@ func _get_frightened_target() -> Vector2:
 	return position + (position - _pacman.position)
 	
 func _update_state(delta) -> void:
-	print("state: ", state)
+	print(name, " state: ", state)
 	if state == State.CHASE:
 		_chase_timer += delta
 		if _chase_timer >= chase_duration:
@@ -153,10 +164,8 @@ func _update_speed() -> void:
 			speed = frightened_speed
 		State.EATEN:
 			speed = eaten_speed
-			set_collision_mask_value(2, false)
 		_:
 			speed = normal_speed
-			set_collision_mask_value(2, true)
 
 func _update_animations() -> void:
 	var dir_suffix: String
@@ -180,6 +189,7 @@ func _update_animations() -> void:
 			_animated_sprite_2d.play("looking" + dir_suffix)
 
 func _respawn_ghost() -> void:
+	position = home_center
 	state = State.WAITING
 	await get_tree().create_timer(leaving_home_timer).timeout
 	state = State.LEAVING_HOME
@@ -197,6 +207,8 @@ func _on_powerup_eaten() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	print("body entered: ", body)
+	if body is Ghost:
+		return
 	if body is Pacman:
 		if state == State.FRIGHTENED or state == State.FLASHING:
 			state = State.EATEN
