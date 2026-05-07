@@ -8,7 +8,7 @@ func _on_body_entered(body : Node2D) -> void:
 	print("Something collided with a collectable") 	#TEST
 	if body is Pacman:
 		if not collect(body as Pacman):
-			push_warning("Collectable: Collecting didn't succeed!")
+			print("Collectable: Collecting didn't succeed, probably Ghost!")
 
 func collect(_pacman : Pacman) -> bool:
 	if is_collected:

@@ -1263,7 +1263,16 @@ script = ExtResource("7_5f3p6")
 [node name="Ghost" parent="." instance=ExtResource("5_cyadu")]
 position = Vector2(325, 200)
 collision_layer = 1
+scatter_target = null
+normal_speed = null
+frightened_speed = null
+eaten_speed = null
+home_exit = null
+home_center = null
 leaving_home_timer = 5.0
+scatter_duration = null
+chase_duration = null
+frightened_duration = null
 
 [node name="ExitLeft" parent="." node_paths=PackedStringArray("destination_portal") instance=ExtResource("9_u5ghp")]
 position = Vector2(-8, 208)
@@ -1275,3 +1284,4 @@ position = Vector2(664, 208)
 destination_portal = NodePath("../ExitLeft")
 
 [node name="MainUI2" parent="." instance=ExtResource("11_hwvp3")]
+visible = false
