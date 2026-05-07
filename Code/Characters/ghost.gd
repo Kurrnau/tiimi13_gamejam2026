@@ -39,6 +39,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	_update_state(delta)
 	_move()
+	_check_pacman_collision()
+	_update_animations()
 
 #region Ghost movement	
 # Movement on the 16x16 grid (same as pacman).
@@ -80,7 +82,7 @@ func _get_best_direction(target: Vector2) -> Vector2:
 		if dir == -direction and not _is_only_reverse_available():
 			continue
 		# Prevent ghost from re-entering home unless EATEN:
-		if state != State.EATEN and position.y >= home_exit.y and dir == Vector2.DOWN:
+		if state != State.EATEN and position.y >= home_exit.y and position.x > 300 and position.x < 340 and dir == Vector2.DOWN:
 			continue
 		#Calculates direct distance from new position to target..
 		var new_position = position + dir * TILE_SIZE
@@ -152,6 +154,25 @@ func _update_speed() -> void:
 			speed = normal_speed
 			set_collision_mask_value(2, true)
 
+func _update_animations() -> void:
+	var dir_suffix: String
+	if direction == Vector2.RIGHT:
+		dir_suffix = "_right"
+	elif direction == Vector2.LEFT:
+		dir_suffix = "_left"
+	elif direction == Vector2.UP:
+		dir_suffix = "_up"
+	elif direction == Vector2.DOWN:
+		dir_suffix = "_down"
+		
+	match state:
+		State.FRIGHTENED:
+			_animated_sprite_2d.play ("frightened" + dir_suffix)
+		State.EATEN:
+			_animated_sprite_2d.play ("eaten" + dir_suffix)
+		_:
+			_animated_sprite_2d.play("looking" + dir_suffix)
+
 func _respawn_ghost() -> void:
 	state = State.WAITING
 	await get_tree().create_timer(leaving_home_timer).timeout
@@ -170,5 +191,14 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Pacman:
 		if state == State.FRIGHTENED:
 			state = State.EATEN
+		elif state == State.EATEN or state == State.WAITING or state == State.LEAVING_HOME:
+			return
 		else:
 			body.die()
+
+func _check_pacman_collision() -> void:
+	if _pacman and position.distance_to(_pacman.position) < TILE_SIZE / 2:
+		if state == State.FRIGHTENED:
+			state = State.EATEN
+		elif state != State.EATEN and state != State.WAITING and state != State.LEAVING_HOME:
+			_pacman.die()
