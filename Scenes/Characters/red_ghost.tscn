@@ -454,16 +454,7 @@ animations = [{
 }]
 
 [node name="Ghost" instance=ExtResource("1_o8w3m")]
-scatter_target = Vector2(0, 0)
-normal_speed = 90.0
-frightened_speed = 50.0
-eaten_speed = 160.0
-home_exit = Vector2(320, 168)
-home_center = Vector2(320, 203)
-leaving_home_timer = 0.0
-scatter_duration = 7.0
-chase_duration = 20.0
-frightened_duration = 7.0
+home_center = Vector2(304, 194)
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(-8, -8)

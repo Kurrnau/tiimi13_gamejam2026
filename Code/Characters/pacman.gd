@@ -8,6 +8,7 @@ class_name Pacman extends CharacterBody2D
 
 const TILE_SIZE : int = 16
 
+var movement_enabled: bool = false
 var direction : Vector2 = Vector2.RIGHT
 var next_direction : Vector2 = Vector2.RIGHT
 
@@ -24,6 +25,10 @@ func _physics_process(_delta: float) -> void:
 
 #region Internal Functionality	
 func _read_input() -> void:
+	if not movement_enabled:
+		if Input.is_action_just_pressed("Right") or Input.is_action_just_pressed("Left") or \
+		   Input.is_action_just_pressed("Up") or Input.is_action_just_pressed("Down"):
+			movement_enabled = true
 	if Input.is_action_pressed("Right"):
 		next_direction = Vector2.RIGHT
 	elif Input.is_action_pressed("Left"):
@@ -48,6 +53,8 @@ func _is_direction_blocked(dir: Vector2) -> bool:
 	return collision != null
 
 func _move() -> void:
+	if not movement_enabled:
+		return
 	if _is_on_grid():
 		position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
 		if not _is_direction_blocked(next_direction):
