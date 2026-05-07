@@ -3,20 +3,21 @@ class_name Ghost extends CharacterBody2D
 enum State { WAITING, CHASE, SCATTER, FRIGHTENED, FLASHING, LEAVING_HOME, EATEN }
 
 @export var scatter_target: Vector2
+
 @export var normal_speed: float = 90.0
 @export var frightened_speed: float = 50.0
 @export var eaten_speed: float = 160.0
+
 @export var home_exit: Vector2 = Vector2(320, 168)
 @export var home_center: Vector2 = Vector2(320, 203)
+
 @export var leaving_home_timer: float = 0.0
-@export var scatter_duration: float = 7.0
-@export var chase_duration: float = 20.0
 @export var frightened_duration: float = 7.0
+
 
 @onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 #How the ghosts find pacman's position:
 @onready var _pacman: Pacman = get_tree().get_first_node_in_group("pacman")
-
 
 const TILE_SIZE: int = 16
 
@@ -24,15 +25,14 @@ var speed: float = 90.0
 var state: State = State.CHASE
 var direction: Vector2 = Vector2.LEFT
 
-var _scatter_timer: float = 0.0
-var _chase_timer: float = 0.0
-
 func _ready() -> void:
 	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
 	state = State.WAITING
 	# Connect to all powerups in the scene
 	for powerup in get_tree().get_nodes_in_group("powerups"):
 		powerup.powerup_eaten.connect(_on_powerup_eaten)
+	GameManager.chase_started.connect(_on_chase_started)
+	GameManager.scatter_started.connect(_on_scatter_started)
 	await get_tree().create_timer(leaving_home_timer).timeout
 	state = State.LEAVING_HOME
 
@@ -116,7 +116,7 @@ func _is_only_reverse_available() -> bool:
 	return true
 #endregion
 
-
+#region Ghost Targeting
 func _get_target() -> Vector2:
 	match state:
 		State.EATEN:
@@ -142,20 +142,10 @@ func _get_chase_target() -> Vector2:
 func _get_frightened_target() -> Vector2:
 	return position + (position - _pacman.position)
 	
+#endregion
+	
 func _update_state(delta) -> void:
 	print(name, " state: ", state)
-	if state == State.CHASE:
-		_chase_timer += delta
-		if _chase_timer >= chase_duration:
-			_chase_timer = 0.0
-			state = State.SCATTER
-	elif state == State.SCATTER:
-		_scatter_timer += delta
-		if _scatter_timer >= scatter_duration:
-			_scatter_timer = 0.0
-			state = State.CHASE
-	elif state == State.FLASHING:
-		pass 
 	_update_speed()
 
 func _update_speed() -> void:
@@ -196,8 +186,6 @@ func _respawn_ghost() -> void:
 
 func _on_powerup_eaten() -> void:
 	state = State.FRIGHTENED
-	_chase_timer = 0.0
-	_scatter_timer = 0.0
 	await get_tree().create_timer(frightened_duration).timeout
 	if state == State.FRIGHTENED:
 		state = State.FLASHING
@@ -221,3 +209,13 @@ func _check_pacman_collision() -> void:
 			state = State.EATEN
 		elif state == State.CHASE or state == State.SCATTER:
 			_pacman.die()
+
+#region Ghost Timers
+func _on_chase_started() -> void:
+	if state != State.FRIGHTENED and state != State.FLASHING and state != State.EATEN:
+		state = State.CHASE
+
+func _on_scatter_started() -> void:
+	if state != State.FRIGHTENED and state != State.FLASHING and state != State.EATEN:
+		state = State.SCATTER
+#endregion
