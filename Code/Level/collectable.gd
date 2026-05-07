@@ -1,5 +1,7 @@
 class_name Collectable extends Area2D
 
+signal collected(collectable: Collectable)
+
 var is_collected : bool = false
 
 func _on_body_entered(body : Node2D) -> void:
@@ -13,6 +15,7 @@ func collect(_pacman : Pacman) -> bool:
 		return false
 	
 	is_collected = true
+	collected.emit(self)
 	clear()
 	return true
 	
