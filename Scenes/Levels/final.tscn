@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=4 uid="uid://0msckaqagr82"]
+[gd_scene load_steps=21 format=4 uid="uid://0msckaqagr82"]
 
 [ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_1wv5i"]
+[ext_resource type="Script" uid="uid://bv7ocvcut8pmd" path="res://Code/Level/level.gd" id="1_p0elg"]
 [ext_resource type="PackedScene" uid="uid://nk1o7bhki7w7" path="res://Scenes/Characters/pacman.tscn" id="2_50s1t"]
 [ext_resource type="PackedScene" uid="uid://tyt1s3w2pks7" path="res://Scenes/Levels/LevelObjects/dot.tscn" id="2_vypuh"]
 [ext_resource type="PackedScene" uid="uid://d2dem6pjue7hx" path="res://Scenes/Levels/LevelObjects/power_up.tscn" id="3_c5j5a"]
@@ -12,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://crfsq02v27ck8" path="res://Art/pacman-healthbar.png" id="10_p0elg"]
 [ext_resource type="Texture2D" uid="uid://ctnsguv0dnmb2" path="res://Art/pacman-one-health.png" id="11_m1ied"]
 [ext_resource type="Texture2D" uid="uid://gywsewp5jjj2" path="res://Art/pacman.png" id="12_lff8j"]
+[ext_resource type="Script" uid="uid://b4c0uq8d0kosf" path="res://Code/UI/healthbar.gd" id="14_lff8j"]
+[ext_resource type="Script" uid="uid://b35c67rbpgi6h" path="res://Code/UI/score.gd" id="15_dyi3m"]
+[ext_resource type="Script" uid="uid://xvrww7tu2wv6" path="res://Code/UI/restartbutton.gd" id="16_dyi3m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwwa8"]
 texture = ExtResource("1_1wv5i")
@@ -94,6 +98,7 @@ texture = ExtResource("1_1wv5i")
 sources/0 = SubResource("TileSetAtlasSource_vypuh")
 
 [node name="FINAL" type="Node2D"]
+script = ExtResource("1_p0elg")
 
 [node name="Background" type="TileMapLayer" parent="."]
 z_index = -10
@@ -130,45 +135,53 @@ position = Vector2(312, 232)
 
 [node name="PowerUp" parent="." instance=ExtResource("3_c5j5a")]
 position = Vector2(240, 232)
+_score = 50
 
 [node name="Pacman" parent="." instance=ExtResource("2_50s1t")]
-position = Vector2(0, 232)
+position = Vector2(80, 232)
 
 [node name="PowerUp2" parent="." instance=ExtResource("3_c5j5a")]
 position = Vector2(192, 232)
+_score = 50
 
 [node name="PowerUp3" parent="." instance=ExtResource("3_c5j5a")]
 position = Vector2(288, 232)
+_score = 50
 
 [node name="Dot-Area2D5" parent="." instance=ExtResource("2_vypuh")]
 position = Vector2(336, 232)
 
 [node name="PowerUp4" parent="." instance=ExtResource("3_c5j5a")]
 position = Vector2(360, 232)
+_score = 50
 
 [node name="Dot-Area2D6" parent="." instance=ExtResource("2_vypuh")]
 position = Vector2(384, 232)
 
 [node name="PowerUp5" parent="." instance=ExtResource("3_c5j5a")]
 position = Vector2(408, 232)
+_score = 50
 
 [node name="Dot-Area2D7" parent="." instance=ExtResource("2_vypuh")]
 position = Vector2(432, 232)
 
 [node name="PowerUp6" parent="." instance=ExtResource("3_c5j5a")]
 position = Vector2(456, 232)
+_score = 50
 
 [node name="Dot-Area2D8" parent="." instance=ExtResource("2_vypuh")]
 position = Vector2(480, 232)
 
 [node name="PowerUp7" parent="." instance=ExtResource("3_c5j5a")]
 position = Vector2(504, 232)
+_score = 50
 
 [node name="Dot-Area2D9" parent="." instance=ExtResource("2_vypuh")]
 position = Vector2(528, 232)
 
 [node name="PowerUp8" parent="." instance=ExtResource("3_c5j5a")]
 position = Vector2(144, 232)
+_score = 50
 
 [node name="Dot-Area2D10" parent="." instance=ExtResource("2_vypuh")]
 position = Vector2(120, 232)
@@ -178,19 +191,19 @@ position = Vector2(480, 96)
 texture = ExtResource("5_vwyne")
 
 [node name="GhostBlue" type="Sprite2D" parent="."]
-position = Vector2(32, 48)
+position = Vector2(32, 72)
 texture = ExtResource("6_7grwp")
 
 [node name="GhostOrange" type="Sprite2D" parent="."]
-position = Vector2(32, 312)
+position = Vector2(32, 280)
 texture = ExtResource("7_yrauv")
 
 [node name="GhostPink" type="Sprite2D" parent="."]
-position = Vector2(608, 312)
+position = Vector2(608, 280)
 texture = ExtResource("8_1rusf")
 
 [node name="GhostRed" type="Sprite2D" parent="."]
-position = Vector2(608, 48)
+position = Vector2(608, 72)
 texture = ExtResource("9_p0elg")
 
 [node name="PacmanHealthbar" type="Sprite2D" parent="."]
@@ -208,3 +221,34 @@ texture = ExtResource("12_lff8j")
 [node name="PacmanOneHealth2" type="Sprite2D" parent="."]
 position = Vector2(392, 184)
 texture = ExtResource("11_m1ied")
+
+[node name="GameData" type="CanvasLayer" parent="."]
+
+[node name="Healthbar" type="HBoxContainer" parent="GameData"]
+offset_left = 112.0
+offset_top = 272.0
+offset_right = 212.0
+offset_bottom = 288.0
+script = ExtResource("14_lff8j")
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="Label" parent="GameData"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 272.0
+offset_right = 96.0
+offset_bottom = 288.0
+grow_horizontal = 2
+text = "Score: "
+script = ExtResource("15_dyi3m")
+
+[node name="RestartButton" type="Button" parent="."]
+offset_left = 400.0
+offset_top = 328.0
+offset_right = 570.0
+offset_bottom = 352.0
+theme_override_colors/font_color = Color(1, 0.8745098, 0, 1)
+text = "Restart game"
+script = ExtResource("16_dyi3m")

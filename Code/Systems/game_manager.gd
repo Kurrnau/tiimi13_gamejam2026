@@ -15,8 +15,6 @@ var _level_paths: Array[String] = [
 	"res://Scenes/Levels/level_1.tscn",
 	"res://Scenes/Levels/level_2.tscn",
 	"res://Scenes/Levels/level_3.tscn"
-	
-	
 	# Add more levels as you create them
 ]
 
@@ -51,16 +49,14 @@ func get_current_level() -> Level:
 
 func register_current_level(new_level: Level) -> void:
 	if _current_level == null:
-		_current_level = new_level
-		_current_level.level_completed.connect(_on_level_completed)
+		_current_level = new_level	
+		if _current_level.has_signal("level_completed"): #ADDITION
+			_current_level.level_completed.connect(_on_level_completed)
 
-
-# NEW: Handle level completion
 func _on_level_completed() -> void:
 	print("GameManager: Level %d completed!" % _current_level_number)
 	# You could add victory screen, stats, etc. here
 
-# NEW: Progress to next level
 func next_level() -> void:
 	_current_level_number += 1
 	# Check if there are more levels
@@ -72,14 +68,16 @@ func next_level() -> void:
 	else:
 		_show_victory()
 
-# NEW: Victory screen
 func _show_victory() -> void:
-	print("GAME COMPLETED! Final score: %d" % _score)
-	go_to_scene("res://Scenes/Levels/final.tscn")
-	# Or just restart:
-	restart_game()
+	print("GameManager: GAME COMPLETED! Final score: %d" % _score)
+	var victory_path = "res://Scenes/Levels/final.tscn"
+	if ResourceLoader.exists(victory_path):
+		print("GameManager: Loading victory scene: %s" % victory_path)
+		go_to_scene(victory_path)
+	else:
+		print("GameManager: No victory scene found, restarting game")
+		restart_game()
 
-# NEW: Restart from beginning
 func restart_game() -> void:
 	reset()
 	go_to_scene(_level_paths[0])
@@ -94,6 +92,8 @@ func _load_scene(scene_path: String) -> void:
 			_current_level.level_completed.disconnect(_on_level_completed)
 		# Delete the current level from memory
 		_current_level.free()
+		_current_level = null	# CRITICAL: Set to null so register_current_level works
+
 	
 	var next_scene: PackedScene = ResourceLoader.load(scene_path) as PackedScene
 	if next_scene != null:
