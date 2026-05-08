@@ -20,10 +20,8 @@ var _is_chase: bool = true
 
 #region Array of level paths
 var _level_paths: Array[String] = [
-	"res://Scenes/Levels/start_screen.tscn",
 	"res://Scenes/Levels/level_1.tscn"
 ]
-
 #endregion
 
 #region Score
@@ -85,7 +83,7 @@ func _show_victory() -> void:
 
 func restart_game() -> void:
 	reset()
-	go_to_scene(_level_paths[0])
+	go_to_scene("res://Scenes/Levels/start_screen.tscn")
 		
 func go_to_scene(scene_path: String) -> void:
 	_load_scene.call_deferred(scene_path)
@@ -102,7 +100,14 @@ func _load_scene(scene_path: String) -> void:
 	
 	var next_scene: PackedScene = ResourceLoader.load(scene_path) as PackedScene
 	if next_scene != null:
-		_current_level = next_scene.instantiate() as Level
+		var instanced_scene = next_scene.instantiate()
+		if instanced_scene is Level:
+			_current_level = instanced_scene as Level
+		else:
+			_current_level = null
+		if _scene_tree != null:
+			_scene_tree.root.add_child(instanced_scene)
+			_scene_tree.current_scene = instanced_scene
 	else:
 		push_error("GameManager: Failed to load a scene in the path %s" % scene_path)
 		return

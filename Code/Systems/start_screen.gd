@@ -11,7 +11,8 @@ func _ready() -> void:
 		quit_button.pressed.connect(_on_quit_pressed)
 
 func _on_start_pressed() -> void:
-	GameManager.restart_game()
+	GameManager.reset()
+	GameManager.go_to_scene(GameManager._level_paths[0])
 	queue_free()
 
 func _on_quit_pressed() -> void:

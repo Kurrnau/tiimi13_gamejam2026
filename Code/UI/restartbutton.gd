@@ -6,4 +6,6 @@ func _ready() -> void:
 	restart_button.pressed.connect(_on_restart_pressed)
 
 func _on_restart_pressed() -> void:
-	GameManager.restart_game()
+	GameManager.reset()
+	GameManager.go_to_scene(GameManager._level_paths[0])
+	queue_free()
