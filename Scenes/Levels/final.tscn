@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ctnsguv0dnmb2" path="res://Art/pacman-one-health.png" id="11_m1ied"]
 [ext_resource type="Texture2D" uid="uid://gywsewp5jjj2" path="res://Art/pacman.png" id="12_lff8j"]
 [ext_resource type="Script" uid="uid://b4c0uq8d0kosf" path="res://Code/UI/healthbar.gd" id="14_lff8j"]
-[ext_resource type="Script" uid="uid://b35c67rbpgi6h" path="res://Code/UI/score.gd" id="15_dyi3m"]
+[ext_resource type="Script" path="res://Code/UI/score.gd" id="15_dyi3m"]
 [ext_resource type="PackedScene" uid="uid://do71b4d8y8ss4" path="res://Scenes/UI/restart_button.tscn" id="16_dyi3m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwwa8"]
@@ -265,3 +265,7 @@ text = "Score: "
 script = ExtResource("15_dyi3m")
 
 [node name="RestartButton" parent="." instance=ExtResource("16_dyi3m")]
+offset_left = 228.0
+offset_top = 58.0
+offset_right = 398.0
+offset_bottom = 82.0

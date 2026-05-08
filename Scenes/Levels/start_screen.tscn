@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://c30wwwpso328"]
 
 [ext_resource type="Texture2D" uid="uid://bakadkbtftfxp" path="res://Art/ss-eyes.png" id="1_6ryk3"]
-[ext_resource type="Script" uid="uid://6ac2qsrv3my1" path="res://Scenes/Levels/start_screen.gd" id="1_ha810"]
+[ext_resource type="Script" uid="uid://6ac2qsrv3my1" path="res://Code/Systems/start_screen.gd" id="1_ha810"]
 [ext_resource type="Texture2D" uid="uid://bthch83615id1" path="res://Art/pm-text.png" id="1_rrky0"]
 [ext_resource type="Texture2D" uid="uid://c817xk3ywpfqg" path="res://Art/eyes-closed.png" id="2_g38ql"]
 [ext_resource type="Texture2D" uid="uid://gvdah563csr2" path="res://Art/ss-pinkghost.png" id="3_3kijt"]

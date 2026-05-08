@@ -20,11 +20,8 @@ var _is_chase: bool = true
 
 #region Array of level paths
 var _level_paths: Array[String] = [
-	"res://Scenes/Levels/start.tscn",
-	"res://Scenes/Levels/level_1.tscn",
-	"res://Scenes/Levels/level_2.tscn",
-	"res://Scenes/Levels/level_3.tscn"
-	# Add more levels as you create them
+	"res://Scenes/Levels/start_screen.tscn",
+	"res://Scenes/Levels/level_1.tscn"
 ]
 
 #endregion

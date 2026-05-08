@@ -1,10 +1,8 @@
 class_name Pacman extends CharacterBody2D
 
-@export var _respawn_point : Node2D
 @export var speed : float = 100
 @onready var _animated_sprite_2d : AnimatedSprite2D = $AnimatedSprite2D
 @onready var health: Node = $Health
-
 
 const TILE_SIZE : int = 16
 
@@ -91,14 +89,6 @@ func take_hit() -> void:
 func _on_health_changed(_previous_health: int, current_health: int) -> void:
 	if current_health <= 0:
 		_die()
-		
-func respawn() -> void:
-	_animated_sprite_2d.play("chomp")
-	position = _respawn_point.global_position
-	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
-	direction = Vector2.RIGHT
-	next_direction = Vector2.RIGHT
-	velocity = Vector2.ZERO
 	
 func _die() -> void:
 	movement_enabled = false
