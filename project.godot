@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Tiimi13_GameJam"
-run/main_scene="uid://yxq12xe02te"
+run/main_scene="uid://c30wwwpso328"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
@@ -87,6 +87,8 @@ Pause={
 2d_physics/layer_2="Pacman"
 2d_physics/layer_3="Ghosts"
 2d_physics/layer_4="Collectables"
+2d_physics/layer_5="GhostBarriers"
+2d_physics/layer_6="PacmanBarriers"
 
 [rendering]
 
