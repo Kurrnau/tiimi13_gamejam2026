@@ -21,7 +21,8 @@ enum State { WAITING, CHASE, SCATTER, FRIGHTENED, FLASHING, LEAVING_HOME, EATEN 
 
 const TILE_SIZE: int = 16
 
-var _debug_timer: float = 0.0
+var _last_snapped_cell: Vector2 = Vector2(-1, -1)
+var _visited_eaten_cells: Array[Vector2] = []
 
 var speed: float = 90.0
 var state: State = State.CHASE
@@ -45,7 +46,7 @@ func _physics_process(delta: float) -> void:
 	_update_animations()
 
 #region Ghost movement	
-# Movement on the 16x16 grid (same as pacman).
+# Movement on the 16x16 grid.
 func _move() -> void:
 	if state == State.WAITING:
 		return
@@ -67,7 +68,19 @@ func _move() -> void:
 			state = State.CHASE
 		return
 	if _is_on_grid(): 
-		direction = _get_best_direction(_get_target())
+		var current_cell = (position / TILE_SIZE).round()
+		if current_cell != _last_snapped_cell:
+			_last_snapped_cell = current_cell
+			position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
+			if state == State.EATEN:
+				_visited_eaten_cells.append(current_cell)
+				# Remember last 20 visited cells
+				if _visited_eaten_cells.size() > 20:
+					_visited_eaten_cells.pop_front()
+			else:
+				_visited_eaten_cells.clear()
+				
+			direction = _get_best_direction(_get_target())
 	velocity = direction * speed
 	move_and_slide()
 	
@@ -99,19 +112,17 @@ func _get_best_direction(target: Vector2) -> Vector2:
 		# Prevent ghost from re-entering home unless EATEN:
 		if state != State.EATEN and position.y >= home_exit.y - TILE_SIZE * 4 and position.x > 284 and position.x < 356 and dir == Vector2.DOWN:
 			continue
-		# Prevent ghosts from using portals
-		var check_pos = position + dir * TILE_SIZE
-		var portals = get_tree().get_nodes_in_group("portals")
-		var portal_nearby = false
-		for portal in portals:
-			if check_pos.distance_to(portal.global_position) < TILE_SIZE * 2:
-				portal_nearby = true
-				break
-		if portal_nearby:
-			continue
 		#Calculates direct distance from new position to target..
 		var new_position = position + dir * TILE_SIZE
 		var distance = new_position.distance_to(target)
+		
+		# Prevents ghosts from looping inside spirals in EATEN-state
+		if state == State.EATEN:
+			var cell_ahead = (new_position / TILE_SIZE).round()
+			if cell_ahead in _visited_eaten_cells:
+				# This penalty forces the ghost from looping.
+				distance += 10000.0
+				
 		#.. and changes direction if that distance is shorter.
 		if distance < best_distance:
 			best_distance = distance
@@ -156,10 +167,7 @@ func _get_frightened_target() -> Vector2:
 	
 #endregion
 	
-func _update_state(delta) -> void:
-	_debug_timer += delta
-	if _debug_timer >= 1.0:
-		_debug_timer = 0.0
+func _update_state(_delta) -> void:
 	_update_speed()
 
 func _update_speed() -> void:

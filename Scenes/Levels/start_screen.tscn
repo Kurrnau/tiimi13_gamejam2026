@@ -1,12 +1,28 @@
-[gd_scene load_steps=24 format=3 uid="uid://c30wwwpso328"]
+[gd_scene load_steps=25 format=3 uid="uid://c30wwwpso328"]
 
 [ext_resource type="Texture2D" uid="uid://bakadkbtftfxp" path="res://Art/ss-eyes.png" id="1_6ryk3"]
+[ext_resource type="Script" uid="uid://6ac2qsrv3my1" path="res://Scenes/Levels/start_screen.gd" id="1_ha810"]
 [ext_resource type="Texture2D" uid="uid://bthch83615id1" path="res://Art/pm-text.png" id="1_rrky0"]
 [ext_resource type="Texture2D" uid="uid://c817xk3ywpfqg" path="res://Art/eyes-closed.png" id="2_g38ql"]
 [ext_resource type="Texture2D" uid="uid://gvdah563csr2" path="res://Art/ss-pinkghost.png" id="3_3kijt"]
 [ext_resource type="Texture2D" uid="uid://bo62vqxdkv6gd" path="res://Art/eyes-open.png" id="3_ha810"]
 [ext_resource type="Texture2D" uid="uid://dfian071kaa4r" path="res://Art/ss-pacman.png" id="4_g38ql"]
 [ext_resource type="Texture2D" uid="uid://b2yjrju668htn" path="res://Art/ss-blueghost.png" id="5_ha810"]
+
+[sub_resource type="Animation" id="Animation_jglnj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_6ryk3")]
+}
 
 [sub_resource type="Animation" id="Animation_ymqad"]
 resource_name = "blinking"
@@ -25,25 +41,25 @@ tracks/0/keys = {
 "values": [ExtResource("1_6ryk3"), ExtResource("1_6ryk3"), ExtResource("2_g38ql"), ExtResource("3_ha810")]
 }
 
-[sub_resource type="Animation" id="Animation_jglnj"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2cx11"]
+_data = {
+&"RESET": SubResource("Animation_jglnj"),
+&"blinking": SubResource("Animation_ymqad")
+}
+
+[sub_resource type="Animation" id="Animation_88d5c"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_6ryk3")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2cx11"]
-_data = {
-&"RESET": SubResource("Animation_jglnj"),
-&"blinking": SubResource("Animation_ymqad")
+"update": 0,
+"values": [Vector2(23, 144)]
 }
 
 [sub_resource type="Animation" id="Animation_kyudp"]
@@ -63,25 +79,25 @@ tracks/0/keys = {
 "values": [Vector2(23, 144), Vector2(23, 140), Vector2(23, 144)]
 }
 
-[sub_resource type="Animation" id="Animation_88d5c"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xosx7"]
+_data = {
+&"RESET": SubResource("Animation_88d5c"),
+&"floating": SubResource("Animation_kyudp")
+}
+
+[sub_resource type="Animation" id="Animation_ha810"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(23, 144)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xosx7"]
-_data = {
-&"RESET": SubResource("Animation_88d5c"),
-&"floating": SubResource("Animation_kyudp")
+"values": [Color(1, 1, 0.03137255, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_g38ql"]
@@ -101,25 +117,25 @@ tracks/0/keys = {
 "values": [Color(1, 1, 0.03137255, 1), Color(1, 0.60784316, 0.03137255, 1), Color(1, 1, 0.03137255, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_ha810"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_42vbe"]
+_data = {
+&"RESET": SubResource("Animation_ha810"),
+&"glow": SubResource("Animation_g38ql")
+}
+
+[sub_resource type="Animation" id="Animation_wlj6n"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 0.03137255, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_42vbe"]
-_data = {
-&"RESET": SubResource("Animation_ha810"),
-&"glow": SubResource("Animation_g38ql")
+"values": [Vector2(206, 52)]
 }
 
 [sub_resource type="Animation" id="Animation_42vbe"]
@@ -139,7 +155,13 @@ tracks/0/keys = {
 "values": [Vector2(206, 52), Vector2(206, 50), Vector2(206, 48), Vector2(206, 50)]
 }
 
-[sub_resource type="Animation" id="Animation_wlj6n"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ymqad"]
+_data = {
+&"RESET": SubResource("Animation_wlj6n"),
+&"floating": SubResource("Animation_42vbe")
+}
+
+[sub_resource type="Animation" id="Animation_f7ugq"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -151,13 +173,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(206, 52)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ymqad"]
-_data = {
-&"RESET": SubResource("Animation_wlj6n"),
-&"floating": SubResource("Animation_42vbe")
+"values": [Vector2(529, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_bhj07"]
@@ -175,21 +191,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
 "values": [Vector2(529, 80), Vector2(529, 76), Vector2(529, 80)]
-}
-
-[sub_resource type="Animation" id="Animation_f7ugq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(529, 80)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jglnj"]
@@ -212,6 +213,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ha810")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 1
