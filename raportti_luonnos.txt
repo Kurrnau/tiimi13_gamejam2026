@@ -42,7 +42,7 @@ hajanaisiin vaihtoehtoihin koodin korjaamisessa.
 
 
 Linkki Git-repositorioon: https://github.com/Kurrnau/tiimi13_gamejam2026
-Linkki Itch.io:hon: 
+Linkki Itch.io:hon: https://tikove25-tiimi13.itch.io/pix-man
 Linkki Trelloon: https://trello.com/b/cYmeduuK/tuotekehitysprojekti-ii-game-jam-tiimi-13
 Linkki viestinnän osuuden videoon: 
 (Asiantuntijapuhe pelaajille kehittämästämme pelistä.)
