@@ -19,7 +19,7 @@ Lyhyt kuvaus pelistä
 
 
 Assetit
-Audio - from itch.io
+Audio - from itch.io & Suno
 Font - by Brackeys
 Art - by Kaisa Tahkio
 World tileset - by Laura Juvonen
