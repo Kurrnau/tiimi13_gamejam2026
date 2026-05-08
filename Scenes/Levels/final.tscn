@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://0msckaqagr82"]
+[gd_scene load_steps=22 format=4 uid="uid://0msckaqagr82"]
 
 [ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_1wv5i"]
 [ext_resource type="Script" uid="uid://bv7ocvcut8pmd" path="res://Code/Level/level.gd" id="1_p0elg"]
@@ -11,7 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://ctnsguv0dnmb2" path="res://Art/pacman-one-health.png" id="11_m1ied"]
 [ext_resource type="Texture2D" uid="uid://gywsewp5jjj2" path="res://Art/pacman.png" id="12_lff8j"]
 [ext_resource type="Script" uid="uid://b4c0uq8d0kosf" path="res://Code/UI/healthbar.gd" id="14_lff8j"]
+[ext_resource type="Script" uid="uid://bv0il7v0akkjv" path="res://Code/UI/quit_button.gd" id="14_m1ied"]
 [ext_resource type="Script" path="res://Code/UI/score.gd" id="15_dyi3m"]
+[ext_resource type="PackedScene" uid="uid://d1q7q0r8raot" path="res://Scenes/UI/MusicPlayers.tscn" id="15_lff8j"]
+[ext_resource type="Script" uid="uid://b5iwq1kaaj2i6" path="res://Code/UI/quit_to_start.gd" id="15_qhwos"]
 [ext_resource type="PackedScene" uid="uid://do71b4d8y8ss4" path="res://Scenes/UI/restart_button.tscn" id="16_dyi3m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwwa8"]
@@ -111,6 +114,13 @@ texture = ExtResource("1_1wv5i")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vypuh")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0elg"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.023529412, 0.8, 0.8, 1)
+
 [node name="FINAL" type="Node2D"]
 script = ExtResource("1_p0elg")
 
@@ -126,6 +136,110 @@ z_index = 1
 tile_map_data = PackedByteArray("AAAjABMAAAADAAUAAAAEABMAAAACAAUAAAAFABMAAAABAAMAAAAGABMAAAABAAMAAAAHABMAAAABAAMAAAAIABMAAAABAAMAAAAJABMAAAABAAMAAAAKABMAAAABAAMAAAALABMAAAABAAMAAAAMABMAAAABAAMAAAANABMAAAABAAMAAAAOABMAAAABAAMAAAAPABMAAAABAAMAAAAQABMAAAABAAMAAAARABMAAAABAAMAAAASABMAAAABAAMAAAATABMAAAABAAMAAAAUABMAAAABAAMAAAAVABMAAAABAAMAAAAWABMAAAABAAMAAAAXABMAAAABAAMAAAAYABMAAAABAAMAAAAZABMAAAABAAMAAAAaABMAAAABAAMAAAAbABMAAAABAAMAAAAcABMAAAABAAMAAAAdABMAAAABAAMAAAAeABMAAAABAAMAAAAfABMAAAABAAMAAAAgABMAAAABAAMAAAAhABMAAAABAAMAAAAiABMAAAABAAMAAAAFAAIAAAABAAMAAAAGAAIAAAABAAMAAAAHAAIAAAABAAMAAAAIAAIAAAABAAMAAAAJAAIAAAABAAMAAAAKAAIAAAABAAMAAAALAAIAAAABAAMAAAAMAAIAAAABAAMAAAANAAIAAAABAAMAAAAOAAIAAAABAAMAAAAPAAIAAAABAAMAAAAQAAIAAAABAAMAAAARAAIAAAABAAMAAAASAAIAAAABAAMAAAATAAIAAAABAAMAAAAUAAIAAAABAAMAAAAVAAIAAAABAAMAAAAWAAIAAAABAAMAAAAXAAIAAAABAAMAAAAYAAIAAAABAAMAAAAZAAIAAAABAAMAAAAaAAIAAAABAAMAAAAbAAIAAAABAAMAAAAcAAIAAAABAAMAAAAdAAIAAAABAAMAAAAeAAIAAAABAAMAAAAfAAIAAAABAAMAAAAgAAIAAAABAAMAAAAhAAIAAAABAAMAAAAiAAIAAAABAAMAAAAjAAIAAAADAAQAAAAEAAIAAAACAAQAAAAEAAMAAAABAAIAAAAEAAQAAAABAAIAAAAEAAUAAAABAAIAAAAEAAYAAAABAAIAAAAEAAcAAAABAAIAAAAEAAgAAAABAAIAAAAEAAkAAAABAAIAAAAEAAoAAAABAAIAAAAEAAsAAAABAAIAAAAEAAwAAAABAAIAAAAEAA0AAAABAAIAAAAEAA4AAAABAAIAAAAEAA8AAAABAAIAAAAEABAAAAABAAIAAAAEABEAAAABAAIAAAAEABIAAAABAAIAAAAjAAMAAAABAAIAAAAjAAQAAAABAAIAAAAjAAUAAAABAAIAAAAjAAYAAAABAAIAAAAjAAcAAAABAAIAAAAjAAgAAAABAAIAAAAjAAkAAAABAAIAAAAjAAoAAAABAAIAAAAjAAsAAAABAAIAAAAjAAwAAAABAAIAAAAjAA0AAAABAAIAAAAjAA4AAAABAAIAAAAjAA8AAAABAAIAAAAjABAAAAABAAIAAAAjABEAAAABAAIAAAAjABIAAAABAAIAAAA=")
 tile_set = SubResource("TileSet_c5j5a")
 
+[node name="PacmansGhosts" type="Node" parent="."]
+
+[node name="GhostBlueLeft" type="Sprite2D" parent="PacmansGhosts"]
+position = Vector2(32, 72)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_p0elg")
+
+[node name="GhostRedLeft" type="Sprite2D" parent="PacmansGhosts"]
+position = Vector2(32, 280)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_m1ied")
+
+[node name="GhostBlueRight" type="Sprite2D" parent="PacmansGhosts"]
+position = Vector2(608, 280)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_p0elg")
+flip_h = true
+
+[node name="GhostRedRight" type="Sprite2D" parent="PacmansGhosts"]
+position = Vector2(608, 72)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_m1ied")
+flip_h = true
+
+[node name="PacmanHealthbar" type="Sprite2D" parent="PacmansGhosts"]
+position = Vector2(320, 16)
+texture = ExtResource("10_p0elg")
+
+[node name="PacmanOneHealth" type="Sprite2D" parent="PacmansGhosts"]
+position = Vector2(176, 184)
+texture = ExtResource("11_m1ied")
+
+[node name="Pacman2" type="Sprite2D" parent="PacmansGhosts"]
+position = Vector2(320, 344)
+texture = ExtResource("12_lff8j")
+
+[node name="PacmanOneHealth2" type="Sprite2D" parent="PacmansGhosts"]
+position = Vector2(392, 184)
+texture = ExtResource("11_m1ied")
+
+[node name="Dots" type="Node" parent="."]
+
+[node name="Dot-Area2D2" parent="Dots" instance=ExtResource("2_vypuh")]
+position = Vector2(168, 232)
+
+[node name="Dot-Area2D" parent="Dots" instance=ExtResource("2_vypuh")]
+position = Vector2(216, 232)
+
+[node name="Dot-Area2D3" parent="Dots" instance=ExtResource("2_vypuh")]
+position = Vector2(264, 232)
+
+[node name="Dot-Area2D4" parent="Dots" instance=ExtResource("2_vypuh")]
+position = Vector2(312, 232)
+
+[node name="PowerUp" parent="Dots" instance=ExtResource("3_c5j5a")]
+position = Vector2(240, 232)
+_score = 50
+
+[node name="PowerUp2" parent="Dots" instance=ExtResource("3_c5j5a")]
+position = Vector2(192, 232)
+_score = 50
+
+[node name="PowerUp3" parent="Dots" instance=ExtResource("3_c5j5a")]
+position = Vector2(288, 232)
+_score = 50
+
+[node name="Dot-Area2D5" parent="Dots" instance=ExtResource("2_vypuh")]
+position = Vector2(336, 232)
+
+[node name="PowerUp4" parent="Dots" instance=ExtResource("3_c5j5a")]
+position = Vector2(360, 232)
+_score = 50
+
+[node name="Dot-Area2D6" parent="Dots" instance=ExtResource("2_vypuh")]
+position = Vector2(384, 232)
+
+[node name="PowerUp5" parent="Dots" instance=ExtResource("3_c5j5a")]
+position = Vector2(408, 232)
+_score = 50
+
+[node name="Dot-Area2D7" parent="Dots" instance=ExtResource("2_vypuh")]
+position = Vector2(432, 232)
+
+[node name="PowerUp6" parent="Dots" instance=ExtResource("3_c5j5a")]
+position = Vector2(456, 232)
+_score = 50
+
+[node name="Dot-Area2D8" parent="Dots" instance=ExtResource("2_vypuh")]
+position = Vector2(480, 232)
+
+[node name="PowerUp7" parent="Dots" instance=ExtResource("3_c5j5a")]
+position = Vector2(504, 232)
+_score = 50
+
+[node name="Dot-Area2D9" parent="Dots" instance=ExtResource("2_vypuh")]
+position = Vector2(528, 232)
+
+[node name="PowerUp8" parent="Dots" instance=ExtResource("3_c5j5a")]
+position = Vector2(144, 232)
+_score = 50
+
+[node name="Dot-Area2D10" parent="Dots" instance=ExtResource("2_vypuh")]
+position = Vector2(120, 232)
+
 [node name="Label" type="Label" parent="."]
 offset_left = 96.0
 offset_top = 144.0
@@ -135,108 +249,8 @@ theme_override_colors/font_color = Color(0.5137255, 1, 0, 1)
 theme_override_font_sizes/font_size = 64
 text = "You won !"
 
-[node name="Dot-Area2D" parent="." instance=ExtResource("2_vypuh")]
-position = Vector2(216, 232)
-
-[node name="Dot-Area2D2" parent="." instance=ExtResource("2_vypuh")]
-position = Vector2(168, 232)
-
-[node name="Dot-Area2D3" parent="." instance=ExtResource("2_vypuh")]
-position = Vector2(264, 232)
-
-[node name="Dot-Area2D4" parent="." instance=ExtResource("2_vypuh")]
-position = Vector2(312, 232)
-
-[node name="PowerUp" parent="." instance=ExtResource("3_c5j5a")]
-position = Vector2(240, 232)
-_score = 50
-
 [node name="Pacman" parent="." instance=ExtResource("2_50s1t")]
 position = Vector2(96, 232)
-
-[node name="PowerUp2" parent="." instance=ExtResource("3_c5j5a")]
-position = Vector2(192, 232)
-_score = 50
-
-[node name="PowerUp3" parent="." instance=ExtResource("3_c5j5a")]
-position = Vector2(288, 232)
-_score = 50
-
-[node name="Dot-Area2D5" parent="." instance=ExtResource("2_vypuh")]
-position = Vector2(336, 232)
-
-[node name="PowerUp4" parent="." instance=ExtResource("3_c5j5a")]
-position = Vector2(360, 232)
-_score = 50
-
-[node name="Dot-Area2D6" parent="." instance=ExtResource("2_vypuh")]
-position = Vector2(384, 232)
-
-[node name="PowerUp5" parent="." instance=ExtResource("3_c5j5a")]
-position = Vector2(408, 232)
-_score = 50
-
-[node name="Dot-Area2D7" parent="." instance=ExtResource("2_vypuh")]
-position = Vector2(432, 232)
-
-[node name="PowerUp6" parent="." instance=ExtResource("3_c5j5a")]
-position = Vector2(456, 232)
-_score = 50
-
-[node name="Dot-Area2D8" parent="." instance=ExtResource("2_vypuh")]
-position = Vector2(480, 232)
-
-[node name="PowerUp7" parent="." instance=ExtResource("3_c5j5a")]
-position = Vector2(504, 232)
-_score = 50
-
-[node name="Dot-Area2D9" parent="." instance=ExtResource("2_vypuh")]
-position = Vector2(528, 232)
-
-[node name="PowerUp8" parent="." instance=ExtResource("3_c5j5a")]
-position = Vector2(144, 232)
-_score = 50
-
-[node name="Dot-Area2D10" parent="." instance=ExtResource("2_vypuh")]
-position = Vector2(120, 232)
-
-[node name="GhostBlueLeft" type="Sprite2D" parent="."]
-position = Vector2(32, 72)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_p0elg")
-
-[node name="GhostRedLeft" type="Sprite2D" parent="."]
-position = Vector2(32, 280)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("7_m1ied")
-
-[node name="GhostBlueRight" type="Sprite2D" parent="."]
-position = Vector2(608, 280)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_p0elg")
-flip_h = true
-
-[node name="GhostRedRight" type="Sprite2D" parent="."]
-position = Vector2(608, 72)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("7_m1ied")
-flip_h = true
-
-[node name="PacmanHealthbar" type="Sprite2D" parent="."]
-position = Vector2(320, 16)
-texture = ExtResource("10_p0elg")
-
-[node name="PacmanOneHealth" type="Sprite2D" parent="."]
-position = Vector2(176, 184)
-texture = ExtResource("11_m1ied")
-
-[node name="Pacman2" type="Sprite2D" parent="."]
-position = Vector2(320, 344)
-texture = ExtResource("12_lff8j")
-
-[node name="PacmanOneHealth2" type="Sprite2D" parent="."]
-position = Vector2(392, 184)
-texture = ExtResource("11_m1ied")
 
 [node name="GameData" type="CanvasLayer" parent="."]
 
@@ -263,8 +277,36 @@ grow_horizontal = 2
 text = "Score: "
 script = ExtResource("15_dyi3m")
 
-[node name="RestartButton" parent="." instance=ExtResource("16_dyi3m")]
-offset_left = 228.0
-offset_top = 58.0
-offset_right = 398.0
-offset_bottom = 82.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 268.0
+offset_top = 67.0
+offset_right = 370.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RestartButton" parent="VBoxContainer" instance=ExtResource("16_dyi3m")]
+modulate = Color(0.91994125, 0.5493223, 0.035170488, 1)
+layout_mode = 2
+text = "RESTART GAME
+"
+
+[node name="QuitToStart" type="Button" parent="VBoxContainer"]
+modulate = Color(0.967256, 0.00041989266, 0.8960807, 1)
+layout_mode = 2
+text = "QUIT TO START"
+script = ExtResource("15_qhwos")
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+modulate = Color(0.11771206, 0.9442508, 0.96700186, 1)
+layout_mode = 2
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_p0elg")
+text = "QUIT GAME"
+script = ExtResource("14_m1ied")
+
+[node name="MusicPlayers" parent="." instance=ExtResource("15_lff8j")]

@@ -37,6 +37,7 @@ animations = [{
 }]
 
 [node name="PowerUp" type="Area2D" groups=["collectables", "powerups"]]
+modulate = Color(0.92156863, 0.54901963, 0.03529412, 1)
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_qvo5w")

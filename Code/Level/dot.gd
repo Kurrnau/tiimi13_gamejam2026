@@ -6,8 +6,9 @@ class_name Dot extends Collectable #Area2D
 
 
 func collect(pacman : Pacman) -> bool:
-	if not super.collect(pacman):		#super suorittaa ensin kantaluokan (Collectable)
+	if not super.collect(pacman):
 		return false
+		
 	GameManager.add_score(_score)
 	return true
 
@@ -22,4 +23,3 @@ func clear() -> void:
 		
 func _on_effect_finished() -> void:
 	queue_free()
-	

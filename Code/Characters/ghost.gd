@@ -2,6 +2,7 @@ class_name Ghost extends CharacterBody2D
 
 enum State { WAITING, CHASE, SCATTER, FRIGHTENED, FLASHING, LEAVING_HOME, EATEN }
 
+#region Export variables
 @export var scatter_target: Vector2
 
 @export var normal_speed: float = 90.0
@@ -13,10 +14,9 @@ enum State { WAITING, CHASE, SCATTER, FRIGHTENED, FLASHING, LEAVING_HOME, EATEN 
 
 @export var leaving_home_timer: float = 0.0
 @export var frightened_duration: float = 7.0
-
+#endregion
 
 @onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-#How the ghosts find pacman's position:
 @onready var _pacman: Pacman = get_tree().get_first_node_in_group("pacman")
 
 const TILE_SIZE: int = 16
@@ -28,15 +28,19 @@ var speed: float = 90.0
 var state: State = State.CHASE
 var direction: Vector2 = Vector2.LEFT
 
+
 func _ready() -> void:
 	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
 	state = State.WAITING
-	# Connect to all powerups in the scene
+	
 	for powerup in get_tree().get_nodes_in_group("powerups"):
 		powerup.powerup_eaten.connect(_on_powerup_eaten)
+		
 	GameManager.chase_started.connect(_on_chase_started)
 	GameManager.scatter_started.connect(_on_scatter_started)
+	
 	await get_tree().create_timer(leaving_home_timer).timeout
+	
 	state = State.LEAVING_HOME
 
 func _physics_process(delta: float) -> void:
@@ -46,10 +50,10 @@ func _physics_process(delta: float) -> void:
 	_update_animations()
 
 #region Ghost movement	
-# Movement on the 16x16 grid.
 func _move() -> void:
 	if state == State.WAITING:
 		return
+		
 	if state == State.EATEN:
 		if position.distance_to(home_center) < TILE_SIZE * 2:
 			_respawn_ghost()
@@ -59,6 +63,7 @@ func _move() -> void:
 		velocity = direction * speed
 		move_and_slide()
 		return
+		
 	if state == State.LEAVING_HOME:
 		direction = Vector2.UP
 		velocity = Vector2(0, -speed)
@@ -81,6 +86,7 @@ func _move() -> void:
 				_visited_eaten_cells.clear()
 				
 			direction = _get_best_direction(_get_target())
+			
 	velocity = direction * speed
 	move_and_slide()
 	
@@ -93,8 +99,6 @@ func _is_on_grid() -> bool:
 
 func _is_direction_blocked(dir: Vector2) -> bool:
 	var collision = move_and_collide(dir * TILE_SIZE, true)
-	# true = direction is blocked
-	# false = direction is not blocked
 	return collision != null
 
 #How the ghost decides, where to move
@@ -136,6 +140,7 @@ func _is_only_reverse_available() -> bool:
 			continue
 		if  not _is_direction_blocked(dir):
 			return false
+			
 	return true
 #endregion
 
@@ -147,14 +152,19 @@ func _get_target() -> Vector2:
 				return home_exit
 			else:
 				return home_center
+				
 		State.LEAVING_HOME:
 			return home_exit
+			
 		State.CHASE:
 			return _get_chase_target()
+			
 		State.SCATTER:
 			return scatter_target
+			
 		State.FRIGHTENED:
 			return _get_frightened_target()
+			
 	return scatter_target
 
 # Placeholder function, all ghosts have their own logic for chasing pacman.
@@ -181,6 +191,7 @@ func _update_speed() -> void:
 
 func _update_animations() -> void:
 	var dir_suffix: String
+	
 	if direction == Vector2.RIGHT:
 		dir_suffix = "_right"
 	elif direction == Vector2.LEFT:
@@ -209,11 +220,14 @@ func _respawn_ghost() -> void:
 func _on_powerup_eaten() -> void:
 	if state == State.EATEN or state == State.WAITING or state == State.LEAVING_HOME:
 		return
+		
 	state = State.FRIGHTENED
 	await get_tree().create_timer(frightened_duration).timeout
+	
 	if state == State.FRIGHTENED:
 		state = State.FLASHING
 	await get_tree().create_timer(2.0).timeout
+	
 	if state == State.FLASHING:
 		state = State.CHASE
 

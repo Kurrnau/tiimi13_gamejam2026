@@ -53,6 +53,7 @@ func _is_direction_blocked(dir: Vector2) -> bool:
 func _move() -> void:
 	if not movement_enabled:
 		return
+		
 	if _is_on_grid():
 		position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
 		if not _is_direction_blocked(next_direction):
@@ -60,6 +61,7 @@ func _move() -> void:
 		if _is_direction_blocked(direction):
 			velocity = Vector2.ZERO
 			return
+			
 	velocity = direction * speed
 	move_and_slide()
 
@@ -81,6 +83,7 @@ func _update_rotation() -> void:
 func take_hit() -> void:
 	if _invincible:
 		return
+		
 	_invincible = true
 	health.take_damage(1)
 	await get_tree().create_timer(2.0).timeout
