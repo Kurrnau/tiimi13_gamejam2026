@@ -1,15 +1,12 @@
-[gd_scene load_steps=21 format=4 uid="uid://0msckaqagr82"]
+[gd_scene load_steps=18 format=4 uid="uid://0msckaqagr82"]
 
 [ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_1wv5i"]
 [ext_resource type="Script" uid="uid://bv7ocvcut8pmd" path="res://Code/Level/level.gd" id="1_p0elg"]
 [ext_resource type="PackedScene" uid="uid://nk1o7bhki7w7" path="res://Scenes/Characters/pacman.tscn" id="2_50s1t"]
 [ext_resource type="PackedScene" uid="uid://tyt1s3w2pks7" path="res://Scenes/Levels/LevelObjects/dot.tscn" id="2_vypuh"]
 [ext_resource type="PackedScene" uid="uid://d2dem6pjue7hx" path="res://Scenes/Levels/LevelObjects/power_up.tscn" id="3_c5j5a"]
-[ext_resource type="Texture2D" uid="uid://j88qyhqi8ug1" path="res://Art/ghost-blink.png" id="5_vwyne"]
-[ext_resource type="Texture2D" uid="uid://b7khd6xjp6ofd" path="res://Art/ghost-blue.png" id="6_7grwp"]
-[ext_resource type="Texture2D" uid="uid://bdcuxacqsv7fi" path="res://Art/ghost-orange.png" id="7_yrauv"]
-[ext_resource type="Texture2D" uid="uid://c6obvby2pfpgf" path="res://Art/ghost-pink.png" id="8_1rusf"]
-[ext_resource type="Texture2D" uid="uid://dlj1a0ort1qcw" path="res://Art/ghost-red.png" id="9_p0elg"]
+[ext_resource type="Texture2D" uid="uid://b2yjrju668htn" path="res://Art/ss-blueghost.png" id="6_p0elg"]
+[ext_resource type="Texture2D" uid="uid://4va00na85h0t" path="res://Art/ghost-red-single.png" id="7_m1ied"]
 [ext_resource type="Texture2D" uid="uid://crfsq02v27ck8" path="res://Art/pacman-healthbar.png" id="10_p0elg"]
 [ext_resource type="Texture2D" uid="uid://ctnsguv0dnmb2" path="res://Art/pacman-one-health.png" id="11_m1ied"]
 [ext_resource type="Texture2D" uid="uid://gywsewp5jjj2" path="res://Art/pacman.png" id="12_lff8j"]
@@ -203,25 +200,27 @@ _score = 50
 [node name="Dot-Area2D10" parent="." instance=ExtResource("2_vypuh")]
 position = Vector2(120, 232)
 
-[node name="GhostBlink" type="Sprite2D" parent="."]
-position = Vector2(480, 96)
-texture = ExtResource("5_vwyne")
-
-[node name="GhostBlue" type="Sprite2D" parent="."]
+[node name="GhostBlueLeft" type="Sprite2D" parent="."]
 position = Vector2(32, 72)
-texture = ExtResource("6_7grwp")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_p0elg")
 
-[node name="GhostOrange" type="Sprite2D" parent="."]
+[node name="GhostRedLeft" type="Sprite2D" parent="."]
 position = Vector2(32, 280)
-texture = ExtResource("7_yrauv")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_m1ied")
 
-[node name="GhostPink" type="Sprite2D" parent="."]
+[node name="GhostBlueRight" type="Sprite2D" parent="."]
 position = Vector2(608, 280)
-texture = ExtResource("8_1rusf")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_p0elg")
+flip_h = true
 
-[node name="GhostRed" type="Sprite2D" parent="."]
+[node name="GhostRedRight" type="Sprite2D" parent="."]
 position = Vector2(608, 72)
-texture = ExtResource("9_p0elg")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_m1ied")
+flip_h = true
 
 [node name="PacmanHealthbar" type="Sprite2D" parent="."]
 position = Vector2(320, 16)
