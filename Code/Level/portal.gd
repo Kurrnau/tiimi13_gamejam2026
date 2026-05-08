@@ -13,8 +13,6 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if not destination_portal:
 		return
-	if not body is Pacman:							#NEW TEST FOR GHOSTS!
-		return
 	# Prevent infinite teleport loop
 	if body in _recently_teleported:
 		return
