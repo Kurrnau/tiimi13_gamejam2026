@@ -1,0 +1,48 @@
+
+4A00HH81-3001 Pelikehityksen perusteet - Tuotekehitysprojekti II
+
+Game Jam: Tiimi 13:sta tulkinta Pac-Man klassikosta
+
+Tiimin jäsenet: Laura Juvonen, Jari Lavijärvi, Kaisa Tahkio & Vilma Porvari
+
+Työnjako: 
+Laura – Designer & Project Management
+Jari – Audio & Godot settings Specialist + Publisher
+Kaisa  – Artist
+Vilma – Coder & Project Management Balancer
+
+WE DID THIS TOGETHER! 
+
+
+Lyhyt kuvaus pelistä 
+(pelin keskeisimmät ominaisuudet)
+
+
+Assetit
+Audio - from itch.io
+Font - by Brackeys
+Art - by Kaisa Tahkio
+World tileset - by Laura Juvonen
+
+
+Onnistumiset ja kehityskohteet
+Tiimityöskentely sujui hyvin ja aktiivisesti. Saimme yhdessä tehtyä toimivan pelin.
+Opimme myös paremmeksi Gitin ja GitHubin käyttäjiksi.
+
+Koodaamisessa on vielä reilusti varaa kehittyä, mutta suunta on alusta alkean
+ollut oikea (vain tekemällä oppii).
+
+
+Oma luku tekoälyn käytöstä
+(Tämän luvun tulisi kuvata, kuinka käytitte tekoälyä)
+Claude Sonnet 4.5 extended thinking on koodarin paras kaveri!
+Debuggaus, ideointi, flow ja hyvinvoinnin tuki.
+Satunnaisesti (ja väliaikesesti) tyydyimme Geminin ja ChatGPT:n
+hajanaisiin vaihtoehtoihin koodin korjaamisessa.
+
+
+Linkki Git-repositorioon: https://github.com/Kurrnau/tiimi13_gamejam2026
+Linkki Itch.io:hon: 
+Linkki Trelloon: https://trello.com/b/cYmeduuK/tuotekehitysprojekti-ii-game-jam-tiimi-13
+Linkki viestinnän osuuden videoon: 
+(Asiantuntijapuhe pelaajille kehittämästämme pelistä.)
