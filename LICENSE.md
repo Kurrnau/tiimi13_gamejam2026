@@ -20,7 +20,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” 
 # LICENSE for all assets except code
 
 All audio from itch.io 
-fonts by Brackets
+fonts by Brackeys
 Art by Kaisa, except for the world tileset by Laura
 
 ## Creative Commons Zero (CC0)

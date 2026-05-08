@@ -1,7 +1,6 @@
-class_name Dot extends Collectable #Area2D
+class_name Dot extends Collectable
 
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
-
 @export var _score: int = 10
 
 
