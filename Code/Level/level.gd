@@ -24,7 +24,6 @@ func _setup_collectables() -> void:
 
 func _on_collectable_collected(_collectable: Collectable) -> void:
 	_collected_count += 1
-	# Check win condition
 	if _collected_count >= _total_collectables:
 		_on_level_completed()
 

@@ -1,11 +1,11 @@
-class_name PowerUp extends Collectable #Area2D
+class_name PowerUp extends Collectable
 
 signal powerup_eaten
 
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
-
 @export var _score: int = 50
 var heal_amount: int = 1
+
 
 func collect(pacman : Pacman) -> bool:
 	if not super.collect(pacman):

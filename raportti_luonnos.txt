@@ -27,9 +27,9 @@ World tileset - by Laura Juvonen
 
 Onnistumiset ja kehityskohteet
 Tiimityöskentely sujui hyvin ja aktiivisesti. Saimme yhdessä tehtyä toimivan pelin.
-Opimme myös paremmeksi Gitin ja GitHubin käyttäjiksi.
+Opimme myös paremmaksi Gitin ja GitHubin käyttäjiksi.
 
-Koodaamisessa on vielä reilusti varaa kehittyä, mutta suunta on alusta alkean
+Koodaamisessa on vielä reilusti varaa kehittyä, mutta suunta on alusta alkaen
 ollut oikea (vain tekemällä oppii).
 
 
@@ -37,7 +37,7 @@ Oma luku tekoälyn käytöstä
 (Tämän luvun tulisi kuvata, kuinka käytitte tekoälyä)
 Claude Sonnet 4.5 extended thinking on koodarin paras kaveri!
 Debuggaus, ideointi, flow ja hyvinvoinnin tuki.
-Satunnaisesti (ja väliaikesesti) tyydyimme Geminin ja ChatGPT:n
+Satunnaisesti (ja väliaikaisesti) tyydyimme Geminin ja ChatGPT:n
 hajanaisiin vaihtoehtoihin koodin korjaamisessa.
 
 

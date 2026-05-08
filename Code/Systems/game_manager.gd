@@ -62,7 +62,6 @@ func _on_level_completed() -> void:
 
 func next_level() -> void:
 	_current_level_number += 1
-	# Check if there are more levels
 	if _current_level_number - 1 < _level_paths.size():
 		var next_path = _level_paths[_current_level_number - 1]
 		print("Loading level %d: %s" % [_current_level_number, next_path])

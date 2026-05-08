@@ -5,15 +5,11 @@ signal health_changed(previous_health: int, current_health: int)
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../AnimatedSprite2D"
 
 @export var max_health : int = 4
-
 var _current_health : int = 0
  
 
 func _ready() -> void:
 	reset()
-
-func is_alive() -> bool:
-	return _current_health > 0
 
 func get_current_health() -> int:
 	return _current_health

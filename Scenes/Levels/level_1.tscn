@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d2dem6pjue7hx" path="res://Scenes/Levels/LevelObjects/power_up.tscn" id="4_iixi8"]
 [ext_resource type="Script" uid="uid://b4c0uq8d0kosf" path="res://Code/UI/healthbar.gd" id="5_5f3p6"]
 [ext_resource type="PackedScene" uid="uid://c07xty160d74j" path="res://Scenes/Characters/blue_ghost.tscn" id="5_cyadu"]
-[ext_resource type="Script" path="res://Code/UI/score.gd" id="7_5f3p6"]
+[ext_resource type="Script" uid="uid://b35c67rbpgi6h" path="res://Code/UI/score.gd" id="7_5f3p6"]
 [ext_resource type="PackedScene" uid="uid://dedwyyw6m33je" path="res://Scenes/Levels/LevelObjects/exit_left.tscn" id="9_u5ghp"]
 [ext_resource type="PackedScene" uid="uid://bvrmoiuvgt7v4" path="res://Scenes/Levels/LevelObjects/exit_right.tscn" id="10_hwvp3"]
 [ext_resource type="PackedScene" uid="uid://dlmd27kmgoirs" path="res://Scenes/Characters/red_ghost.tscn" id="11_afv7b"]
