@@ -13,7 +13,6 @@ func _ready() -> void:
 func _on_start_pressed() -> void:
 	GameManager.reset()
 	GameManager.go_to_scene(GameManager._level_paths[0])
-	queue_free()
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()

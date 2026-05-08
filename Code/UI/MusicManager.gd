@@ -19,7 +19,6 @@ func _ready() -> void:
 func _on_intro_finished() -> void:
 	# Intro loppui, aloitetaan varsinainen looppaava musiikki
 	music_player.play()
-	print("Intro ohi, musiikki alkaa.")
 
 func start_power_up_music() -> void:
 	is_powerup_active = true

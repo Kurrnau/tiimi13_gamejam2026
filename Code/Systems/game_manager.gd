@@ -86,38 +86,14 @@ func restart_game() -> void:
 	go_to_scene("res://Scenes/Levels/start_screen.tscn")
 		
 func go_to_scene(scene_path: String) -> void:
-	_load_scene.call_deferred(scene_path)
-
-func _load_scene(scene_path: String) -> void:
 	if _current_level != null:
-		# Disconnect signal before freeing
 		if _current_level.level_completed.is_connected(_on_level_completed):
 			_current_level.level_completed.disconnect(_on_level_completed)
-		# Delete the current level from memory
-		_current_level.free()
 		_current_level = null
-
-	
-	var next_scene: PackedScene = ResourceLoader.load(scene_path) as PackedScene
-	if next_scene != null:
-		var instanced_scene = next_scene.instantiate()
-		if instanced_scene is Level:
-			_current_level = instanced_scene as Level
-		else:
-			_current_level = null
-		if _scene_tree != null:
-			_scene_tree.root.add_child(instanced_scene)
-			_scene_tree.current_scene = instanced_scene
-	else:
-		push_error("GameManager: Failed to load a scene in the path %s" % scene_path)
-		return
-
-	if _scene_tree == null:
-		_scene_tree = get_tree()
-	
-	if _scene_tree != null:
-		_scene_tree.root.add_child(_current_level)
-		_scene_tree.current_scene = _current_level
+		
+	var err = get_tree().change_scene_to_file(scene_path)
+	if err != OK:
+		push_error("GameManager: Failed to load scene at " + scene_path)
 	
 #endregion
 
