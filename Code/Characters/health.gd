@@ -41,7 +41,7 @@ func heal(amount: int) -> bool:
 	if amount < 0:
 		return false
 	if _current_health >= max_health:
-		return false  # Already at max health
+		return false
 	set_current_health(_current_health + amount)
 	return true
 

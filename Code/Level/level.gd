@@ -33,6 +33,5 @@ func _on_collectable_collected(_collectable: Collectable) -> void:
 func _on_level_completed() -> void:
 	print("Level completed!")
 	level_completed.emit()
-	# Optional: Add delay before transition
 	await get_tree().create_timer(0.5).timeout
 	GameManager.next_level()
