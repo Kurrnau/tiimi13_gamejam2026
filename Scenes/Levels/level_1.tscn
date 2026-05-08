@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://yxq12xe02te"]
+[gd_scene load_steps=28 format=4 uid="uid://yxq12xe02te"]
 
 [ext_resource type="Script" uid="uid://bv7ocvcut8pmd" path="res://Code/Level/level.gd" id="1_jv26f"]
 [ext_resource type="Texture2D" uid="uid://bhyfutgylvo2" path="res://Art/world-lmj.png" id="1_tlcug"]
@@ -16,6 +16,9 @@
 [ext_resource type="Script" uid="uid://fo6iyr2laica" path="res://Code/Characters/pink_ghost.gd" id="13_k2mw1"]
 [ext_resource type="PackedScene" uid="uid://cvxcpb0r3f8wo" path="res://Scenes/Characters/orange_ghost.tscn" id="14_tjl6l"]
 [ext_resource type="Script" uid="uid://som6saaer6ap" path="res://Code/Characters/orange_ghost.gd" id="15_3628d"]
+[ext_resource type="PackedScene" uid="uid://cre3oc2086yui" path="res://Scenes/Levels/LevelObjects/ghost_barrier_right.tscn" id="15_nojx8"]
+[ext_resource type="PackedScene" uid="uid://lfgkiqb8c4ux" path="res://Scenes/Levels/LevelObjects/ghost_barrier_left.tscn" id="16_vvknj"]
+[ext_resource type="PackedScene" uid="uid://ladbq4cu13wq" path="res://Scenes/Levels/LevelObjects/ghost_gate.tscn" id="17_ad63i"]
 [ext_resource type="Script" uid="uid://feliybdxy1gm" path="res://Code/Characters/blue_ghost.gd" id="17_irw6p"]
 [ext_resource type="PackedScene" uid="uid://d1q7q0r8raot" path="res://Scenes/UI/MusicPlayers.tscn" id="18_31phq"]
 
@@ -1207,9 +1210,6 @@ position = Vector2(824, 72)
 [node name="Dot-Area2D179" parent="Dots" instance=ExtResource("2_4dpyx")]
 position = Vector2(824, 88)
 
-[node name="Pacman" parent="." groups=["pacman"] instance=ExtResource("4_cyadu")]
-position = Vector2(328, 239)
-
 [node name="PowerUps" type="Node2D" parent="."]
 
 [node name="PowerUp" parent="PowerUps" instance=ExtResource("4_iixi8")]
@@ -1227,6 +1227,59 @@ _score = 50
 [node name="PowerUp4" parent="PowerUps" instance=ExtResource("4_iixi8")]
 position = Vector2(584, 88)
 _score = 50
+
+[node name="Pacman" parent="." groups=["pacman"] instance=ExtResource("4_cyadu")]
+position = Vector2(328, 239)
+
+[node name="Ghosts" type="Node" parent="."]
+
+[node name="BlueGhost" parent="Ghosts" node_paths=PackedStringArray("red_ghost") instance=ExtResource("5_cyadu")]
+position = Vector2(353, 207)
+script = ExtResource("17_irw6p")
+red_ghost = NodePath("../RedGhost")
+scatter_target = Vector2(616, 328)
+home_center = Vector2(353, 207)
+leaving_home_timer = 5.0
+
+[node name="OrangeGhost" parent="Ghosts" instance=ExtResource("14_tjl6l")]
+position = Vector2(336, 207)
+script = ExtResource("15_3628d")
+scatter_target = Vector2(24, 328)
+home_center = Vector2(336, 207)
+leaving_home_timer = 4.0
+
+[node name="PinkGhost" parent="Ghosts" instance=ExtResource("12_7r2dd")]
+position = Vector2(320, 207)
+script = ExtResource("13_k2mw1")
+scatter_target = Vector2(24, 56)
+home_center = Vector2(320, 207)
+leaving_home_timer = 3.0
+
+[node name="RedGhost" parent="Ghosts" instance=ExtResource("11_afv7b")]
+position = Vector2(304, 207)
+scatter_target = Vector2(616, 56)
+home_center = Vector2(304, 207)
+leaving_home_timer = 2.0
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(328, 240)
+
+[node name="PortalsAndBarriers" type="Node" parent="."]
+
+[node name="ExitRight" parent="PortalsAndBarriers" node_paths=PackedStringArray("destination_portal") instance=ExtResource("10_hwvp3")]
+position = Vector2(664, 208)
+destination_portal = NodePath("../ExitLeft")
+
+[node name="ExitLeft" parent="PortalsAndBarriers" node_paths=PackedStringArray("destination_portal") instance=ExtResource("9_u5ghp")]
+position = Vector2(-8, 208)
+destination_portal = NodePath("../ExitRight")
+teleport_offset = Vector2(-32, 0)
+
+[node name="GhostBarrierRIGHT" parent="PortalsAndBarriers" instance=ExtResource("15_nojx8")]
+
+[node name="GhostBarrierLEFT" parent="PortalsAndBarriers" instance=ExtResource("16_vvknj")]
+
+[node name="GhostGate" parent="PortalsAndBarriers" instance=ExtResource("17_ad63i")]
 
 [node name="GameData" type="CanvasLayer" parent="."]
 
@@ -1250,46 +1303,6 @@ grow_horizontal = 2
 text = "Score: "
 script = ExtResource("7_5f3p6")
 
-[node name="ExitLeft" parent="." node_paths=PackedStringArray("destination_portal") instance=ExtResource("9_u5ghp")]
-position = Vector2(-8, 208)
-destination_portal = NodePath("../ExitRight")
-teleport_offset = Vector2(-32, 0)
-
-[node name="ExitRight" parent="." node_paths=PackedStringArray("destination_portal") instance=ExtResource("10_hwvp3")]
-position = Vector2(664, 208)
-destination_portal = NodePath("../ExitLeft")
-
 [node name="PauseMenu" parent="." instance=ExtResource("11_hwvp3")]
 
-[node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(328, 240)
-
-[node name="RedGhost" parent="." instance=ExtResource("11_afv7b")]
-position = Vector2(304, 207)
-scatter_target = Vector2(616, 56)
-home_center = Vector2(304, 207)
-leaving_home_timer = 2.0
-
-[node name="PinkGhost" parent="." instance=ExtResource("12_7r2dd")]
-position = Vector2(320, 207)
-script = ExtResource("13_k2mw1")
-scatter_target = Vector2(24, 56)
-home_center = Vector2(320, 207)
-leaving_home_timer = 3.0
-
-[node name="OrangeGhost" parent="." instance=ExtResource("14_tjl6l")]
-position = Vector2(336, 207)
-script = ExtResource("15_3628d")
-scatter_target = Vector2(24, 328)
-home_center = Vector2(336, 207)
-leaving_home_timer = 4.0
-
-[node name="BlueGhost" parent="." node_paths=PackedStringArray("red_ghost") instance=ExtResource("5_cyadu")]
-position = Vector2(353, 207)
-script = ExtResource("17_irw6p")
-red_ghost = NodePath("../RedGhost")
-scatter_target = Vector2(616, 328)
-home_center = Vector2(353, 207)
-leaving_home_timer = 5.0
-
-[node name="MusicPlayers" parent="." instance=ExtResource("18_31phq")]
+[node name="MusicPlayer" parent="." instance=ExtResource("18_31phq")]
