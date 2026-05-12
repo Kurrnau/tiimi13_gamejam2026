@@ -17,6 +17,8 @@ WE DID THIS TOGETHER!
 Lyhyt kuvaus pelistä 
 (pelin keskeisimmät ominaisuudet)
 
+Audio
+Taustamusiikki tehtiin Suno tekoälyllä ja efektit haettiin itch.io sivustolta ilmaisten sekä teostovapaiden äänten valikoimasta.
 
 Assetit
 Audio - from itch.io & Suno
