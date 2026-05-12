@@ -7,7 +7,7 @@ Tiimin jäsenet: Laura Juvonen, Jari Lavijärvi, Kaisa Tahkio & Vilma Porvari
 
 Työnjako: 
 Laura – Designer & Project Management
-Jari – Audio & Godot settings Specialist + Publisher
+Jari – Audio & Publisher
 Kaisa  – Artist
 Vilma – Coder & Project Management Balancer
 
@@ -15,22 +15,37 @@ WE DID THIS TOGETHER!
 
 
 Lyhyt kuvaus pelistä 
-(pelin keskeisimmät ominaisuudet)
+Pix-Man on tiimi 13:n moderni tulkinta Pac-Man-klassikoista. Peli säilyttää alkuperäisen pelin ytimen—keräile palloja, vältä haamuja, hallitse sokkeloa—mutta lisää syvyyttä terveyssysteemillä, älykkäillä haamuilla ja dynaamisella musiikilla.
 
+Pelin keskeisimmät ominaisuudet:
+Terveyssysteemi (4 HP): Toisin kuin klassisessa Pac-Manissa, pelaaja ei kuole yhteen osumaan. Neljä elämäpistettä antavat tilaa virheille ja strategiselle pelaamiselle.
 
-Assetit
-Audio - from itch.io & Suno
-Font - by Brackeys
-Art - by Kaisa Tahkio
-World tileset - by Laura Juvonen
+Neljä erilaista haamua älykkäällä AI:lla:
+Punainen haamu: Jahtaa pelaajaa suoraan
+Sininen haamu: Väijyy ennakoimalla pelaajan liikkeen ja punaisen haamun sijainnin
+Pinkki haamu: Ennustaa pelaajan suunnan ja sijoittuu tien varrelle
+Oranssi haamu: Vaihtaa taktiikkaa etäisyyden mukaan—kaukana aggressiivinen, lähellä vetäytyvä
 
-Audio
+Dynaamiset haamutilat: Haamut vaihtuvat chase- ja scatter-tilojen välillä ajastimien mukaan, luoden vaihtelevan haasteen.
+Power-up systeemi: Kerättävät power-upit parantavat pelaajan terveyttä, pelottavat haamut väliaikaisesti ja antavat mahdollisuuden syödä ne lisäpisteinä.
+Portal-mekaaniikka: Sokkelon reunoilla olevat portaalit teleportaavat pelaajan vastakkaiselle puolelle.
+Adaptiivinen musiikki: Taustamusiikki vaihtuu power-up-tilassa luoden intensiteettiä ja tunnelmaa.
+Pause-menu ja UI: Pelin voi keskeyttää, säädökset ovat saatavilla, ja healthbar ja pisteet näkyvät selkeästi.
+
+Assetit:
+Fontti
+Poimittiin käyttöön kurssin materiaaleista (Brackeys)
+
+Audio (Jari)
+Äänimaisema suunniteltu tukemaan pelikokemusta: intro, looppaava taustamusiikki, power-up-musiikki.
 Taustamusiikki tehtiin Suno tekoälyllä.
 Efektit haettiin itch.io sivustolta ilmaisten sekä teostovapaiden äänten valikoimasta.
 Tekoälyä käytetty myös koodauksen apuna.
 
-Assetit
-Pelihahmo ja viholliset jäljittelevät alkuperäisiä, mutta ovat itse toteutettuja Piskelillä. Pause-valikko ja aloitusruudun grafiikka on myös itse tehtyä. 
+Art (Kaisa ja Laura)
+Pelihahmo ja viholliset jäljittelevät alkuperäisiä, mutta ovat itse toteutettuja Piskelillä. Pause-valikko ja aloitusruudun grafiikka on myös itse tehtyä (Kaisa).
+Maailman tileset on myös itse piirretty Piskelillä (Laura).
+
 
 Onnistumiset ja kehityskohteet
 Tiimityöskentely sujui hyvin ja aktiivisesti. Saimme yhdessä tehtyä toimivan pelin.
@@ -47,10 +62,11 @@ Debuggaus, ideointi, flow ja hyvinvoinnin tuki.
 Satunnaisesti (ja väliaikaisesti) tyydyimme Geminin ja ChatGPT:n
 hajanaisiin vaihtoehtoihin koodin korjaamisessa.
 Grafiikan ideointiin käytetty Geminiä.
+Tekoäly ei korvannut osaamista, vaan toimi nopeampana tiedonhaun välineenä. Tiimi teki kaikki päätökset, tekoäly tarjosi teknisen tuen ja ideoinnin.
 
 
 Linkki Git-repositorioon: https://github.com/Kurrnau/tiimi13_gamejam2026
 Linkki Itch.io:hon: https://tikove25-tiimi13.itch.io/pix-man
 Linkki Trelloon: https://trello.com/b/cYmeduuK/tuotekehitysprojekti-ii-game-jam-tiimi-13
-Linkki viestinnän osuuden videoon: 
+Linkki viestinnän osuuden videoon: https://tuni.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=81c38cd5-84f6-421e-b91c-b44800869cf9
 (Asiantuntijapuhe pelaajille kehittämästämme pelistä.)
