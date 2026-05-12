@@ -17,8 +17,6 @@ WE DID THIS TOGETHER!
 Lyhyt kuvaus pelistä 
 (pelin keskeisimmät ominaisuudet)
 
-Audio
-Taustamusiikki tehtiin Suno tekoälyllä ja efektit haettiin itch.io sivustolta ilmaisten sekä teostovapaiden äänten valikoimasta.
 
 Assetit
 Audio - from itch.io & Suno
@@ -26,6 +24,10 @@ Font - by Brackeys
 Art - by Kaisa Tahkio
 World tileset - by Laura Juvonen
 
+Audio
+Taustamusiikki tehtiin Suno tekoälyllä.
+Efektit haettiin itch.io sivustolta ilmaisten sekä teostovapaiden äänten valikoimasta.
+Tekoälyä käytetty myös koodauksen apuna.
 
 Onnistumiset ja kehityskohteet
 Tiimityöskentely sujui hyvin ja aktiivisesti. Saimme yhdessä tehtyä toimivan pelin.
