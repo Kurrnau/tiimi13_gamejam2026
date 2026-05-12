@@ -29,6 +29,9 @@ Taustamusiikki tehtiin Suno tekoälyllä.
 Efektit haettiin itch.io sivustolta ilmaisten sekä teostovapaiden äänten valikoimasta.
 Tekoälyä käytetty myös koodauksen apuna.
 
+Assetit
+Pelihahmo ja viholliset jäljittelevät alkuperäisiä, mutta ovat itse toteutettuja Piskelillä. Pause-valikko ja aloitusruudun grafiikka on myös itse tehtyä. 
+
 Onnistumiset ja kehityskohteet
 Tiimityöskentely sujui hyvin ja aktiivisesti. Saimme yhdessä tehtyä toimivan pelin.
 Opimme myös paremmaksi Gitin ja GitHubin käyttäjiksi.
@@ -43,6 +46,7 @@ Claude Sonnet 4.5 extended thinking on koodarin paras kaveri!
 Debuggaus, ideointi, flow ja hyvinvoinnin tuki.
 Satunnaisesti (ja väliaikaisesti) tyydyimme Geminin ja ChatGPT:n
 hajanaisiin vaihtoehtoihin koodin korjaamisessa.
+Grafiikan ideointiin käytetty Geminiä.
 
 
 Linkki Git-repositorioon: https://github.com/Kurrnau/tiimi13_gamejam2026
